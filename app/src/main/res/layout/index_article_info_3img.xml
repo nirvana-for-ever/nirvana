@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="articleInfo"
+            type="com.nirvana.blog.entity.ArticleInfo" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal">
+            <com.nirvana.blog.view.RoundCornerImageView
+                app:author_avatar="@{articleInfo.authorAvatar}"
+                android:layout_width="20dp"
+                android:layout_height="match_parent"/>
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="@{articleInfo.authorName}"
+                android:textSize="12sp"
+                android:textColor="@color/index_article_info_auth"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:textSize="17sp"
+            android:text="@{articleInfo.title}"
+            android:textColor="@color/index_article_info_title"
+            android:maxLines="2"
+            android:ellipsize="end"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+            <com.nirvana.blog.view.RoundCornerImageView
+                app:img3_1="@{articleInfo.img1}"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"/>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+            <com.nirvana.blog.view.RoundCornerImageView
+                app:img3_2="@{articleInfo.img2}"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"/>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+            <com.nirvana.blog.view.RoundCornerImageView
+                app:img3_3="@{articleInfo.img3}"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <!-- 作者名 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@{articleInfo.authorName}"
+                android:textAllCaps="false"
+                android:textColor="@color/index_article_info_pop"
+                android:textSize="11sp"/>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+
+            <!-- 阅读 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@{articleInfo.readCount}"
+                android:textAllCaps="false"
+                android:textColor="@color/index_article_info_pop"
+                android:textSize="11sp"/>
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/index_article_info_readcount_string"
+                android:textAllCaps="false"
+                android:textColor="@color/index_article_info_pop"
+                android:textSize="11sp"/>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+
+            <!-- 评论 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@{articleInfo.commentCount}"
+                android:textAllCaps="false"
+                android:textColor="@color/index_article_info_pop"
+                android:textSize="11sp"/>
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/index_article_info_commentcount_string"
+                android:textAllCaps="false"
+                android:textColor="@color/index_article_info_pop"
+                android:textSize="11sp"/>
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent"/>
+
+            <!-- 赞 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@{articleInfo.likeCount}"
+                android:textAllCaps="false"
+                android:textColor="@color/index_article_info_pop"
+                android:textSize="11sp"/>
+            <Space
+                android:layout_width="5dp"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/index_article_info_likecount_string"
+                android:textAllCaps="false"
+                android:textColor="@color/index_article_info_pop"
+                android:textSize="11sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

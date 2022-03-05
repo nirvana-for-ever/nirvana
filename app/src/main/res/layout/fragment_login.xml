@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.nirvana.blog.view.StatusBarPlaceHolder
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="25dp">
+
+            <ImageView
+                android:id="@+id/user_login_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_user_cancel" />
+
+            <TextView
+                android:id="@+id/user_login_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/black_text_color"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/user_login_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:textColorHighlight="@color/text_highlight_color"
+                    android:textColorHint="@color/gray_text_color"
+                    android:textCursorDrawable="@drawable/edit_text_cursor"
+                    android:textSelectHandle="@drawable/ic_text_select_handle"
+                    android:textSelectHandleLeft="@drawable/ic_text_select_handle_left"
+                    android:textSelectHandleRight="@drawable/ic_text_select_handle_right"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/user_login_account_cancel"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignBottom="@id/user_login_account"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_user_cancel"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/user_login_code_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/user_login_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:hint="@string/me_user_login_code_hint_string"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textColorHighlight="@color/text_highlight_color"
+                    android:textColorHint="@color/gray_text_color"
+                    android:textCursorDrawable="@drawable/edit_text_cursor"
+                    android:textSelectHandle="@drawable/ic_text_select_handle"
+                    android:textSelectHandleLeft="@drawable/ic_text_select_handle_left"
+                    android:textSelectHandleRight="@drawable/ic_text_select_handle_right"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/user_login_code_cancel"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignBottom="@id/user_login_code"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_toStartOf="@id/user_login_get_code"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_user_cancel"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/user_login_get_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/user_login_code"
+                    android:layout_alignBottom="@id/user_login_code"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:text="@string/me_user_login_get_code_string"
+                    android:textColor="@color/gray_text_color"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/user_login_pwd_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/user_login_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:hint="@string/me_user_login_code_hint_string"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:textColorHighlight="@color/text_highlight_color"
+                    android:textColorHint="@color/gray_text_color"
+                    android:textCursorDrawable="@drawable/edit_text_cursor"
+                    android:textSelectHandle="@drawable/ic_text_select_handle"
+                    android:textSelectHandleLeft="@drawable/ic_text_select_handle_left"
+                    android:textSelectHandleRight="@drawable/ic_text_select_handle_right"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/user_login_pwd_cancel"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignBottom="@id/user_login_pwd"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_user_cancel"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="15dp">
+                <com.nirvana.blog.view.VerifySeekBar
+                    android:id="@+id/user_login_verify_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4dp"
+                    app:vsb_textSize="16sp"
+                    app:vsb_shadowWidth="50dp"/>
+                <!--
+                 因为draggable在VerifySeekBar上方
+                 滑动到draggable时，VerifySeekBar无法触发事件
+                 所以将 clickable 设置成 false，让draggable不响应点击
+                 事件就会传给VerifySeekBar
+                 ShadowLayout 默认会将android:clickable设置成
+                 app:clickable的值，app:clickable 默认是true
+                 所以默认事件只会传递给 ShadowLayout
+                 -->
+                <com.lihang.ShadowLayout
+                    android:id="@+id/user_login_verify_draggable"
+                    android:layout_width="55dp"
+                    android:layout_height="match_parent"
+                    app:clickable="false"
+                    app:hl_shadowColor="@color/black"
+                    app:hl_shadowLimit="2dp">
+                    <com.nirvana.blog.view.VerifyDraggable
+                        android:id="@+id/user_login_verify_actual_draggable"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="2dp"
+                        android:padding="12dp"/>
+                </com.lihang.ShadowLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/user_login_must_read_checkbox"
+                    style="@style/CircleCheckbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:background="@color/transparent" />
+
+                <TextView
+                    android:id="@+id/user_login_must_read"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/gray_text_color"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="20dp">
+
+                <Button
+                    android:id="@+id/user_login_btn"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/user_login_btn"
+                    android:text="登录"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
+                <View
+                    android:id="@+id/user_login_btn_shadow"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/translucent" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/user_login_change_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/me_user_login_options_text_color" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@color/light_gray" />
+
+                <TextView
+                    android:id="@+id/user_login_problem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_login_problem_string"
+                    android:textColor="@color/me_user_login_options_text_color" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="@string/user_login_community_login_text_string"
+                android:textColor="@color/gray_text_color"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+                <ImageView
+                    android:id="@+id/user_login_wx"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_wx" />
+                <ImageView
+                    android:id="@+id/user_login_qq"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:src="@drawable/ic_qq" />
+                <ImageView
+                    android:id="@+id/user_login_wb"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_wb" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

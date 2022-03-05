@@ -1,0 +1,4 @@
+<resources>
+    <!-- 首页文章简介 rv 的元素间隔分割线高度 -->
+    <dimen name="index_article_info_rv_divider_height">10dp</dimen>
+</resources>

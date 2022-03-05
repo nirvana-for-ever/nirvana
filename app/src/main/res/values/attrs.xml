@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MeBanner">
+        <attr name="startColor" format="color" />
+        <attr name="endColor" format="color" />
+        <attr name="startPic" format="reference" />
+        <attr name="startPicSize" format="dimension" />
+        <attr name="endPic" format="reference" />
+        <attr name="endPicSize" format="dimension" />
+        <attr name="picPaddingHor" format="dimension" />
+        <attr name="actionBarHeight" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CarouselDots">
+        <attr name="dotRadius" format="dimension" />
+        <attr name="dotSelectedColor" format="color" />
+        <attr name="dotUnSelectedColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="VerifySeekBar">
+        <attr name="vsb_textSize" format="dimension" />
+        <attr name="vsb_shadowWidth" format="dimension" />
+    </declare-styleable>
+
+</resources>

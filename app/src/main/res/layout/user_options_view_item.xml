@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="option"
+            type="com.nirvana.blog.entity.UserOption" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:baselineAligned="false"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="5dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{option.title}"
+                android:textSize="15sp"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/black_text_color"/>
+
+            <com.lihang.ShadowLayout
+                android:id="@+id/user_options_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:hl_cornerRadius="7dp"
+                app:hl_layoutBackground="@color/me_user_options_subtitle_background">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="2dp"
+                    android:text="@{option.subtitle}"
+                    android:textColor="@color/me_user_options_subtitle_text_color"
+                    android:textSize="9sp"
+                    tools:ignore="SmallSp" />
+            </com.lihang.ShadowLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_next" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

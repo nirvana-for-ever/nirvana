@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">牛蛙呐</string>
+    <string name="activity_main_index_string">首页</string>
+    <string name="activity_main_community_string">社区</string>
+    <string name="activity_main_subscription_string">关注</string>
+    <string name="activity_main_message_string">消息</string>
+    <string name="activity_main_me_string">我的</string>
+    <string name="fragment_index_top_bar_search_string">搜索感兴趣的内容</string>
+    <string name="index_article_info_readcount_string">阅读</string>
+    <string name="index_article_info_commentcount_string">评论</string>
+    <string name="index_article_info_likecount_string">赞</string>
+    <string name="me_login_click_string">点击登录</string>
+    <string name="me_login_desc_string">成就你的写作梦想</string>
+    <string name="me_article_string">我的文章</string>
+    <string name="me_draft_string">我的草稿</string>
+    <string name="me_like_string">我的点赞</string>
+    <string name="me_storage_string">我的物品</string>
+    <string name="me_coin_string">牛币</string>
+    <string name="me_vip_string">会员</string>
+    <string name="me_lottery_string">抽奖</string>
+    <string name="me_rank_string">排行</string>
+    <string name="me_user_login_title_code_string">手机验证码登录</string>
+    <string name="me_user_login_title_pwd_string">账号密码登录</string>
+    <string name="me_user_login_get_code_string">获取验证码</string>
+    <string name="me_user_login_code_hint_string">请输入验证码</string>
+    <string name="me_user_login_account_code_hint_string">请输入手机号</string>
+    <string name="me_user_login_account_pwd_hint_string">请输入手机号或邮箱</string>
+    <string name="user_protocol_title_string">牛蛙呐用户协议 - 牛蛙呐</string>
+    <string name="privacy_policy_title_string">隐私政策 - 牛蛙呐</string>
+    <string name="user_login_problem_string">登录遇到的问题</string>
+    <string name="user_login_community_login_text_string">社交帐号直接登录</string>
+</resources>

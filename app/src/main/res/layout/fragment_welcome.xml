@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="timeout"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/welcome_root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/welcome"
+                android:scaleType="centerCrop" />
+
+            <com.lihang.ShadowLayout
+                android:id="@+id/jump_over"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_alignParentEnd="true"
+                app:hl_cornerRadius="10dp"
+                app:hl_layoutBackground="@color/welcome_jump_over_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="@{`跳过 ` + (timeout == null ? ` ` : timeout)}"
+                    android:textColor="@color/white" />
+            </com.lihang.ShadowLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:paddingHorizontal="50dp"
+            android:gravity="center">
+            <com.lihang.ShadowLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:hl_strokeColor="@color/mid_gray"
+                app:hl_strokeWith="1dp"
+                app:hl_cornerRadius="8dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/logo" />
+            </com.lihang.ShadowLayout>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="100dp"
+                android:src="@mipmap/logo_text" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

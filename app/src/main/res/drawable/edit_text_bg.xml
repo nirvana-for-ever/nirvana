@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+     默认是矩形
+     设置上左右都超出控件2dp，
+     stroke 先画一圈边框，宽度 1dp
+     因为上左右都超出控件2dp，所以刚好上左右画的边框都看不见，
+     只有底部画的边框看不见，刚好充当控件的底部线
+     solid 画透明色，solid是覆盖控件的，作为控件的背景色
+     padding-bottom 设置成 10dp，让内容距离底部 10dp
+     -->
+    <item
+        android:bottom="0dp"
+        android:left="-2dp"
+        android:right="-2dp"
+        android:top="-2dp">
+        <shape>
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:color="@color/light_gray"
+                android:width="1dp" />
+            <padding android:bottom="8dp" />
+        </shape>
+    </item>
+</layer-list>
