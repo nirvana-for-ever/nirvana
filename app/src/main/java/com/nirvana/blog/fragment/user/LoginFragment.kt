@@ -1,34 +1,64 @@
 package com.nirvana.blog.fragment.user
 
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.Context
 import android.graphics.Color
 import android.graphics.Typeface
+import android.os.Bundle
 import android.text.*
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.LinearLayout
+import android.widget.PopupWindow
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.nirvana.blog.R
 import com.nirvana.blog.base.BaseFragment
 import com.nirvana.blog.databinding.FragmentLoginBinding
 import com.nirvana.blog.databinding.UserLoginProblemBinding
-import com.nirvana.blog.utils.getMessageTextView
-import com.nirvana.blog.utils.getNegBtnColor
-import com.nirvana.blog.utils.getNeuBtnColor
-import com.nirvana.blog.utils.getPosBtnColor
+import com.nirvana.blog.utils.*
+import com.nirvana.blog.utils.DensityUtils.dip2px
+import com.nirvana.blog.viewmodel.user.AccountViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
+
+@SuppressLint("InflateParams")
+@AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     /**
      * 登录方式，默认是手机验证码登录
      */
     private var loginType = LoginType.CODE
+
+    private val phoneInputFilter = arrayOf(
+        EditTextLengthFilter(11)
+    )
+
+    private val codeInputFilter = arrayOf(
+        EditTextLengthFilter(4)
+    )
+
+    private val pwdInputFilter = arrayOf(
+        EditTextLengthFilter(20)
+    )
 
     private lateinit var codeSpannableString: SpannableString
     private lateinit var pwdSpannableString: SpannableString
@@ -50,7 +80,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             }
     }
 
-    // 未拖动滑块就进行获取验证码或登录
+    // 未拖动滑块就进行获取验证码或登录的提示
     private val noVerifyAlertDialog by lazy {
         AlertDialog.Builder(requireContext())
             .setMessage("请先拖动滑块验证")
@@ -72,8 +102,42 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             }
     }
 
-    override fun bind(inflater: LayoutInflater, container: ViewGroup?): FragmentLoginBinding =
-        FragmentLoginBinding.inflate(inflater, container, false)
+    private val viewModel: AccountViewModel by viewModels()
+
+    /**
+     * 提示用户必须打勾的 PopupWindow
+     */
+    private val mustReadPopupView by lazy {
+        LayoutInflater.from(requireContext()).inflate(R.layout.user_login_mustread_popup_window, null)
+    }
+    private val mustReadPopup by lazy {
+        PopupWindow(
+            mustReadPopupView,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+    }
+
+    /**
+     * 用户必读未打勾的提示动画
+     */
+    private val mustReadAnim by lazy {
+        val x = binding.userLoginCheckboxLayout.x
+        val offset = dip2px(5f)
+        ValueAnimator.ofFloat(x, x + offset, x, x - offset, x).apply {
+            duration = 150
+            repeatMode = ObjectAnimator.RESTART
+            repeatCount = 4
+            interpolator = LinearInterpolator()
+            addUpdateListener {
+                binding.userLoginCheckboxLayout.x = animatedValue as Float
+            }
+        }
+    }
+
+    override fun bind(inflater: LayoutInflater, container: ViewGroup?): FragmentLoginBinding {
+        return FragmentLoginBinding.inflate(inflater, container, false)
+    }
 
     override fun initView() {
         // 初始化用户须知打勾的 SpannableString
@@ -99,9 +163,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
          * 输入框监听
          */
         binding.userLoginAccount.apply {
-            filters = arrayOf(
-                EditTextLengthFilter(11)
-            )
+            filters = phoneInputFilter
             addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -125,9 +187,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             })
         }
         binding.userLoginCode.apply {
-            filters = arrayOf(
-                EditTextLengthFilter(4)
-            )
+            filters = codeInputFilter
             addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -147,9 +207,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             })
         }
         binding.userLoginPwd.apply {
-            filters = arrayOf(
-                EditTextLengthFilter(20)
-            )
+            filters = pwdInputFilter
             addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -191,8 +249,17 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
         // 登录
         binding.userLoginBtn.setOnClickListener {
-            if (binding.userLoginBtnShadow.alpha == 0f && checkVerify()) {
-                println("denglu")
+            if (binding.userLoginBtnShadow.alpha == 0f && checkMustRead() && checkVerify()) {
+                freezeAll()
+                viewModel.login(
+                    binding.userLoginAccount.text.toString(),
+                    if (loginType == LoginType.CODE) {
+                        binding.userLoginCode.text.toString()
+                    } else {
+                        binding.userLoginPwd.text.toString()
+                    },
+                    loginType
+                )
             }
         }
 
@@ -224,6 +291,81 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     }
 
     /**
+     * 只会调用一次
+     * 防止从用户协议或隐私政策界面回来后，重复获取 livedata 中的内容
+     */
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // 登录结果监听
+        viewModel.loginRespResult.observe(this) {
+            if (it.success) {
+                // 退出当前 fragment，会调用 AccountActivity 的 onBackPressed
+                requireActivity().apply {
+                    setResult(Constants.LOGIN_SUCCESS)
+                    onBackPressed()
+                }
+            } else {
+                toastShort("登录失败，${it.msg}")
+            }
+            unFreezeAll()
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mustReadAnim.cancel()
+        mustReadPopup.dismiss()
+    }
+
+    /**
+     * 反向 freezeAll
+     */
+    private fun unFreezeAll() {
+        // 加载条不显示
+        binding.userLoginShadow.visibility = View.GONE
+    }
+
+    /**
+     * 让登录页的所有东西不能点，防止重复登录，或者登录时进行其他操作
+     */
+    private fun freezeAll() {
+        // 加载条显示
+        binding.userLoginShadow.visibility = View.VISIBLE
+        // 收起软键盘
+        val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(binding.root.windowToken, 0)
+    }
+
+    /**
+     * 判断用户必读的勾是否打上
+     */
+    private fun checkMustRead(): Boolean {
+        return if (binding.userLoginMustReadCheckbox.isChecked) {
+            true
+        } else {
+            if (!mustReadPopup.isShowing) {
+                val arr = IntArray(2)
+                binding.userLoginMustReadCheckbox.getLocationOnScreen(arr)
+                mustReadPopupView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+                CoroutineScope(Dispatchers.Main).launch {
+                    mustReadPopup.showAtLocation(
+                        binding.userLoginMustReadCheckbox,
+                        Gravity.NO_GRAVITY,
+                        arr[0],
+                        arr[1] - mustReadPopupView.measuredHeight
+                    )
+                    delay(1500)
+                    mustReadPopup.dismiss()
+                }
+            }
+            if (!mustReadAnim.isStarted) {
+                mustReadAnim.start()
+            }
+            false
+        }
+    }
+
+    /**
      * 登录方式改变，需要修改 ui
      */
     private fun loginTypeChangeReset() {
@@ -233,24 +375,36 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 binding.userLoginTitle.text = getString(R.string.me_user_login_title_code_string)
                 // 账号输入框 hint 改变
                 binding.userLoginAccount.hint = getString(R.string.me_user_login_account_code_hint_string)
+                // 改变账号输入框的输入类型
+                binding.userLoginAccount.inputType = EditorInfo.TYPE_CLASS_PHONE
+                // 改变账号输入框的过滤器
+                binding.userLoginAccount.filters = phoneInputFilter
                 // 设置验证码输入框可见
                 binding.userLoginCodeLayout.visibility = View.VISIBLE
                 // 设置密码输入框不可见
                 binding.userLoginPwdLayout.visibility = View.GONE
                 // 切换登录方式按钮的文字改变
                 binding.userLoginChangeType.text = getString(R.string.me_user_login_title_pwd_string)
+                // 重新判断登录按钮是否可用
+                checkLoginBtnAvailable(binding.userLoginAccountCancel.visibility, binding.userLoginCodeCancel.visibility)
             }
             LoginType.PWD -> {
                 // 标题改变
                 binding.userLoginTitle.text = getString(R.string.me_user_login_title_pwd_string)
                 // 账号输入框 hint 改变
                 binding.userLoginAccount.hint = getString(R.string.me_user_login_account_pwd_hint_string)
+                // 改变账号输入框的输入类型
+                binding.userLoginAccount.inputType = EditorInfo.TYPE_CLASS_TEXT
+                // 改变账号输入框的过滤器
+                binding.userLoginAccount.filters = emptyArray()
                 // 设置验证码输入框不可见
                 binding.userLoginCodeLayout.visibility = View.GONE
                 // 设置密码输入框可见
                 binding.userLoginPwdLayout.visibility = View.VISIBLE
                 // 切换登录方式按钮的文字改变
                 binding.userLoginChangeType.text = getString(R.string.me_user_login_title_code_string)
+                // 重新判断登录按钮是否可用
+                checkLoginBtnAvailable(binding.userLoginAccountCancel.visibility, binding.userLoginPwdCancel.visibility)
             }
         }
         // 用户须知打勾的文字设置
@@ -355,6 +509,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         }
     }
 
+    /**
+     * 判断行为验证是否通过
+     */
     private fun checkVerify(): Boolean {
         return if (!binding.userLoginVerifyBar.isVerifyPass()) {
             noVerifyAlertDialog.show()

@@ -22,14 +22,15 @@ android {
         debug {
             // 是否应该生成可调试的apk
             debuggable true
-            buildConfigField 'String', 'BASE_URL', "\"https://nirvana1234.xyz\""
+//            buildConfigField 'String', 'BASE_URL', "\"http://192.168.0.107:5000/api/android/\""
+            buildConfigField 'String', 'BASE_URL', "\"https://nirvana1234.xyz/api/android/\""
         }
         release {
             // 是否开启代码混淆，默认false
             minifyEnabled false
             // 混淆规则配置文件
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField 'String', 'BASE_URL', "\"https://nirvana1234.xyz\""
+            buildConfigField 'String', 'BASE_URL', "\"https://nirvana1234.xyz/api/android/\""
         }
     }
     compileOptions {
@@ -131,10 +132,10 @@ dependencies {
     implementation "com.geyifeng.immersionbar:immersionbar-ktx:$immersionbar_version"
 
     // navigation 组件
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     // Feature module Support
-    implementation("androidx.navigation:navigation-dynamic-features-fragment:$nav_version")
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
     // Testing Navigation
-    androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
+    androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
 }

@@ -1,4 +1,4 @@
-package com.nirvana.blog.entity
+package com.nirvana.blog.entity.ui.article
 
 import android.os.Bundle
 

@@ -14,6 +14,9 @@
         <!-- 不要actionbar -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
+        <!-- progressbar 的颜色 -->
+        <item name="colorControlActivated">@color/primary</item>
     </style>
 
     <style name="CircleCheckbox" parent="@android:style/Widget.CompoundButton.CheckBox">

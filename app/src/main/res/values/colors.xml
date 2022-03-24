@@ -12,6 +12,7 @@
     <color name="transparent">#00000000</color>
     <color name="white_transparent">#00FFFFFF</color>
     <color name="translucent">#80FFFFFF</color>
+    <color name="black_translucent">#80000000</color>
     <color name="black_text_color">#2F2F2F</color>
     <color name="gray_text_color">#989898</color>
     <color name="text_highlight_color">#80EC6F5A</color>
@@ -46,5 +47,12 @@
     <color name="me_user_login_options_text_color">#49699C</color>
     <!-- 行为验证通过颜色 -->
     <color name="me_user_login_verify_pos_color">#77CC3B</color>
+    <!-- 登录界面必读未打勾的提示文字背景 -->
+    <color name="me_user_login_mustread_popup_text_bg">#80000000</color>
+    <!-- 登录加载条阴影颜色 -->
+    <color name="me_user_login_shadow_bg">#30000000</color>
+
+    <!-- 设置中，退出账号加载条阴影颜色 -->
+    <color name="me_settings_logout_shadow_bg">#30000000</color>
 
 </resources>

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="articleInfo"
-            type="com.nirvana.blog.entity.ArticleInfo" />
+            type="com.nirvana.blog.entity.ui.article.ArticleInfo" />
     </data>
 
     <LinearLayout

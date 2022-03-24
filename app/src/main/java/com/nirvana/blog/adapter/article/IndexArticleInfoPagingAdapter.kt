@@ -14,9 +14,9 @@ import com.nirvana.blog.adapter.BaseViewBindingViewHolder
 import com.nirvana.blog.databinding.IndexArticleInfo0imgBinding
 import com.nirvana.blog.databinding.IndexArticleInfo1imgBinding
 import com.nirvana.blog.databinding.IndexArticleInfo3imgBinding
-import com.nirvana.blog.entity.ArticleInfo
-import com.nirvana.blog.entity.diffBundleFrom
-import com.nirvana.blog.entity.updateBundleFrom
+import com.nirvana.blog.entity.ui.article.ArticleInfo
+import com.nirvana.blog.entity.ui.article.diffBundleFrom
+import com.nirvana.blog.entity.ui.article.updateBundleFrom
 import com.nirvana.blog.view.RoundCornerImageView
 
 class IndexArticleInfoPagingAdapter : PagingDataAdapter<ArticleInfo, BaseViewBindingViewHolder<ViewDataBinding>>(

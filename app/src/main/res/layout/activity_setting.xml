@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <com.nirvana.blog.view.StatusBarPlaceHolder
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="?attr/actionBarSize" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/me_setting_options_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <com.lihang.ShadowLayout
+                    android:id="@+id/me_settings_logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="30dp"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    app:hl_strokeColor="@color/primary"
+                    app:hl_strokeWith="1dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/me_settings_logout_string"
+                        android:textColor="@color/primary"
+                        android:textSize="17sp" />
+                </com.lihang.ShadowLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/me_setting_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:elevation="1dp"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/me_settings_back"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_back" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/me_setting_string"
+                    android:textColor="@color/black_text_color"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.nirvana.blog.viewgroup.AvoidDragLayout
+        android:id="@+id/me_settings_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_translucent"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.lihang.ShadowLayout
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerInParent="true"
+                android:padding="20dp"
+                app:hl_cornerRadius="10dp"
+                app:hl_layoutBackground="@color/me_settings_logout_shadow_bg">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </com.lihang.ShadowLayout>
+
+        </RelativeLayout>
+    </com.nirvana.blog.viewgroup.AvoidDragLayout>
+
+</FrameLayout>

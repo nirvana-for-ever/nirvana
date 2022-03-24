@@ -9,7 +9,7 @@ import com.nirvana.blog.R
 import com.nirvana.blog.adapter.BaseViewBindingAdapter
 import com.nirvana.blog.adapter.BaseViewBindingViewHolder
 import com.nirvana.blog.databinding.IndexTagsButtonBinding
-import com.nirvana.blog.entity.Tag
+import com.nirvana.blog.entity.ui.tag.Tag
 
 /**
  * 顶部栏标签的 rv

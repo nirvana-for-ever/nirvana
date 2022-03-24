@@ -5,6 +5,7 @@ import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
+import com.nirvana.blog.BuildConfig
 import com.nirvana.blog.api.article.ArticleServiceApi
 import com.nirvana.blog.db.article.ArticleDataBase
 import com.nirvana.blog.entity.db.ArticleInfoEntity
@@ -113,15 +114,17 @@ class ArticleInfoRemoteMediator(
                     else -> loadPage + 1
                 }
                 // 将查到的当前页数据存入数据库
-                database.getArticleDao().insertArticleInfo(pagingResult.list.map { ArticleInfoMapper.reverseMap(it, tagId) })
+                database.getArticleDao().insertArticleInfo(pagingResult!!.list.map { ArticleInfoMapper.reverseMap(it, tagId) })
                 // 添加新的远程键
                 database.getArticleInfoRemoteKeyDao().insertRemoteKey(ArticleInfoRemoteKey(tagId, nextPage))
             }
 
             // 若还有下一页，endOfPaginationReached 就返回 true，否则就false，以后再刷就不会请求新数据了
-            MediatorResult.Success(endOfPaginationReached = !pagingResult.hasNext)
+            MediatorResult.Success(endOfPaginationReached = !pagingResult!!.hasNext)
         } catch (e: Exception) {
-            e.printStackTrace()
+            if (BuildConfig.DEBUG) {
+                e.printStackTrace()
+            }
             MediatorResult.Error(e)
         }
     }

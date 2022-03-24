@@ -1,31 +1,56 @@
 package com.nirvana.blog.fragment
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
 import android.view.LayoutInflater
 import android.view.MotionEvent
+import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContract
 import androidx.core.widget.NestedScrollView
+import androidx.databinding.BindingAdapter
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.gyf.immersionbar.ImmersionBar
 import com.nirvana.blog.R
 import com.nirvana.blog.activity.user.AccountActivity
+import com.nirvana.blog.activity.user.SettingActivity
 import com.nirvana.blog.adapter.user.CarouselRecyclerViewAdapter
 import com.nirvana.blog.adapter.user.UserOptionsRecyclerViewAdapter
 import com.nirvana.blog.base.BaseFragment
 import com.nirvana.blog.databinding.FragmentMeBinding
-import com.nirvana.blog.entity.UserOption
+import com.nirvana.blog.entity.ui.user.UserOption
+import com.nirvana.blog.utils.Constants
 import com.nirvana.blog.utils.StatusBarUtils.setBaseStatusBar
+import com.nirvana.blog.viewmodel.user.AccountViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
+@AndroidEntryPoint
 class MeFragment : BaseFragment<FragmentMeBinding>() {
 
     companion object {
         @JvmStatic
         fun newInstance() = MeFragment()
+
+        @JvmStatic
+        @BindingAdapter("user_photo")
+        fun userPhoto(iv: ImageView, url: String) {
+            if (url.isNotBlank()) {
+                Glide.with(iv.context)
+                    .load(url)
+                    .placeholder(R.drawable.ic_loading_img)
+                    .transform(CircleCrop())
+                    .into(iv)
+            }
+        }
     }
 
     private var bannerHeight: Int = 0
@@ -47,15 +72,63 @@ class MeFragment : BaseFragment<FragmentMeBinding>() {
         UserOption("浏览历史"),
     )
     private val systemUserOptions = mutableListOf(
-        UserOption("设置"),
+        UserOption("设置", onClick = { toSetting() }),
         UserOption("帮助与反馈"),
         UserOption("了解更多"),
     )
+
+    /**
+     * 跳转到账户 activity 的 Launcher，此方式可以接收跳转后 activity 的返回参数
+     */
+    private val accountLauncher =
+        registerForActivityResult(object : ActivityResultContract<Intent, Boolean>() {
+            override fun createIntent(context: Context, input: Intent): Intent {
+                return input
+            }
+
+            override fun parseResult(resultCode: Int, intent: Intent?): Boolean {
+                return Constants.loginSuccess(resultCode)
+            }
+        }) {
+            if (it) {
+                // 登录成功，获取用户信息
+                getAccountInfo()
+            }
+        }
+
+    /**
+     * 跳转到设置 activity 的Launcher
+     */
+    private val settingLauncher =
+        registerForActivityResult(object : ActivityResultContract<Intent, Boolean>() {
+            override fun createIntent(context: Context, input: Intent) = input
+            override fun parseResult(resultCode: Int, intent: Intent?): Boolean {
+                return intent?.getBooleanExtra("isLogout", false) ?: false
+            }
+        }) {
+            if (it) {
+                // 如果是登出，就重新获取用户信息
+                // 为啥还要重新获取信息？主要是防止登出失败，确保获取的是空信息
+                viewModel.info(Constants.GET_USER_INFO_SIMPLE)
+            }
+        }
+
+    private val viewModel: AccountViewModel by viewModels()
+
+    /**
+     * 是否有账号登录
+     */
+    private var isLogin = false
 
     override fun bind(inflater: LayoutInflater, container: ViewGroup?): FragmentMeBinding =
         FragmentMeBinding.inflate(inflater, container, false)
 
     override fun initView() {
+        /*
+         * 发送请求获取用户登录信息
+         */
+        viewModel.info(Constants.GET_USER_INFO_SIMPLE)
+
         // 计算出横幅高度，当滑动距离超过横幅后，正好让标题栏TitleBar的透明度变为1
         bannerHeight = binding.meBanner.layoutParams.height -
                 binding.meToolbar.height -
@@ -97,7 +170,7 @@ class MeFragment : BaseFragment<FragmentMeBinding>() {
          * 跳转登录
          */
         binding.meLoginClickable.setOnClickListener {
-            startActivity(Intent(context, AccountActivity::class.java))
+            accountLauncher.launch(Intent(requireContext(), AccountActivity::class.java))
         }
         /*
          * 红包点击
@@ -117,6 +190,23 @@ class MeFragment : BaseFragment<FragmentMeBinding>() {
         binding.meWrite.setOnClickListener {
             println("写文章写文章写文章写文章写文章")
         }
+
+        /*
+         * 用户信息更新
+         */
+        viewModel.simpleUserInfo.observe(this) {
+            if (it != null) {
+                isLogin = true
+                binding.info = it
+                binding.meUserCard.visibility = View.VISIBLE
+                binding.meLoginClickable.visibility = View.GONE
+            } else {
+                isLogin = false
+                binding.info = null
+                binding.meUserCard.visibility = View.GONE
+                binding.meLoginClickable.visibility = View.VISIBLE
+            }
+        }
     }
 
     override fun onResume() {
@@ -132,6 +222,24 @@ class MeFragment : BaseFragment<FragmentMeBinding>() {
         super.onPause()
         // 停止轮播图
         stopCarousel()
+    }
+
+    /**
+     * 跳转到设置页面
+     */
+    private fun toSetting() {
+        settingLauncher.launch(
+            Intent(requireContext(), SettingActivity::class.java).apply {
+                putExtra("isLogin", isLogin)
+            }
+        )
+    }
+
+    /**
+     * 登录成功之后，获取账户的简单信息
+     */
+    private fun getAccountInfo() {
+        viewModel.info(Constants.GET_USER_INFO_SIMPLE)
     }
 
     /**

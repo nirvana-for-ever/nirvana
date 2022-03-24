@@ -14,6 +14,7 @@ import com.nirvana.blog.base.BaseActivity
 import com.nirvana.blog.databinding.ActivityMainBinding
 import com.nirvana.blog.fragment.*
 import com.nirvana.blog.utils.StatusBarUtils.setBaseStatusBar
+import com.nirvana.blog.utils.rootActivity
 import com.nirvana.blog.utils.toastShort
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,6 +30,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private val subscriptionFragment = SubscriptionFragment.newInstance()
     private val messageFragment = MessageFragment.newInstance()
     private val meFragment = MeFragment.newInstance()
+
+    init {
+        rootActivity = this
+    }
 
     override fun bind(): ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 

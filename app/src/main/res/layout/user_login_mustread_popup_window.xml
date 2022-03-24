@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.nirvana.blog.view.BubbleTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/user_login_mustread_popup_string"
+        android:textColor="@color/white"
+        app:bbtv_bgColor="@color/me_user_login_mustread_popup_text_bg"
+        app:bbtv_arrowSize="10dp"
+        app:bbtv_position="bottom"
+        app:bbtv_borderRadius="5dp"
+        app:bbtv_arrowOffset="5dp"/>
+
+</LinearLayout>

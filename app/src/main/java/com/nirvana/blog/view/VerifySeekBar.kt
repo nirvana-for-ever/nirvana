@@ -5,6 +5,8 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.Drawable
+import android.os.Bundle
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
@@ -277,7 +279,6 @@ class VerifySeekBar(context: Context, attrs: AttributeSet) : View(context, attrs
                 interpolator = LinearInterpolator()
             }
         stopDragAnimation!!.addUpdateListener {
-            println("it.animatedValue as Float${it.animatedValue as Float}")
             draggable!!.x = it.animatedValue as Float
             invalidate()
         }
@@ -296,6 +297,28 @@ class VerifySeekBar(context: Context, attrs: AttributeSet) : View(context, attrs
         }
         if (verifyingDrawableAnim?.isRunning == true) {
             verifyingDrawableAnim.cancel()
+        }
+    }
+
+    override fun onSaveInstanceState(): Parcelable {
+        val superState = super.onSaveInstanceState()
+        return Bundle().apply {
+            putParcelable("super", superState)
+            putBoolean("verifyPass", verifyPass)
+            if (verifyPass) {
+                putFloat("draggableX", draggable!!.x)
+            }
+        }
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        (state as Bundle).apply {
+            super.onRestoreInstanceState(getParcelable("super"))
+            verifyPass = getBoolean("verifyPass")
+            if (verifyPass) {
+                draggable!!.x = getFloat("draggableX")
+                actualDraggable?.verifyPass()
+            }
         }
     }
 

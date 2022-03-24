@@ -1,425 +1,619 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.MeFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/me_scroll_view"
+    <data>
+        <variable
+            name="info"
+            type="com.nirvana.blog.entity.ui.user.SimpleUserInfo" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".fragment.MeFragment">
 
-        <FrameLayout
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/me_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.nirvana.blog.view.MeBanner
-                android:id="@+id/me_banner"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                app:endColor="@color/me_banner_end_color"
-                app:startColor="@color/me_banner_start_color"
-                app:startPic="@drawable/ic_me_scanning_code_light"
-                app:startPicSize="30dp"
-                app:endPic="@drawable/ic_me_write_light"
-                app:endPicSize="22dp"
-                app:actionBarHeight="?attr/actionBarSize"
-                app:picPaddingHor="15dp"/>
+                android:layout_height="match_parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingTop="70dp">
-
-                <com.lihang.ShadowLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="220dp"
-                    android:paddingHorizontal="10dp"
-                    app:hl_cornerRadius="10dp"
-                    app:hl_shadowColor="#1A000000"
-                    app:hl_shadowLimit="15dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-                        <RelativeLayout
-                            android:id="@+id/me_login_clickable"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:paddingVertical="20dp"
-                            android:paddingHorizontal="10dp">
-                            <com.nirvana.blog.view.CircleLayout
-                                android:id="@+id/unlogin_img"
-                                android:layout_alignParentStart="true"
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_centerVertical="true">
-                                <View
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/light_gray"/>
-                                <ImageView
-                                    android:paddingTop="20dp"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:src="@drawable/ic_login_img"/>
-                            </com.nirvana.blog.view.CircleLayout>
-
-                            <LinearLayout
-                                android:layout_toEndOf="@id/unlogin_img"
-                                android:layout_centerVertical="true"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical">
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/me_login_click_string"
-                                    android:textSize="18sp"
-                                    android:textColor="@color/black_text_color"/>
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:text="@string/me_login_desc_string"
-                                    android:textSize="11sp"
-                                    android:textColor="@color/gray_text_color"/>
-                            </LinearLayout>
-                            <ImageView
-                                android:id="@+id/me_red_packet_clickable"
-                                android:layout_alignParentEnd="true"
-                                android:padding="5dp"
-                                android:layout_width="60dp"
-                                android:layout_height="match_parent"
-                                android:layout_centerVertical="true"
-                                android:src="@mipmap/me_login_red_packet"/>
-                        </RelativeLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginHorizontal="15dp"
-                            android:background="@color/light_gray"/>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:orientation="horizontal"
-                            android:padding="10dp"
-                            tools:ignore="NestedWeights">
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="vertical"
-                                android:gravity="center">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="30dp"
-                                    android:src="@drawable/ic_me_article"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/me_article_string"
-                                    android:textColor="@color/black_text_color"
-                                    android:textSize="13sp"
-                                    android:gravity="center"/>
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="vertical"
-                                android:gravity="center">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="30dp"
-                                    android:src="@drawable/ic_me_draft"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/me_draft_string"
-                                    android:textColor="@color/black_text_color"
-                                    android:textSize="13sp"
-                                    android:gravity="center"/>
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="vertical"
-                                android:gravity="center">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="30dp"
-                                    android:src="@drawable/ic_me_like"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/me_like_string"
-                                    android:textColor="@color/black_text_color"
-                                    android:textSize="13sp"
-                                    android:gravity="center"/>
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="vertical"
-                                android:gravity="center">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="30dp"
-                                    android:src="@drawable/ic_me_storage"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/me_storage_string"
-                                    android:textColor="@color/black_text_color"
-                                    android:textSize="13sp"
-                                    android:gravity="center"/>
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </LinearLayout>
-                </com.lihang.ShadowLayout>
-
-                <com.lihang.ShadowLayout
+                <com.nirvana.blog.view.MeBanner
+                    android:id="@+id/me_banner"
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
-                    android:paddingHorizontal="10dp"
-                    app:hl_cornerRadius="10dp"
-                    app:hl_shadowColor="#1A000000"
-                    app:hl_shadowLimit="15dp">
-                    <LinearLayout
+                    app:endColor="@color/me_banner_end_color"
+                    app:startColor="@color/me_banner_start_color"
+                    app:startPic="@drawable/ic_me_scanning_code_light"
+                    app:startPicSize="30dp"
+                    app:endPic="@drawable/ic_me_write_light"
+                    app:endPicSize="22dp"
+                    app:actionBarHeight="?attr/actionBarSize"
+                    app:picPaddingHor="15dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="70dp">
+
+                    <com.lihang.ShadowLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:paddingVertical="10dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:paddingHorizontal="15dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_centerVertical="true"
-                                android:text="总资产:"
-                                android:textColor="@color/black_text_color"/>
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_toStartOf="@id/me_check"
-                                android:layout_centerVertical="true"
-                                android:text="查看"
-                                android:textSize="11sp"
-                                android:textColor="@color/gray_text_color"/>
-
-                            <ImageView
-                                android:id="@+id/me_check"
-                                android:layout_width="12dp"
-                                android:layout_height="12dp"
-                                android:layout_alignParentEnd="true"
-                                android:layout_centerVertical="true"
-                                android:src="@drawable/ic_next"/>
-
-                        </RelativeLayout>
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginHorizontal="15dp"
-                            android:background="@color/light_gray"/>
+                        android:layout_height="220dp"
+                        android:paddingHorizontal="10dp"
+                        app:hl_cornerRadius="10dp"
+                        app:hl_shadowColor="#1A000000"
+                        app:hl_shadowLimit="15dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="2">
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:id="@+id/me_login_clickable"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:paddingVertical="20dp"
+                                android:paddingHorizontal="10dp">
+
+                                <com.nirvana.blog.view.CircleLayout
+                                    android:id="@+id/unlogin_img"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_centerVertical="true">
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/light_gray" />
+
+                                    <ImageView
+                                        android:paddingTop="20dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:src="@drawable/ic_login_img" />
+                                </com.nirvana.blog.view.CircleLayout>
+
+                                <LinearLayout
+                                    android:layout_toEndOf="@id/unlogin_img"
+                                    android:layout_centerVertical="true"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/me_login_click_string"
+                                        android:textSize="18sp"
+                                        android:textColor="@color/black_text_color" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"
+                                        android:text="@string/me_login_desc_string"
+                                        android:textSize="11sp"
+                                        android:textColor="@color/gray_text_color" />
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:id="@+id/me_red_packet_clickable"
+                                    android:layout_alignParentEnd="true"
+                                    android:padding="5dp"
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerVertical="true"
+                                    android:src="@mipmap/me_login_red_packet" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/me_user_card"
+                                android:visibility="gone"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:paddingVertical="20dp"
+                                android:paddingHorizontal="10dp">
+
+                                <ImageView
+                                    android:id="@+id/login_img"
+                                    android:layout_width="70dp"
+                                    android:layout_height="70dp"
+                                    app:user_photo="@{info == null ? `` : info.photo}" />
+
+                                <LinearLayout
+                                    android:layout_toEndOf="@id/login_img"
+                                    android:layout_centerVertical="true"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@{info == null ? `` : info.nickName}"
+                                        android:textSize="18sp"
+                                        android:textColor="@color/black_text_color" />
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:text="@string/me_user_subscribe_string"
+                                            android:textSize="13sp"
+                                            android:textColor="@color/gray_text_color"
+                                            android:layout_marginEnd="5dp" />
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:text="@{info == null ? `0` : String.valueOf(info.subsribeCount)}"
+                                            android:textSize="13sp"
+                                            android:textColor="@color/black_text_color"
+                                            android:layout_marginEnd="15dp" />
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:text="@string/me_user_fans_string"
+                                            android:textSize="13sp"
+                                            android:textColor="@color/gray_text_color"
+                                            android:layout_marginEnd="5dp" />
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:text="@{info == null ? `0` : String.valueOf(info.fansCount)}"
+                                            android:textSize="13sp"
+                                            android:textColor="@color/black_text_color" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginHorizontal="15dp"
+                                android:background="@color/light_gray" />
 
                             <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:orientation="vertical"
-                                android:gravity="center"
-                                tools:ignore="NestedWeights">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="30dp"
-                                    android:src="@drawable/ic_me_coin"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/me_coin_string"
-                                    android:textColor="@color/black_text_color"
-                                    android:textSize="13sp"
-                                    android:gravity="center"/>
+                                android:orientation="horizontal"
+                                android:padding="10dp"
+                                tools:ignore="NestedWeights"
+                                android:baselineAligned="false">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:src="@drawable/ic_me_article" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:text="@string/me_article_string"
+                                        android:textColor="@color/black_text_color"
+                                        android:textSize="13sp"
+                                        android:gravity="center" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:gravity="center">
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="3dp"
+                                            android:text="@{info == null ? `0` : String.valueOf(info.articleCount)}"
+                                            android:textColor="@color/gray_text_color"
+                                            android:textSize="11sp"
+                                            android:gravity="center" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="3dp"
+                                            android:text="@string/me_user_article_count_string"
+                                            android:textColor="@color/gray_text_color"
+                                            android:textSize="11sp"
+                                            android:gravity="center" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:src="@drawable/ic_me_draft" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:text="@string/me_draft_string"
+                                        android:textColor="@color/black_text_color"
+                                        android:textSize="13sp"
+                                        android:gravity="center" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:gravity="center">
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="3dp"
+                                            android:text="@{info == null ? `0` : String.valueOf(info.draftCount)}"
+                                            android:textColor="@color/gray_text_color"
+                                            android:textSize="11sp"
+                                            android:gravity="center" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="3dp"
+                                            android:text="@string/me_user_draft_count_string"
+                                            android:textColor="@color/gray_text_color"
+                                            android:textSize="11sp"
+                                            android:gravity="center" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:src="@drawable/ic_me_like" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:text="@string/me_like_string"
+                                        android:textColor="@color/black_text_color"
+                                        android:textSize="13sp"
+                                        android:gravity="center" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:gravity="center">
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="3dp"
+                                            android:text="@{info == null ? `0` : String.valueOf(info.likeCount)}"
+                                            android:textColor="@color/gray_text_color"
+                                            android:textSize="11sp"
+                                            android:gravity="center" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="3dp"
+                                            android:text="@string/me_user_like_count_string"
+                                            android:textColor="@color/gray_text_color"
+                                            android:textSize="11sp"
+                                            android:gravity="center" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:src="@drawable/ic_me_storage" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="3dp"
+                                        android:text="@string/me_storage_string"
+                                        android:textColor="@color/black_text_color"
+                                        android:textSize="13sp"
+                                        android:gravity="center" />
+                                </LinearLayout>
+
                             </LinearLayout>
+                        </LinearLayout>
+                    </com.lihang.ShadowLayout>
+
+                    <com.lihang.ShadowLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:paddingHorizontal="10dp"
+                        app:hl_cornerRadius="10dp"
+                        app:hl_shadowColor="#1A000000"
+                        app:hl_shadowLimit="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingVertical="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:paddingHorizontal="15dp">
+
+                                <TextView
+                                    android:id="@+id/me_user_nb_count_string"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/me_user_nb_count_string"
+                                    android:textColor="@color/black_text_color" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_toEndOf="@id/me_user_nb_count_string"
+                                    android:layout_centerVertical="true"
+                                    android:text="@{info == null ? `0` : String.valueOf(Float.valueOf(info.nbCount).intValue())}"
+                                    android:textColor="@color/black_text_color" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toStartOf="@id/me_check"
+                                    android:layout_centerVertical="true"
+                                    android:text="@string/me_user_look_money_string"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/gray_text_color" />
+
+                                <ImageView
+                                    android:id="@+id/me_check"
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/ic_next" />
+
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginHorizontal="15dp"
+                                android:background="@color/light_gray" />
 
                             <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="vertical"
-                                android:gravity="center"
-                                tools:ignore="NestedWeights">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="30dp"
-                                    android:src="@drawable/ic_me_vip"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/me_vip_string"
-                                    android:textColor="@color/black_text_color"
-                                    android:textSize="13sp"
-                                    android:gravity="center"/>
-                            </LinearLayout>
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="vertical"
-                                android:gravity="center"
-                                tools:ignore="NestedWeights">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="25dp"
-                                    android:src="@drawable/ic_me_lottery"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/me_lottery_string"
-                                    android:textColor="@color/black_text_color"
-                                    android:textSize="13sp"
-                                    android:gravity="center"/>
-                            </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:gravity="center"
+                                    tools:ignore="NestedWeights">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:orientation="vertical"
-                                android:gravity="center"
-                                tools:ignore="NestedWeights">
-                                <ImageView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="25dp"
-                                    android:src="@drawable/ic_me_rank"/>
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/me_rank_string"
-                                    android:textColor="@color/black_text_color"
-                                    android:textSize="13sp"
-                                    android:gravity="center"/>
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:src="@drawable/ic_me_coin" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/me_coin_string"
+                                        android:textColor="@color/black_text_color"
+                                        android:textSize="13sp"
+                                        android:gravity="center" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:gravity="center"
+                                    tools:ignore="NestedWeights">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:src="@drawable/ic_me_vip" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/me_vip_string"
+                                        android:textColor="@color/black_text_color"
+                                        android:textSize="13sp"
+                                        android:gravity="center" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:gravity="center"
+                                    tools:ignore="NestedWeights">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="25dp"
+                                        android:src="@drawable/ic_me_lottery" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/me_lottery_string"
+                                        android:textColor="@color/black_text_color"
+                                        android:textSize="13sp"
+                                        android:gravity="center" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:gravity="center"
+                                    tools:ignore="NestedWeights">
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="25dp"
+                                        android:src="@drawable/ic_me_rank" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/me_rank_string"
+                                        android:textColor="@color/black_text_color"
+                                        android:textSize="13sp"
+                                        android:gravity="center" />
+                                </LinearLayout>
+
                             </LinearLayout>
 
                         </LinearLayout>
+                    </com.lihang.ShadowLayout>
 
-                    </LinearLayout>
-                </com.lihang.ShadowLayout>
-
-                <com.nirvana.blog.viewgroup.AvoidDragLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:paddingHorizontal="10dp">
-                    <androidx.viewpager2.widget.ViewPager2
-                        android:id="@+id/me_carousel"
+                    <com.nirvana.blog.viewgroup.AvoidDragLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-                    <com.nirvana.blog.view.CarouselDots
-                        android:id="@+id/me_carousel_dots"
-                        app:dotRadius="3dp"
-                        app:dotSelectedColor="@color/white"
-                        app:dotUnSelectedColor="@color/me_carousel_unselected_dot_color"
-                        android:layout_width="30dp"
-                        android:layout_height="10dp"
-                        android:layout_gravity="center_horizontal|bottom"
-                        android:layout_marginBottom="10dp"/>
-                </com.nirvana.blog.viewgroup.AvoidDragLayout>
+                        android:layout_height="100dp"
+                        android:paddingHorizontal="10dp">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/me_user_options_rv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="10dp"/>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:paddingHorizontal="10dp"
-                    android:background="@color/light_gray"/>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/me_user_system_options_rv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingHorizontal="10dp"/>
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/me_carousel"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:background="@color/light_gray"/>
-            </LinearLayout>
-        </FrameLayout>
-    </androidx.core.widget.NestedScrollView>
+                        <com.nirvana.blog.view.CarouselDots
+                            android:id="@+id/me_carousel_dots"
+                            app:dotRadius="3dp"
+                            app:dotSelectedColor="@color/white"
+                            app:dotUnSelectedColor="@color/me_carousel_unselected_dot_color"
+                            android:layout_width="30dp"
+                            android:layout_height="10dp"
+                            android:layout_gravity="center_horizontal|bottom"
+                            android:layout_marginBottom="10dp" />
+                    </com.nirvana.blog.viewgroup.AvoidDragLayout>
 
-    <!--
-     Toolbar：
-     由于默认 Toolbar 的标题是居中的，也不方便直接改，于是就不适用
-     Toolbar 自带的 title 属性，自己在其中添加一个 TextView 充当标题
-     注意，一定要加下面两个属性：
-     app:contentInsetStart="0dp"
-     app:contentInsetEnd="0dp"
-     让 Toolbar 两侧没有边距
-     -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/me_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:alpha="0"
-        app:contentInsetEnd="0dp"
-        app:contentInsetStart="0dp"
-        android:background="@color/white"
-        android:elevation="1dp">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/me_user_options_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
-        <RelativeLayout
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:paddingHorizontal="10dp"
+                        android:background="@color/light_gray" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/me_user_system_options_rv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:background="@color/light_gray" />
+                </LinearLayout>
+            </FrameLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <!--
+         Toolbar：
+         由于默认 Toolbar 的标题是居中的，也不方便直接改，于是就不适用
+         Toolbar 自带的 title 属性，自己在其中添加一个 TextView 充当标题
+         注意，一定要加下面两个属性：
+         app:contentInsetStart="0dp"
+         app:contentInsetEnd="0dp"
+         让 Toolbar 两侧没有边距
+         -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/me_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingHorizontal="15dp">
-            <ImageView
-                android:id="@+id/me_scan_code"
-                android:layout_width="30dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:src="@drawable/ic_me_scanning_code_dark"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="我的"
-                android:textSize="17sp"
-                android:textColor="@color/black_text_color"/>
-            <ImageView
-                android:id="@+id/me_write"
-                android:layout_width="22dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_me_write_dark"/>
-        </RelativeLayout>
+            android:layout_height="?attr/actionBarSize"
+            android:alpha="0"
+            app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
+            android:background="@color/white"
+            android:elevation="1dp">
 
-    </androidx.appcompat.widget.Toolbar>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="15dp">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+                <ImageView
+                    android:id="@+id/me_scan_code"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/ic_me_scanning_code_dark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="我的"
+                    android:textSize="17sp"
+                    android:textColor="@color/black_text_color" />
+
+                <ImageView
+                    android:id="@+id/me_write"
+                    android:layout_width="22dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_me_write_dark" />
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

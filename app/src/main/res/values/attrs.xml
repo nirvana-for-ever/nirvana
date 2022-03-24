@@ -22,4 +22,17 @@
         <attr name="vsb_shadowWidth" format="dimension" />
     </declare-styleable>
 
+    <declare-styleable name="BubbleTextView">
+        <attr name="bbtv_position" format="enum">
+            <enum name="left" value="0" />
+            <enum name="top" value="1" />
+            <enum name="right" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+        <attr name="bbtv_arrowSize" format="dimension" />
+        <attr name="bbtv_arrowOffset" format="dimension" />
+        <attr name="bbtv_bgColor" format="color" />
+        <attr name="bbtv_borderRadius" format="dimension" />
+    </declare-styleable>
+
 </resources>

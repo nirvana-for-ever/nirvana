@@ -6,10 +6,9 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.nirvana.blog.entity.ArticleInfo
+import com.nirvana.blog.entity.ui.article.ArticleInfo
 import com.nirvana.blog.repository.ArticleRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @HiltViewModel

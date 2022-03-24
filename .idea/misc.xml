@@ -43,13 +43,14 @@
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_general.xml" value="0.17527173913043478" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_scrolling.xml" value="0.15443840579710144" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_setting.xml" value="0.25" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/carousel_view_item.xml" value="0.17527173913043478" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/content_scrolling.xml" value="0.5608552631578947" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_article_info.xml" value="0.17527173913043478" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_community.xml" value="0.15443840579710144" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_index.xml" value="0.2" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_login.xml" value="0.2" />
-        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_me.xml" value="0.2" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_me.xml" value="0.1" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_message.xml" value="0.15443840579710144" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_privacy_policy.xml" value="0.17527173913043478" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_subscription.xml" value="0.15443840579710144" />
@@ -63,12 +64,17 @@
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/index_blogs_info_0img.xml" value="0.17527173913043478" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/index_blogs_info_1img.xml" value="0.17527173913043478" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/index_tags_button.xml" value="0.536" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/user_login_mustread_popup_window.xml" value="0.2" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/user_login_other_login_alert_dialog.xml" value="0.17346014492753623" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/user_login_problem.xml" value="0.17346014492753623" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/user_options_view_item.xml" value="0.17527173913043478" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/user_settings_view_item.xml" value="0.17346014492753623" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/user_sub_settings_view_item.xml" value="0.17346014492753623" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/menu/menu_scrolling.xml" value="0.27395833333333336" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1775" />
         <entry key="..\:/ProgramFile/Android/Sdk/platforms/android-31/data/res/drawable/btn_check.xml" value="0.1585" />
+        <entry key="..\:/ProgramFile/Android/Sdk/platforms/android-31/data/res/drawable/progress_indeterminate_anim_medium_material.xml" value="0.155" />
+        <entry key="..\:/ProgramFile/Android/Sdk/platforms/android-31/data/res/drawable/progress_static_material.xml" value="0.155" />
         <entry key="..\:/ProgramFile/Android/Sdk/platforms/android-31/data/res/drawable/text_select_handle_left_material.xml" value="0.1585" />
         <entry key="..\:/ProgramFile/Android/Sdk/platforms/android-31/data/res/drawable/text_select_handle_middle_material.xml" value="0.1875" />
         <entry key="..\:/ProgramFile/Android/Sdk/platforms/android-31/data/res/drawable/text_select_handle_right_material.xml" value="0.1585" />

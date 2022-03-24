@@ -9,9 +9,8 @@ import com.nirvana.blog.adapter.tag.IndexTagsButtonChangeHelper
 import com.nirvana.blog.adapter.tag.IndexTagsRecyclerViewAdapter
 import com.nirvana.blog.base.BaseFragment
 import com.nirvana.blog.databinding.FragmentIndexBinding
-import com.nirvana.blog.entity.Tag
+import com.nirvana.blog.entity.ui.tag.Tag
 import com.nirvana.blog.fragment.article.ArticleInfoFragment
-import com.nirvana.blog.utils.StatusBarUtils.setBaseStatusBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

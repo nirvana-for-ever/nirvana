@@ -6,9 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.gyf.immersionbar.ktx.immersionBar
-import com.nirvana.blog.R
-import com.nirvana.blog.utils.StatusBarUtils
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 

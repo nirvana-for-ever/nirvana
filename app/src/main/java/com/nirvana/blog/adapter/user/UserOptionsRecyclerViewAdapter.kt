@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import com.nirvana.blog.adapter.BaseViewBindingAdapter
 import com.nirvana.blog.adapter.BaseViewBindingViewHolder
 import com.nirvana.blog.databinding.UserOptionsViewItemBinding
-import com.nirvana.blog.entity.UserOption
+import com.nirvana.blog.entity.ui.user.UserOption
 
 /**
  * 我的页面中，用户下方选项菜单 rv 适配器
@@ -29,5 +29,8 @@ class UserOptionsRecyclerViewAdapter(list: MutableList<UserOption>) :
     ) {
         if (item.subtitle.isBlank()) holder.binding.userOptionsSubtitle.visibility = View.GONE
         holder.binding.option = item
+        if (item.onClick != null) {
+            holder.binding.root.setOnClickListener(item.onClick)
+        }
     }
 }

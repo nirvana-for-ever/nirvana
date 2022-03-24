@@ -3,7 +3,7 @@ package com.nirvana.blog.repository
 import androidx.paging.*
 import com.nirvana.blog.api.article.ArticleServiceApi
 import com.nirvana.blog.db.article.ArticleDataBase
-import com.nirvana.blog.entity.ArticleInfo
+import com.nirvana.blog.entity.ui.article.ArticleInfo
 import com.nirvana.blog.mapper.article.ArticleInfoMapper
 import com.nirvana.blog.paging.ArticleInfoRemoteMediator
 import com.nirvana.blog.utils.Constants
@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
+
 @OptIn(ExperimentalPagingApi::class)
 class ArticleRepository(
     private val api: ArticleServiceApi,

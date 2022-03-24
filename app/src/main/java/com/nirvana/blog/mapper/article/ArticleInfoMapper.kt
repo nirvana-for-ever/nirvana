@@ -1,6 +1,6 @@
 package com.nirvana.blog.mapper.article
 
-import com.nirvana.blog.entity.ArticleInfo
+import com.nirvana.blog.entity.ui.article.ArticleInfo
 import com.nirvana.blog.entity.db.ArticleInfoEntity
 import com.nirvana.blog.mapper.BaseMapper
 
