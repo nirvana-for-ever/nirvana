@@ -2,6 +2,7 @@ package com.nirvana.blog.base
 
 import com.nirvana.blog.BuildConfig
 import com.nirvana.blog.entity.network.RespResult
+import com.nirvana.blog.utils.Constants
 
 abstract class BaseRepository {
 
@@ -12,7 +13,7 @@ abstract class BaseRepository {
             if (BuildConfig.DEBUG) {
                 t.printStackTrace()
             }
-            RespResult(false, -1, "服务器发烧了，请稍后再试")
+            RespResult(false, -1, Constants.SERVER_ERROR_MSG)
         }
     }
 

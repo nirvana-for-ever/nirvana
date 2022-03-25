@@ -32,4 +32,10 @@ interface AccountServiceApi {
      * TODO 获取复杂的用户信息
      */
 
+    /**
+     * 发送手机验证码
+     */
+    @POST("sys/phoneCode")
+    suspend fun sendPhoneCode(@Body phone: String) : RespResult<SimpleUserInfo>
+
 }

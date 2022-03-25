@@ -10,6 +10,7 @@ import com.nirvana.blog.databinding.ActivitySettingBinding
 import com.nirvana.blog.entity.ui.user.SettingOption
 import com.nirvana.blog.entity.ui.user.SubSettingOption
 import com.nirvana.blog.utils.StatusBarUtils.setBaseStatusBar
+import com.nirvana.blog.utils.toastShort
 import com.nirvana.blog.viewmodel.user.AccountViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -85,11 +86,12 @@ class SettingActivity : BaseActivity<ActivitySettingBinding>() {
          * 登出完成监听
          */
         viewModel.logoutFinished.observe(this) {
-            if (it) {
+            if (it.success) {
                 setResult(0, Intent().apply { putExtra("isLogout", true) })
                 finish()
             } else {
                 binding.meSettingsShadow.visibility = View.GONE
+                toastShort(it.msg)
             }
         }
     }

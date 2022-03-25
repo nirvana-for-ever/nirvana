@@ -13,4 +13,6 @@ class AccountRepository(
     suspend fun info(type: Int) = safeReq { api.info(type) }
 
     suspend fun logout() = safeReq { api.logout() }
+
+    suspend fun sendPhoneCode(phone: String) = safeReq { api.sendPhoneCode(phone) }
 }

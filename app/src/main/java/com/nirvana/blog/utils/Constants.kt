@@ -59,4 +59,9 @@ object Constants {
      * 手机号正则
      */
     const val PHONE_REGEX = "^1[3456789]\\d{9}$"
+
+    /**
+     * 服务器错误提醒
+     */
+    const val SERVER_ERROR_MSG = "服务器发烧了，请稍后再试"
 }

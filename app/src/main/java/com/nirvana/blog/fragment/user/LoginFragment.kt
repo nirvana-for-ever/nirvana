@@ -24,6 +24,7 @@ import android.widget.LinearLayout
 import android.widget.PopupWindow
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.nirvana.blog.R
 import com.nirvana.blog.base.BaseFragment
@@ -36,12 +37,17 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 
 
 @SuppressLint("InflateParams")
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
+
+    private var getCodeAvailable = false
 
     /**
      * 登录方式，默认是手机验证码登录
@@ -151,6 +157,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun initObserver() {
         // 回退按钮的回退事件
         binding.userLoginBack.setOnClickListener {
@@ -170,7 +177,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                     if (binding.userLoginAccountCancel.visibility == View.GONE && s?.isNotEmpty() == true) {
                         binding.userLoginAccountCancel.visibility = View.VISIBLE
                         // 设置获取验证码的文字变色
-                        binding.userLoginGetCode.setTextColor(ContextCompat.getColor(requireContext(), R.color.primary))
+                        setGetCodeAvailable(true)
                         // 判断是否需要解放登录按钮可使用
                         checkLoginBtnAvailable(binding.userLoginAccountCancel.visibility, binding.userLoginCodeCancel.visibility)
                     }
@@ -179,7 +186,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                     if (binding.userLoginAccountCancel.visibility == View.VISIBLE && s?.toString()?.isEmpty() == true) {
                         binding.userLoginAccountCancel.visibility = View.GONE
                         // 设置获取验证码的文字变色
-                        binding.userLoginGetCode.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_text_color))
+                        setGetCodeAvailable(false)
                         // 判断是否需要解放登录按钮可使用
                         checkLoginBtnAvailable(binding.userLoginAccountCancel.visibility, binding.userLoginCodeCancel.visibility)
                     }
@@ -242,8 +249,9 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
         // 获取验证码
         binding.userLoginGetCode.setOnClickListener {
-            if (checkVerify()) {
-                println("发送验证码")
+            if (getCodeAvailable && checkVerify()) {
+                binding.userLoginShadow.visibility = View.VISIBLE
+                viewModel.sendPhoneCode(binding.userLoginAccount.text.toString())
             }
         }
 
@@ -287,6 +295,29 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         }
         binding.userLoginWb.setOnClickListener {
             otherLoginAlertDialog.show()
+        }
+
+        // 监听验证码发送情况
+        viewModel.sendPhoneCodeRespResult.observe(this) {
+            toastShort(it.msg)
+            binding.userLoginShadow.visibility = View.GONE
+            if (it.success) {
+                // 获取验证码按钮不可点
+                setGetCodeAvailable(false)
+                // 准备倒计时
+                val countDown = generateCodeCountDown()
+                lifecycleScope.launch {
+                    countDown.collectLatest { second ->
+                        if (second < 0) {
+                            // 倒计时结束
+                            setGetCodeAvailable(true)
+                            binding.userLoginGetCode.text = resources.getString(R.string.me_user_login_get_code_string)
+                        } else {
+                            binding.userLoginGetCode.text = "${second}s"
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -334,6 +365,18 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         // 收起软键盘
         val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(binding.root.windowToken, 0)
+    }
+
+    /**
+     * 设置获取验证码是否可用
+     */
+    private fun setGetCodeAvailable(flag: Boolean) {
+        getCodeAvailable = flag
+        if (flag) {
+            binding.userLoginGetCode.setTextColor(ContextCompat.getColor(requireContext(), R.color.primary))
+        } else {
+            binding.userLoginGetCode.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray_text_color))
+        }
     }
 
     /**
@@ -518,6 +561,19 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             false
         } else {
             true
+        }
+    }
+
+    /**
+     * 创建验证码倒计时
+     */
+    private fun generateCodeCountDown(): Flow<Int> {
+        return flow {
+            for (i in 60 downTo 0) {
+                emit(i)
+                delay(1000)
+            }
+            emit(-1)
         }
     }
 

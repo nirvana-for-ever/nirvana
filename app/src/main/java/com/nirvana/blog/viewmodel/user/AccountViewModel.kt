@@ -21,7 +21,11 @@ class AccountViewModel @Inject constructor(
 ): ViewModel() {
 
     val loginRespResult by lazy {
-        MutableLiveData<UiResult<Any>>()
+        MutableLiveData<UiResult<String>>()
+    }
+
+    val sendPhoneCodeRespResult by lazy {
+        MutableLiveData<UiResult<String>>()
     }
 
     val simpleUserInfo by lazy {
@@ -32,7 +36,7 @@ class AccountViewModel @Inject constructor(
      * 登出完成后，告知 UI 已经完成登出，可以退出界面
      */
     val logoutFinished by lazy {
-        MutableLiveData<Boolean>()
+        MutableLiveData<UiResult<String>>()
     }
 
     /**
@@ -86,10 +90,29 @@ class AccountViewModel @Inject constructor(
      */
     fun logout() {
         viewModelScope.launch(Dispatchers.IO) {
-            if (repository.logout().success) {
-                logoutFinished.postValue(true)
+            val resp = repository.logout()
+            if (resp.success) {
+                logoutFinished.postValue(UiResult(true))
             } else {
-                logoutFinished.postValue(false)
+                logoutFinished.postValue(UiResult(false, resp.message))
+            }
+        }
+    }
+
+    /**
+     * 发送手机验证码
+     */
+    fun sendPhoneCode(phone: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            if (phone.matches(Regex(Constants.PHONE_REGEX))) {
+                val resp = repository.sendPhoneCode(phone)
+                if (resp.success) {
+                    sendPhoneCodeRespResult.postValue(UiResult(true, "发送验证码成功"))
+                } else {
+                    sendPhoneCodeRespResult.postValue(UiResult(false, resp.message))
+                }
+            } else {
+                sendPhoneCodeRespResult.postValue(UiResult(false, "手机格式错误，请重试"))
             }
         }
     }
