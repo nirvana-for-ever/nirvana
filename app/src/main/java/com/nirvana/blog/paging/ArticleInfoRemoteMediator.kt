@@ -8,8 +8,8 @@ import androidx.room.withTransaction
 import com.nirvana.blog.BuildConfig
 import com.nirvana.blog.api.article.ArticleServiceApi
 import com.nirvana.blog.db.article.ArticleDataBase
-import com.nirvana.blog.entity.db.ArticleInfoEntity
-import com.nirvana.blog.entity.db.ArticleInfoRemoteKey
+import com.nirvana.blog.entity.db.article.ArticleInfoEntity
+import com.nirvana.blog.entity.db.article.ArticleInfoRemoteKey
 import com.nirvana.blog.exception.NetworkRespFailException
 import com.nirvana.blog.mapper.article.ArticleInfoMapper
 import com.nirvana.blog.utils.Constants

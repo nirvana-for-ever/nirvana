@@ -40,4 +40,11 @@
     <string name="me_user_look_money_string">查看</string>
     <string name="me_setting_string">设置</string>
     <string name="me_settings_logout_string">退出当前账号</string>
+    <string name="index_tag_setting_title">标签管理</string>
+    <string name="index_tag_setting_chosen_title">已经添加标签</string>
+    <string name="index_tag_setting_chosen_tip">长按拖拽排序</string>
+    <string name="index_tag_setting_edit_btn_string">编辑</string>
+    <string name="index_tag_setting_finish_btn_string">完成</string>
+    <string name="index_tag_setting_unchosen_title">标签推荐</string>
+    <string name="index_tag_setting_unchosen_tip">点击添加标签</string>
 </resources>

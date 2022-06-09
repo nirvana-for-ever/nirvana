@@ -88,6 +88,8 @@ dependencies {
     def immersionbar_version = "3.2.0"
     // navigation 组件
     def nav_version = "2.3.5"
+    // RecyclerView 实现 item 自动换列排布
+    def flexbox_version = "3.0.0"
 
     // 万能adapter
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$base_adapter_version"
@@ -138,4 +140,7 @@ dependencies {
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
     // Testing Navigation
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+
+    // RecyclerView 实现 item 自动换列排布
+    implementation "com.google.android.flexbox:flexbox:$flexbox_version"
 }

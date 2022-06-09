@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="tag"
+            type="com.nirvana.blog.entity.ui.tag.Tag" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <Button
+            android:id="@+id/index_tag_setting_item_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:text="@{tag.tagName}"
+            android:textColor="@{tag.tagId.startsWith(`-`) ? @color/gray_text_color : @color/black_text_color}"
+            android:textSize="13sp"
+            android:textAllCaps="false"
+            style="?android:attr/borderlessButtonStyle"
+            android:background="@drawable/index_tag_setting_item_btn" />
+
+        <ImageView
+            android:id="@+id/index_tag_setting_item_remove_img"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_alignEnd="@id/index_tag_setting_item_btn"
+            android:src="@drawable/ic_index_tag_setting_edit_remove"
+            android:visibility="gone" />
+    </RelativeLayout>
+</layout>

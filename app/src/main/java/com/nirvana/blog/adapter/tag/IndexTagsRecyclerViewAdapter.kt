@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.DiffUtil
 import com.nirvana.blog.R
 import com.nirvana.blog.adapter.BaseViewBindingAdapter
 import com.nirvana.blog.adapter.BaseViewBindingViewHolder
@@ -65,16 +64,6 @@ class IndexTagsRecyclerViewAdapter(
 
 }
 
-class IndexTagsDiffCallback : DiffUtil.ItemCallback<Tag>() {
-    override fun areItemsTheSame(oldItem: Tag, newItem: Tag): Boolean {
-        return oldItem.tagId == newItem.tagId
-    }
-    // Tag 一样就肯定是同一个 Tag
-    override fun areContentsTheSame(oldItem: Tag, newItem: Tag): Boolean {
-        return true
-    }
-}
-
 /**
  * 博客首页上方标签切换助手
  */
@@ -95,6 +84,15 @@ class IndexTagsButtonChangeHelper(
         curBtn?.let { setBtnUnselected(it) }
         setBtnSelected(newBtn)
         onTagsBtnChange(tagId)
+        curTagId = tagId
+    }
+
+    /**
+     * 滑动vp改变当前标签按钮的方法，不用再进行回调
+     */
+    fun changeCurBtnOutside(newBtn: Button, tagId: String) {
+        curBtn?.let { setBtnUnselected(it) }
+        setBtnSelected(newBtn)
         curTagId = tagId
     }
 

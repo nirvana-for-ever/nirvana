@@ -1,4 +1,4 @@
-package com.nirvana.blog.entity.db
+package com.nirvana.blog.entity.db.article
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

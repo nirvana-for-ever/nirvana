@@ -24,6 +24,7 @@ import android.widget.LinearLayout
 import android.widget.PopupWindow
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.nirvana.blog.R
@@ -108,7 +109,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             }
     }
 
-    private val viewModel: AccountViewModel by viewModels()
+    private val viewModel: AccountViewModel by lazy { ViewModelProvider(rootActivity!!)[AccountViewModel::class.java] }
 
     /**
      * 提示用户必须打勾的 PopupWindow

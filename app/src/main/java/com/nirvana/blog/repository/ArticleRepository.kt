@@ -2,6 +2,7 @@ package com.nirvana.blog.repository
 
 import androidx.paging.*
 import com.nirvana.blog.api.article.ArticleServiceApi
+import com.nirvana.blog.base.BaseRepository
 import com.nirvana.blog.db.article.ArticleDataBase
 import com.nirvana.blog.entity.ui.article.ArticleInfo
 import com.nirvana.blog.mapper.article.ArticleInfoMapper
@@ -16,7 +17,7 @@ import kotlinx.coroutines.flow.map
 class ArticleRepository(
     private val api: ArticleServiceApi,
     private val database: ArticleDataBase
-) {
+) : BaseRepository() {
 
     private val pagerMap: MutableMap<String, Flow<PagingData<ArticleInfo>>> = mutableMapOf()
 

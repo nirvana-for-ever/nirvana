@@ -33,7 +33,7 @@ object Constants {
      */
     const val LOGIN_UNFINISHED = 500
 
-    fun loginSuccess(code: Int) = when(code) {
+    fun isLoginSuccess(code: Int) = when(code) {
         LOGIN_SUCCESS -> true
         else -> false
     }
@@ -47,6 +47,16 @@ object Constants {
      * 用户信息获取类型-获取详细信息
      */
     const val GET_USER_INFO_DETAIL = -2
+
+    /************************************标签信息****************************************/
+    /**
+     * 标签喜好是否变动：变动了
+     */
+    const val INDEX_TAG_SETTING_CHANGED = 1
+    /**
+     * 标签喜好是否变动：没变动
+     */
+    const val INDEX_TAG_SETTING_UNCHANGED = 2
 
 
     /************************************通用常量****************************************/

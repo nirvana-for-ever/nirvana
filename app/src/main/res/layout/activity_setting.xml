@@ -84,6 +84,7 @@
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+    <!-- 登出的加载条 -->
     <com.nirvana.blog.viewgroup.AvoidDragLayout
         android:id="@+id/me_settings_shadow"
         android:layout_width="match_parent"

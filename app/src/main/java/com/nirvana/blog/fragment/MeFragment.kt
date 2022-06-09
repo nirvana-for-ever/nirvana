@@ -29,6 +29,7 @@ import com.nirvana.blog.databinding.FragmentMeBinding
 import com.nirvana.blog.entity.ui.user.UserOption
 import com.nirvana.blog.utils.Constants
 import com.nirvana.blog.utils.StatusBarUtils.setBaseStatusBar
+import com.nirvana.blog.utils.rootActivity
 import com.nirvana.blog.viewmodel.user.AccountViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -87,7 +88,7 @@ class MeFragment : BaseFragment<FragmentMeBinding>() {
             }
 
             override fun parseResult(resultCode: Int, intent: Intent?): Boolean {
-                return Constants.loginSuccess(resultCode)
+                return Constants.isLoginSuccess(resultCode)
             }
         }) {
             if (it) {
@@ -113,22 +114,12 @@ class MeFragment : BaseFragment<FragmentMeBinding>() {
             }
         }
 
-    private val viewModel: AccountViewModel by viewModels()
-
-    /**
-     * 是否有账号登录
-     */
-    private var isLogin = false
+    private val viewModel: AccountViewModel by viewModels(ownerProducer = { rootActivity!! })
 
     override fun bind(inflater: LayoutInflater, container: ViewGroup?): FragmentMeBinding =
         FragmentMeBinding.inflate(inflater, container, false)
 
     override fun initView() {
-        /*
-         * 发送请求获取用户登录信息
-         */
-        viewModel.info(Constants.GET_USER_INFO_SIMPLE)
-
         // 计算出横幅高度，当滑动距离超过横幅后，正好让标题栏TitleBar的透明度变为1
         bannerHeight = binding.meBanner.layoutParams.height -
                 binding.meToolbar.height -
@@ -196,12 +187,10 @@ class MeFragment : BaseFragment<FragmentMeBinding>() {
          */
         viewModel.simpleUserInfo.observe(this) {
             if (it != null) {
-                isLogin = true
                 binding.info = it
                 binding.meUserCard.visibility = View.VISIBLE
                 binding.meLoginClickable.visibility = View.GONE
             } else {
-                isLogin = false
                 binding.info = null
                 binding.meUserCard.visibility = View.GONE
                 binding.meLoginClickable.visibility = View.VISIBLE
@@ -229,9 +218,7 @@ class MeFragment : BaseFragment<FragmentMeBinding>() {
      */
     private fun toSetting() {
         settingLauncher.launch(
-            Intent(requireContext(), SettingActivity::class.java).apply {
-                putExtra("isLogin", isLogin)
-            }
+            Intent(requireContext(), SettingActivity::class.java)
         )
     }
 

@@ -10,6 +10,7 @@ import com.nirvana.blog.entity.ui.user.SimpleUserInfo
 import com.nirvana.blog.fragment.user.LoginFragment
 import com.nirvana.blog.repository.AccountRepository
 import com.nirvana.blog.utils.Constants
+import com.nirvana.blog.utils.isLogin
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -44,11 +45,12 @@ class AccountViewModel @Inject constructor(
      */
     fun login(account: String, password: String, loginType: LoginFragment.LoginType) {
         viewModelScope.launch(Dispatchers.IO) {
+            var resp: RespResult<Any>? = null
             when (loginType) {
                 LoginFragment.LoginType.CODE -> {
                     // account 必须是手机号
                     if (account.matches(Regex(Constants.PHONE_REGEX))) {
-                        val resp = repository.login(LoginUserVo(account, password, Constants.CODE_LOGIN))
+                        resp = repository.login(LoginUserVo(account, password, Constants.CODE_LOGIN))
                         loginRespResult.postValue(UiResult(resp.success, resp.message))
                     } else {
                         loginRespResult.postValue(UiResult(false, "手机格式错误，请重试"))
@@ -58,13 +60,15 @@ class AccountViewModel @Inject constructor(
                     // account 可以是手机号和邮箱
                     if (account.matches(Regex(Constants.PHONE_REGEX)) ||
                         account.matches(Regex(Constants.EMAIL_REGEX))) {
-                        val resp = repository.login(LoginUserVo(account, password, Constants.PASSWORD_LOGIN))
+                        resp = repository.login(LoginUserVo(account, password, Constants.PASSWORD_LOGIN))
                         loginRespResult.postValue(UiResult(resp.success, resp.message))
                     } else {
                         loginRespResult.postValue(UiResult(false, "手机/邮箱格式错误，请重试"))
                     }
                 }
             }
+            // 修改是否登录状态
+            isLogin = resp?.success == true
         }
     }
 
@@ -75,11 +79,13 @@ class AccountViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val resp: RespResult<SimpleUserInfo> = repository.info(type)
             if (resp.success) {
+                isLogin = true
                 when (type) {
                     Constants.GET_USER_INFO_SIMPLE -> simpleUserInfo.postValue(resp.data)
                     Constants.GET_USER_INFO_DETAIL -> simpleUserInfo.postValue(resp.data)
                 }
             } else {
+                isLogin = false
                 simpleUserInfo.postValue(null)
             }
         }
@@ -92,8 +98,10 @@ class AccountViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val resp = repository.logout()
             if (resp.success) {
+                isLogin = false
                 logoutFinished.postValue(UiResult(true))
             } else {
+                isLogin = true
                 logoutFinished.postValue(UiResult(false, resp.message))
             }
         }

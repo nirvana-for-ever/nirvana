@@ -7,6 +7,7 @@ import android.util.Log
 import com.nirvana.blog.BuildConfig
 import com.nirvana.blog.api.user.AccountServiceApi
 import com.nirvana.blog.api.article.ArticleServiceApi
+import com.nirvana.blog.api.tag.TagServiceApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -63,7 +64,7 @@ object NetworkModule {
                 }
                 override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
                     println("接收到响应，遍历让我们保存的cookie----------------------")
-                    sharedPreferences.edit().apply {
+                    sharedPreferences.edit().apply{
                         for (cookie in cookies) {
                             println("响应cookie:$cookie")
                             putString(cookie.name, cookie.toString())
@@ -91,5 +92,9 @@ object NetworkModule {
     @Provides
     @Singleton
     fun accountServiceApi(retrofit: Retrofit): AccountServiceApi = retrofit.create(AccountServiceApi::class.java)
+
+    @Provides
+    @Singleton
+    fun tagServiceApi(retrofit: Retrofit): TagServiceApi = retrofit.create(TagServiceApi::class.java)
 
 }

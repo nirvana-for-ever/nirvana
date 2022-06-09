@@ -3,6 +3,7 @@ package com.nirvana.blog.activity.user
 import android.content.Intent
 import android.view.View
 import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nirvana.blog.adapter.user.SettingOptionsRecyclerViewAdapter
 import com.nirvana.blog.base.BaseActivity
@@ -10,6 +11,8 @@ import com.nirvana.blog.databinding.ActivitySettingBinding
 import com.nirvana.blog.entity.ui.user.SettingOption
 import com.nirvana.blog.entity.ui.user.SubSettingOption
 import com.nirvana.blog.utils.StatusBarUtils.setBaseStatusBar
+import com.nirvana.blog.utils.isLogin
+import com.nirvana.blog.utils.rootActivity
 import com.nirvana.blog.utils.toastShort
 import com.nirvana.blog.viewmodel.user.AccountViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,19 +47,17 @@ class SettingActivity : BaseActivity<ActivitySettingBinding>() {
         )),
     )
 
-    private val viewModel: AccountViewModel by viewModels()
+    private val viewModel: AccountViewModel by lazy { ViewModelProvider(rootActivity!!)[AccountViewModel::class.java] }
 
     override fun bind() = ActivitySettingBinding.inflate(layoutInflater)
 
     override fun initStatusBar() {
-        setBaseStatusBar()
-    }
-
-    override fun initView() {
         setBaseStatusBar {
             titleBar(binding.meSettingToolbar)
         }
+    }
 
+    override fun initView() {
         binding.meSettingOptionsRv.apply {
             adapter = SettingOptionsRecyclerViewAdapter(options)
             layoutManager = LinearLayoutManager(context)
@@ -72,7 +73,7 @@ class SettingActivity : BaseActivity<ActivitySettingBinding>() {
          * 登出账号
          */
         binding.meSettingsLogout.apply {
-            if (intent.getBooleanExtra("isLogin", false)) {
+            if (isLogin) {
                 setOnClickListener {
                     viewModel.logout()
                     binding.meSettingsShadow.visibility = View.VISIBLE
