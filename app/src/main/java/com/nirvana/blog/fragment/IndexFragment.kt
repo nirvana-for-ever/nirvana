@@ -213,11 +213,18 @@ class IndexFragment : BaseFragment<FragmentIndexBinding>() {
     inner class IndexTagOnScrollListener : RecyclerView.OnScrollListener() {
         var position: Int? = null
         var active = false
+
+        /**
+         * 有三种 state 状态
+         * SCROLL_STATE_IDLE 是静止
+         * SCROLL_STATE_DRAGGING 是正在拖动
+         * SCROLL_STATE_SETTLING 是惯性滑动（动画）
+         */
         override fun onScrollStateChanged(
             recyclerView: RecyclerView,
             newState: Int
         ) {
-            if (newState == RecyclerView.SCROLL_STATE_SETTLING && active) {
+            if (active && newState == RecyclerView.SCROLL_STATE_IDLE) {
                 val vh =
                     binding.indexTagsRv.findViewHolderForAdapterPosition(position!!) as BaseViewBindingViewHolder<IndexTagsButtonBinding>
                 tagsHelper!!.changeCurBtnOutside(
