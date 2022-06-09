@@ -9,6 +9,7 @@ import com.nirvana.blog.utils.isLogin
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,7 +17,7 @@ class TagViewModel @Inject constructor(
     private val repository: TagRepository
 ) : ViewModel() {
 
-    var userTags = MutableLiveData<MutableList<Tag>>()
+    val userTags = MutableLiveData<MutableList<Tag>>()
 
     val allTags = MutableLiveData<MutableList<Tag>>()
 
@@ -56,7 +57,7 @@ class TagViewModel @Inject constructor(
     /**
      * 保存标签的变化
      */
-    fun saveTagChanging(tags: MutableList<Tag>) {
+    fun saveTagChanging(tags: MutableList<Tag>, callback: () -> Unit) {
         viewModelScope.launch(Dispatchers.IO) {
             if (isLogin) {
                 // 有登录，就提交请求修改，转换成 tagId 的字符串再发送请求
@@ -64,6 +65,9 @@ class TagViewModel @Inject constructor(
             } else {
                 // 没登录，就修改数据库
                 repository.saveTags2DB(tags)
+            }
+            withContext(Dispatchers.Main) {
+                callback()
             }
         }
     }

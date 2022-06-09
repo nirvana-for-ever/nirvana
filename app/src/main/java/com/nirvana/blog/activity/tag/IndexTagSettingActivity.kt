@@ -1,5 +1,6 @@
 package com.nirvana.blog.activity.tag
 
+import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -105,14 +106,12 @@ class IndexTagSettingActivity : BaseActivity<ActivityIndexTagSettingBinding>() {
         binding.back.setOnClickListener {
             // 保存标签的改动
             saveTagChanging()
-            finish()
         }
     }
 
     override fun onBackPressed() {
         // 保存标签的改动
         saveTagChanging()
-        super.onBackPressed()
     }
 
     /**
@@ -123,18 +122,23 @@ class IndexTagSettingActivity : BaseActivity<ActivityIndexTagSettingBinding>() {
         val preTags = viewModel.userTags.value!!
         if (chosenTags.size - 2 != preTags.size) {
             // 个数发生变化，肯定有变动，直接保存改动
-            viewModel.saveTagChanging(chosenTags.subList(2, chosenTags.size))
+            viewModel.saveTagChanging(chosenTags.subList(2, chosenTags.size)) {
+                super.onBackPressed()
+            }
             return setResult(Constants.INDEX_TAG_SETTING_CHANGED)
         } else {
             for (i in 2 until chosenTags.size) {
                 if (chosenTags[i].tagId != preTags[i - 2].tagId) {
                     // 有一个不一样，说明标签变化了或者顺序调整了，保存改动
-                    viewModel.saveTagChanging(chosenTags.subList(2, chosenTags.size))
+                    viewModel.saveTagChanging(chosenTags.subList(2, chosenTags.size)) {
+                        super.onBackPressed()
+                    }
                     return setResult(Constants.INDEX_TAG_SETTING_CHANGED)
                 }
             }
         }
         setResult(Constants.INDEX_TAG_SETTING_UNCHANGED)
+        super.onBackPressed()
     }
 
     inner class IndexTagSettingChosenItemTouchHelperCallback : ItemTouchHelper.Callback() {
@@ -162,13 +166,15 @@ class IndexTagSettingActivity : BaseActivity<ActivityIndexTagSettingBinding>() {
             viewHolder: RecyclerView.ViewHolder,
             target: RecyclerView.ViewHolder
         ): Boolean {
-            val targetTag = (target as BaseViewBindingViewHolder<IndexTagSettingItemBinding>).binding.tag!!
+            val targetTag =
+                (target as BaseViewBindingViewHolder<IndexTagSettingItemBinding>).binding.tag!!
             return if (!targetTag.tagId.startsWith("-")) {
                 // 得到当拖拽的viewHolder的Position
                 val fromPosition = viewHolder.bindingAdapterPosition
                 // 拿到当前拖拽到的item的viewHolder
                 val toPosition = target.bindingAdapterPosition
-                val curTag = (viewHolder as BaseViewBindingViewHolder<IndexTagSettingItemBinding>).binding.tag!!
+                val curTag =
+                    (viewHolder as BaseViewBindingViewHolder<IndexTagSettingItemBinding>).binding.tag!!
                 chosenTagsAdapter.tags.remove(curTag)
                 chosenTagsAdapter.tags.add(chosenTagsAdapter.tags.indexOf(targetTag), curTag)
                 chosenTagsAdapter.notifyItemMoved(fromPosition, toPosition)

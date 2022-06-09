@@ -59,9 +59,6 @@ class IndexFragment : BaseFragment<FragmentIndexBinding>() {
 
     private var isLoginCache = isLogin
 
-    // 刷新的时候有一些东西不需要重复添加
-    private var hasInit = false
-
     private val indexTagSettingLauncher =
         registerForActivityResult(object : ActivityResultContract<Intent, Boolean>() {
             override fun createIntent(context: Context, input: Intent) = input
@@ -124,28 +121,26 @@ class IndexFragment : BaseFragment<FragmentIndexBinding>() {
                     LinearLayoutManager.HORIZONTAL,
                     false
                 )
-                if (!hasInit) {
-                    // 让最后一个标签按钮与右侧的设置标签按钮不要重合
-                    // 注意：刷新时不要重复添加
-                    addItemDecoration(object : RecyclerView.ItemDecoration() {
-                        override fun getItemOffsets(
-                            outRect: Rect,
-                            view: View,
-                            parent: RecyclerView,
-                            state: RecyclerView.State
-                        ) {
-                            super.getItemOffsets(outRect, view, parent, state)
-                            if (parent.getChildAdapterPosition(view) == tagFragments!!.size - 1) {
-                                outRect.right = DensityUtils.dip2px(parent.context, 40f)
-                            }
+                // 让最后一个标签按钮与右侧的设置标签按钮不要重合
+                // 注意：刷新时不要重复添加
+                addItemDecoration(object : RecyclerView.ItemDecoration() {
+                    override fun getItemOffsets(
+                        outRect: Rect,
+                        view: View,
+                        parent: RecyclerView,
+                        state: RecyclerView.State
+                    ) {
+                        super.getItemOffsets(outRect, view, parent, state)
+                        if (parent.getChildAdapterPosition(view) == tagFragments!!.size - 1) {
+                            outRect.right = DensityUtils.dip2px(parent.context, 40f)
                         }
-                    })
-                    /*
-                     * 添加滑动事件的监听，来改变由于文章详情的 vp 变化让标签也变化
-                     * 注意：刷新时不要重复添加
-                     */
-                    addOnScrollListener(tagsRvScrollListener!!)
-                }
+                    }
+                })
+                /*
+                 * 添加滑动事件的监听，来改变由于文章详情的 vp 变化让标签也变化
+                 * 注意：刷新时不要重复添加
+                 */
+                addOnScrollListener(tagsRvScrollListener!!)
             }
             // 设置文章信息的 vp
             binding.indexArticleVp.apply {
@@ -161,41 +156,37 @@ class IndexFragment : BaseFragment<FragmentIndexBinding>() {
                  * 预加载和缓存所有页，但是 fragment 都设置成懒加载，在onResume中再请求数据，并且只请求一次，除非刷新
                  */
                 offscreenPageLimit = tagFragments!!.size
-                if (!hasInit) {
-                    /*
-                     * 让标签按钮跟着文章详情页的滑动而变化
-                     * 需要两步，先让标签的按钮变色，再让标签的 rv 移动
-                     */
-                    registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-                        override fun onPageSelected(position: Int) {
-                            binding.indexTagsRv.apply {
-                                try {
-                                    // 改变标签按钮颜色，如果失败，就通过 catch ，在监听事件中修改（tagsRvScrollListener）
-                                    val vh =
-                                        binding.indexTagsRv.findViewHolderForAdapterPosition(position) as BaseViewBindingViewHolder<IndexTagsButtonBinding>
-                                    tagsHelper!!.changeCurBtnOutside(
-                                        vh.binding.indexTagsBtn,
-                                        tagsPosition[position]!!
-                                    )
-                                } catch (e: Exception) {
-                                    tagsRvScrollListener!!.active = true
-                                    tagsRvScrollListener!!.position = position
-                                }
-                                smoothScrollToPosition(position)
+                /*
+                 * 让标签按钮跟着文章详情页的滑动而变化
+                 * 需要两步，先让标签的按钮变色，再让标签的 rv 移动
+                 */
+                registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                    override fun onPageSelected(position: Int) {
+                        binding.indexTagsRv.apply {
+                            try {
+                                // 改变标签按钮颜色，如果失败，就通过 catch ，在监听事件中修改（tagsRvScrollListener）
+                                val vh =
+                                    binding.indexTagsRv.findViewHolderForAdapterPosition(position) as BaseViewBindingViewHolder<IndexTagsButtonBinding>
+                                tagsHelper!!.changeCurBtnOutside(
+                                    vh.binding.indexTagsBtn,
+                                    tagsPosition[position]!!
+                                )
+                            } catch (e: Exception) {
+                                tagsRvScrollListener!!.active = true
+                                tagsRvScrollListener!!.position = position
                             }
+                            smoothScrollToPosition(position)
                         }
-                    })
-                }
+                    }
+                })
             }
         }
 
-        binding.indexTagsSetting.apply {
-            setOnClickListener {
-                indexTagSettingLauncher.launch(Intent(context, IndexTagSettingActivity::class.java))
-            }
+        binding.indexTagsSetting.setOnClickListener {
+            indexTagSettingLauncher.launch(Intent(context, IndexTagSettingActivity::class.java))
         }
 
-        hasInit = true
+
     }
 
     /**

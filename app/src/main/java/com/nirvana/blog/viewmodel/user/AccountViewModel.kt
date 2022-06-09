@@ -14,6 +14,7 @@ import com.nirvana.blog.utils.isLogin
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -31,13 +32,6 @@ class AccountViewModel @Inject constructor(
 
     val simpleUserInfo by lazy {
         MutableLiveData<SimpleUserInfo>()
-    }
-
-    /**
-     * 登出完成后，告知 UI 已经完成登出，可以退出界面
-     */
-    val logoutFinished by lazy {
-        MutableLiveData<UiResult<String>>()
     }
 
     /**
@@ -94,15 +88,19 @@ class AccountViewModel @Inject constructor(
     /**
      * 登出
      */
-    fun logout() {
+    fun logout(callback: (UiResult<String>) -> Unit) {
         viewModelScope.launch(Dispatchers.IO) {
             val resp = repository.logout()
             if (resp.success) {
                 isLogin = false
-                logoutFinished.postValue(UiResult(true))
+                withContext(Dispatchers.Main) {
+                    callback(UiResult(true))
+                }
             } else {
                 isLogin = true
-                logoutFinished.postValue(UiResult(false, resp.message))
+                withContext(Dispatchers.Main) {
+                    callback(UiResult(false, resp.message))
+                }
             }
         }
     }

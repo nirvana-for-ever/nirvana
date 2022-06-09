@@ -75,7 +75,18 @@ class SettingActivity : BaseActivity<ActivitySettingBinding>() {
         binding.meSettingsLogout.apply {
             if (isLogin) {
                 setOnClickListener {
-                    viewModel.logout()
+                    viewModel.logout {
+                        /*
+                         * 登出完成监听
+                         */
+                        if (it.success) {
+                            setResult(0, Intent().apply { putExtra("isLogout", true) })
+                            finish()
+                        } else {
+                            binding.meSettingsShadow.visibility = View.GONE
+                            toastShort(it.msg)
+                        }
+                    }
                     binding.meSettingsShadow.visibility = View.VISIBLE
                 }
             } else {
@@ -83,17 +94,5 @@ class SettingActivity : BaseActivity<ActivitySettingBinding>() {
             }
         }
 
-        /*
-         * 登出完成监听
-         */
-        viewModel.logoutFinished.observe(this) {
-            if (it.success) {
-                setResult(0, Intent().apply { putExtra("isLogout", true) })
-                finish()
-            } else {
-                binding.meSettingsShadow.visibility = View.GONE
-                toastShort(it.msg)
-            }
-        }
     }
 }
