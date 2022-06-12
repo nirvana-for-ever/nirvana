@@ -43,5 +43,7 @@ class ArticleRepository(
         }
     }
 
+    suspend fun getArticle(articleId: String) = safeReq { api.getArticle(articleId) }
+
 }
 

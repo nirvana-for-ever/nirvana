@@ -185,8 +185,6 @@ class IndexFragment : BaseFragment<FragmentIndexBinding>() {
         binding.indexTagsSetting.setOnClickListener {
             indexTagSettingLauncher.launch(Intent(context, IndexTagSettingActivity::class.java))
         }
-
-
     }
 
     /**

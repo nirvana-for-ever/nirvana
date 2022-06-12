@@ -1,6 +1,5 @@
 package com.nirvana.blog.activity.tag
 
-import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView

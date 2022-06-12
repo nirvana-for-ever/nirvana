@@ -345,7 +345,7 @@ open class VerifyDraggable(context: Context, attrs: AttributeSet) : View(context
 
     fun verifyPass() {
         iconDrawable = ContextCompat.getDrawable(context, R.drawable.ic_verify_pass)!!
-        invalidate()
+        postInvalidate()
     }
 
 }

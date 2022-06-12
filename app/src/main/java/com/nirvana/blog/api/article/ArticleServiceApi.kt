@@ -3,6 +3,7 @@ package com.nirvana.blog.api.article
 import com.nirvana.blog.entity.ui.article.ArticleInfo
 import com.nirvana.blog.entity.network.PagingResult
 import com.nirvana.blog.entity.network.RespResult
+import com.nirvana.blog.entity.ui.article.Article
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -21,5 +22,11 @@ interface ArticleServiceApi {
         @Path("page") page: Int,
         @Query("pageSize") pageSize: Int
     ): RespResult<PagingResult<ArticleInfo>>
+
+    /**
+     * 获取文章的内容
+     */
+    @GET("main/article/{articleId}")
+    suspend fun getArticle(@Path("articleId") articleId: String): RespResult<Article>
 
 }

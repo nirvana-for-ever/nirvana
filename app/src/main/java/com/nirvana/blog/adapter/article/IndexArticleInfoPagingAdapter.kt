@@ -19,7 +19,9 @@ import com.nirvana.blog.entity.ui.article.diffBundleFrom
 import com.nirvana.blog.entity.ui.article.updateBundleFrom
 import com.nirvana.blog.view.RoundCornerImageView
 
-class IndexArticleInfoPagingAdapter : PagingDataAdapter<ArticleInfo, BaseViewBindingViewHolder<ViewDataBinding>>(
+class IndexArticleInfoPagingAdapter(
+    private val toArticlePageCallback: (String) -> Unit
+) : PagingDataAdapter<ArticleInfo, BaseViewBindingViewHolder<ViewDataBinding>>(
     ArticleInfoDiffCallback()
 ) {
     companion object {
@@ -78,9 +80,27 @@ class IndexArticleInfoPagingAdapter : PagingDataAdapter<ArticleInfo, BaseViewBin
         position: Int
     ) {
         when (holder.binding) {
-            is IndexArticleInfo3imgBinding -> holder.binding.articleInfo = getItem(position)
-            is IndexArticleInfo1imgBinding -> holder.binding.articleInfo = getItem(position)
-            is IndexArticleInfo0imgBinding -> holder.binding.articleInfo = getItem(position)
+            is IndexArticleInfo3imgBinding -> {
+                holder.binding.articleInfo = getItem(position)
+                holder.binding.root.setOnClickListener {
+                    // 跳转到对应的博客详情页
+                    toArticlePageCallback(holder.binding.articleInfo!!.articleId)
+                }
+            }
+            is IndexArticleInfo1imgBinding -> {
+                holder.binding.articleInfo = getItem(position)
+                holder.binding.root.setOnClickListener {
+                    // 跳转到对应的博客详情页
+                    toArticlePageCallback(holder.binding.articleInfo!!.articleId)
+                }
+            }
+            is IndexArticleInfo0imgBinding -> {
+                holder.binding.articleInfo = getItem(position)
+                holder.binding.root.setOnClickListener {
+                    // 跳转到对应的博客详情页
+                    toArticlePageCallback(holder.binding.articleInfo!!.articleId)
+                }
+            }
         }
     }
 

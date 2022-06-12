@@ -55,4 +55,7 @@
     <!-- 设置中，退出账号加载条阴影颜色 -->
     <color name="me_settings_logout_shadow_bg">#30000000</color>
 
+    <!-- 文章顶部作者关注按钮颜色 -->
+    <color name="article_subscribe_btn">#49BE39</color>
+
 </resources>

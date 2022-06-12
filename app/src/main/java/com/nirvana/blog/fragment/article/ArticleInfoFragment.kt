@@ -1,5 +1,6 @@
 package com.nirvana.blog.fragment.article
 
+import android.content.Intent
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import androidx.viewpager2.widget.ViewPager2
 import com.nirvana.blog.R
+import com.nirvana.blog.activity.article.ArticleActivity
 import com.nirvana.blog.adapter.article.IndexArticleInfoPagingAdapter
 import com.nirvana.blog.base.BaseFragment
 import com.nirvana.blog.databinding.FragmentArticleInfoBinding
@@ -38,7 +40,11 @@ class ArticleInfoFragment : BaseFragment<FragmentArticleInfoBinding>() {
 
     private lateinit var tagId: String
 
-    private val articleInfoPagingAdapter = IndexArticleInfoPagingAdapter()
+    private val articleInfoPagingAdapter = IndexArticleInfoPagingAdapter {
+        startActivity(Intent(requireContext(), ArticleActivity::class.java).apply {
+            putExtra("articleId", it)
+        })
+    }
 
     /**
      * 创建 articleViewModel 时，需要单例，可以通过设置 ownerProducer 为它们的父fragment，也就是 IndexFragment

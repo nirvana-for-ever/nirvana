@@ -1,14 +1,14 @@
 package com.nirvana.blog.viewmodel.article
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import com.nirvana.blog.entity.ui.article.Article
 import com.nirvana.blog.entity.ui.article.ArticleInfo
 import com.nirvana.blog.repository.ArticleRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -17,6 +17,8 @@ class ArticleViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val liveDataMap: MutableMap<String, LiveData<PagingData<ArticleInfo>>> = mutableMapOf()
+
+    val article = MutableLiveData<Article>()
 
     fun articleInfoLiveData(tagId: String): LiveData<PagingData<ArticleInfo>> {
         return liveDataMap.getOrPut(tagId) {
@@ -29,6 +31,14 @@ class ArticleViewModel @Inject constructor(
         }
     }
 
+    fun getArticle(articleId: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val resp = repository.getArticle(articleId)
+            if (resp.success) {
+                article.postValue(resp.data!!)
+            }
+        }
+    }
 
 }
 
