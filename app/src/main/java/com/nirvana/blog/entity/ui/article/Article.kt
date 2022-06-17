@@ -10,6 +10,6 @@ data class Article(
     val commentCount: Long,
     val contentMd: String,
     val createTime: String,
-    val likeCount: Long,
-    val amILike: Boolean
+    var likeCount: Long,
+    var amILike: Boolean
 )

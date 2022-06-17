@@ -19,7 +19,7 @@ interface AccountServiceApi {
     /**
      * 登出
      */
-    @GET("sys/logout")
+    @POST("sys/logout")
     suspend fun logout(): RespResult<Any>
 
     /**

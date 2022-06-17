@@ -4,9 +4,7 @@ import com.nirvana.blog.entity.ui.article.ArticleInfo
 import com.nirvana.blog.entity.network.PagingResult
 import com.nirvana.blog.entity.network.RespResult
 import com.nirvana.blog.entity.ui.article.Article
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ArticleServiceApi {
 
@@ -28,5 +26,11 @@ interface ArticleServiceApi {
      */
     @GET("main/article/{articleId}")
     suspend fun getArticle(@Path("articleId") articleId: String): RespResult<Article>
+
+    /**
+     * 点赞文章
+     */
+    @PUT("main/article/like/{articleId}")
+    suspend fun likeArticle(@Path("articleId") articleId: String, @Body order: Map<String, String>): RespResult<Any>
 
 }

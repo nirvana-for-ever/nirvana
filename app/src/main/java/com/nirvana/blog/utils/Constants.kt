@@ -12,6 +12,20 @@ object Constants {
      */
     const val INITIAL_PAGE_MULTIPLIER = 3
 
+    /************************************Article****************************************/
+    /**
+     * 点赞或取消点赞发送请求的 key
+     */
+    const val ARTICLE_LIKE_ORDER_KEY = "order"
+    /**
+     * 点赞发送请求的 value
+     */
+    const val ARTICLE_LIKE_ON = "on"
+    /**
+     * 取消点赞发送请求的 value
+     */
+    const val ARTICLE_LIKE_OFF = "off"
+
     /************************************用户登录****************************************/
     /**
      * 登录方式：验证码登录

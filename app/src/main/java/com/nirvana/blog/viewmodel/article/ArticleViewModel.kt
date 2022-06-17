@@ -6,9 +6,11 @@ import androidx.paging.cachedIn
 import com.nirvana.blog.entity.ui.article.Article
 import com.nirvana.blog.entity.ui.article.ArticleInfo
 import com.nirvana.blog.repository.ArticleRepository
+import com.nirvana.blog.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -36,6 +38,25 @@ class ArticleViewModel @Inject constructor(
             val resp = repository.getArticle(articleId)
             if (resp.success) {
                 article.postValue(resp.data!!)
+            }
+        }
+    }
+
+    /**
+     * 点赞文章
+     */
+    fun likeArticle(articleId: String, amILike: Boolean, callback: (Boolean) -> Unit) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val resp = repository.likeArticle(
+                articleId,
+                mapOf(
+                    Constants.ARTICLE_LIKE_ORDER_KEY to
+                            if (amILike) Constants.ARTICLE_LIKE_OFF
+                            else Constants.ARTICLE_LIKE_ON
+                )
+            )
+            withContext(Dispatchers.Main) {
+                callback(resp.success)
             }
         }
     }

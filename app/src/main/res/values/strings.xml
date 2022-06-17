@@ -49,4 +49,6 @@
     <string name="index_tag_setting_unchosen_tip">点击添加标签</string>
     <string name="article_subscribe_btn_string">+ 关注</string>
     <string name="article_comment_btn_string">说点什么吧</string>
+    <string name="article_col_subscribe_btn_string">+关注</string>
+    <string name="article_like_unlogin_warning_string">您当前还未登录</string>
 </resources>

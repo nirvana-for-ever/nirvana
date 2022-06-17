@@ -45,5 +45,8 @@ class ArticleRepository(
 
     suspend fun getArticle(articleId: String) = safeReq { api.getArticle(articleId) }
 
+    suspend fun likeArticle(articleId: String, order: Map<String, String>) =
+        safeReq { api.likeArticle(articleId, order) }
+
 }
 
