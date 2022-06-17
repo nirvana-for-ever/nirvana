@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="article"
             type="com.nirvana.blog.entity.ui.article.Article" />
@@ -14,88 +15,103 @@
         android:layout_height="match_parent"
         tools:context=".activity.article.ArticleActivity">
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="15dp">
+            android:layout_height="match_parent">
 
-            <com.nirvana.blog.view.StatusBarPlaceHolder
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="?attr/actionBarSize" />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="15dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{article.title}"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:textColor="@color/black_text_color" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/article_avatar"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerInParent="true"
-                    app:article_auth_avatar="@{article.authAvatar}" />
+                <com.nirvana.blog.view.StatusBarPlaceHolder
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="?attr/actionBarSize" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@id/article_avatar"
-                    android:layout_centerInParent="true"
-                    android:text="@{article.authName}"
-                    android:textSize="16sp"
-                    android:textColor="@color/black_text_color" />
+                    android:text="@{article.title}"
+                    android:textColor="@color/black_text_color"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_alignParentEnd="true"
-                    android:text="@string/article_subscribe_btn_string"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:background="@color/article_subscribe_btn" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:text="@{`阅读 ` + article.readCount + ` · 点赞 ` + article.likeCount + ` · 评论 ` + article.commentCount}"
-                    android:textSize="14sp"
-                    android:textColor="@color/gray_text_color" />
+                    android:layout_marginVertical="10dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                    <ImageView
+                        android:id="@+id/article_avatar"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerInParent="true"
+                        android:layout_marginEnd="10dp"
+                        app:article_auth_avatar="@{article.authAvatar}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_toEndOf="@id/article_avatar"
+                        android:text="@{article.authName}"
+                        android:textColor="@color/black_text_color"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/article_subscribe_btn"
+                        android:text="@string/article_subscribe_btn_string"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="@{article.createTime}"
-                    android:textSize="14sp"
-                    android:textColor="@color/gray_text_color" />
+                    android:layout_marginBottom="20dp">
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="@{`阅读 ` + article.readCount + ` · 点赞 ` + article.likeCount + ` · 评论 ` + article.commentCount}"
+                        android:textColor="@color/gray_text_color"
+                        android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:content_html="@{article.contentHtml}" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@{article.createTime}"
+                        android:textColor="@color/gray_text_color"
+                        android:textSize="14sp" />
 
-        </LinearLayout>
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/article_markwon_rv"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:id="@+id/article_bottom_placeholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/me_setting_toolbar"
+            android:id="@+id/article_title_bar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/white"
@@ -111,22 +127,120 @@
 
                 <ImageView
                     android:id="@+id/me_settings_back"
-                    android:layout_alignParentStart="true"
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
                     android:padding="10dp"
                     android:src="@drawable/ic_back" />
 
                 <ImageView
                     android:id="@+id/article_more"
-                    android:layout_alignParentEnd="true"
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
                     android:padding="10dp"
                     android:src="@drawable/ic_more" />
             </RelativeLayout>
 
         </androidx.appcompat.widget.Toolbar>
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="8dp">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="18"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:background="@drawable/article_comment_btn"
+                    android:paddingHorizontal="10dp"
+                    android:text="@string/article_comment_btn_string"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/dark_gray"
+                    android:typeface="sans"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5"
+                        android:src="@drawable/ic_article_comment" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
+                        android:text="@{String.valueOf(article.commentCount)}"
+                        android:textAlignment="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5"
+                        android:src="@drawable/ic_article_like" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
+                        android:text="@{String.valueOf(article.likeCount)}"
+                        android:textAlignment="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="10dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="5"
+                        android:src="@drawable/ic_article_share" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="4"
+                        android:text="分享"
+                        android:textAlignment="center"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

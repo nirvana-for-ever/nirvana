@@ -66,30 +66,34 @@ dependencies {
     // 自定义依赖
 
     // 万能adapter
-    def base_adapter_version = "3.0.7"
+    final def base_adapter_version = "3.0.7"
     // paging3
-    def paging_version = "3.1.0"
+    final def paging_version = "3.1.0"
     // room
-    def room_version = "2.4.0"// 2.4.0之后才能适配kotlin1.6
+    final def room_version = "2.4.0"// 2.4.0之后才能适配kotlin1.6
     // hilt-view
-    def hilt_view_version = "1.0.0-alpha03"
+    final def hilt_view_version = "1.0.0-alpha03"
     // retrofit
-    def retrofit_version = "2.9.0"
+    final def retrofit_version = "2.9.0"
     // okhttp
-    def okhttp_version = "4.9.3"
+    final def okhttp_version = "4.9.3"
     // viewmodel 的协程支持，有这个依赖才有 viewModelScope 可以使用
-    def lifecycle_viewmodel_ktx_version = "2.4.0"
+    final def lifecycle_viewmodel_ktx_version = "2.4.0"
     // ViewModel 使用委托创建需要导入的依赖
-    def activity_ktx_version = "1.4.0"
-    def fragment_ktx_version = "1.4.0"
+    final def activity_ktx_version = "1.4.0"
+    final def fragment_ktx_version = "1.4.0"
     // glide
-    def glide_version = "4.13.0"
+    final def glide_version = "4.13.0"
     // 沉浸式
-    def immersionbar_version = "3.2.0"
+    final def immersionbar_version = "3.2.0"
     // navigation 组件
-    def nav_version = "2.3.5"
+    final def nav_version = "2.3.5"
     // RecyclerView 实现 item 自动换列排布
-    def flexbox_version = "3.0.0"
+    final def flexbox_version = "3.0.0"
+    // md 解析
+    final def markwon_version = "4.6.2"
+    // 代码块高亮
+    final def prism_version = "2.0.0"
 
     // 万能adapter
     implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$base_adapter_version"
@@ -143,4 +147,20 @@ dependencies {
 
     // RecyclerView 实现 item 自动换列排布
     implementation "com.google.android.flexbox:flexbox:$flexbox_version"
+
+    // md 解析
+    implementation "io.noties.markwon:core:$markwon_version"
+    implementation "io.noties.markwon:image-glide:$markwon_version"
+    implementation "io.noties.markwon:recycler:$markwon_version"
+    implementation("io.noties.markwon:syntax-highlight:$markwon_version") {
+        // 排除 prism4j 里的依赖冲突
+        exclude group: "org.jetbrains" , module:"annotations-java5"
+    }
+
+    // 代码块高亮
+    implementation("io.noties:prism4j:$prism_version") {
+        // 排除 prism4j 里的依赖冲突
+        exclude group: "org.jetbrains" , module:"annotations-java5"
+    }
+    kapt "io.noties:prism4j-bundler:$prism_version"
 }

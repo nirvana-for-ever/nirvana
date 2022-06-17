@@ -4,12 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.167" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/article_comment_btn.xml" value="0.1385" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/article_subscribe_btn.xml" value="0.141" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/check_box.xml" value="0.1585" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/divider.xml" value="0.167" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/edit_text_bg.xml" value="0.1875" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/edit_text_cursor.xml" value="0.1875" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/fading_translucent.xml" value="0.167" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/ic_article_comment.xml" value="0.1385" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/ic_article_like.xml" value="0.1385" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/ic_article_share.xml" value="0.1385" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/ic_back.xml" value="0.141" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/ic_check_box_selected.xml" value="0.1585" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/ic_check_box_unselected.xml" value="0.1585" />
@@ -45,7 +49,7 @@
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/verifying.xml" value="0.155" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout-v24/fragment_login.xml" value="0.17346014492753623" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_account.xml" value="0.17527173913043478" />
-        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_article.xml" value="0.17753623188405798" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_article.xml" value="0.144" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_general.xml" value="0.17527173913043478" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_index_tag_setting.xml" value="0.264" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_main.xml" value="0.2" />
@@ -72,6 +76,16 @@
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/index_blogs_info_1img.xml" value="0.17527173913043478" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/index_tag_setting_item.xml" value="0.19655797101449277" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/index_tags_button.xml" value="0.176" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/markwon_code.xml" value="0.17119565217391305" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/markwon_code_block.xml" value="0.129981884057971" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/markwon_code_text_view.xml" value="0.17119565217391305" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/markwon_heading_2_text_view.xml" value="0.17119565217391305" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/markwon_heading_3_text_view.xml" value="0.17119565217391305" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/markwon_heading_4_text_view.xml" value="0.17119565217391305" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/markwon_heading_5_text_view.xml" value="0.17119565217391305" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/markwon_heading_6_text_view.xml" value="0.17119565217391305" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/markwon_heading_text_view.xml" value="0.17119565217391305" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/markwon_text_view.xml" value="0.129981884057971" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/user_login_mustread_popup_window.xml" value="0.2" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/user_login_other_login_alert_dialog.xml" value="0.17346014492753623" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/user_login_problem.xml" value="0.17346014492753623" />

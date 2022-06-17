@@ -8,7 +8,7 @@ data class Article(
     val title: String,
     val readCount: Long,
     val commentCount: Long,
-    val contentHtml: String,
+    val contentMd: String,
     val createTime: String,
     val likeCount: Long,
     val amILike: Boolean

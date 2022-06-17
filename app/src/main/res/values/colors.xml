@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_gray">#F3F3F3</color>
     <color name="mid_gray">#DADADA</color>
+    <color name="dark_gray">#9E9E9E</color>
     <color name="transparent">#00000000</color>
     <color name="white_transparent">#00FFFFFF</color>
     <color name="translucent">#80FFFFFF</color>
@@ -57,5 +58,8 @@
 
     <!-- 文章顶部作者关注按钮颜色 -->
     <color name="article_subscribe_btn">#49BE39</color>
+    <!-- markdown 颜色 -->
+    <color name="article_md_background">#2D2D2D</color>
+    <color name="article_md_default">#F7F1FF</color>
 
 </resources>
