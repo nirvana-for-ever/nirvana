@@ -1,10 +1,7 @@
 package com.nirvana.blog.fragment
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.gyf.immersionbar.ktx.immersionBar
-import com.nirvana.blog.R
 import com.nirvana.blog.base.BaseFragment
 import com.nirvana.blog.databinding.FragmentMessageBinding
 
