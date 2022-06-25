@@ -116,6 +116,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textIsSelectable="true"
                         android:text="@{article.title}"
                         android:textColor="@color/black_text_color"
                         android:textSize="25sp"
