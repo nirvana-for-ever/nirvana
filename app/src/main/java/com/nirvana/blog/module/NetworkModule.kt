@@ -7,6 +7,7 @@ import android.util.Log
 import com.nirvana.blog.BuildConfig
 import com.nirvana.blog.api.user.AccountServiceApi
 import com.nirvana.blog.api.article.ArticleServiceApi
+import com.nirvana.blog.api.message.MessageServiceApi
 import com.nirvana.blog.api.tag.TagServiceApi
 import dagger.Module
 import dagger.Provides
@@ -96,5 +97,9 @@ object NetworkModule {
     @Provides
     @Singleton
     fun tagServiceApi(retrofit: Retrofit): TagServiceApi = retrofit.create(TagServiceApi::class.java)
+
+    @Provides
+    @Singleton
+    fun messageServiceApi(retrofit: Retrofit): MessageServiceApi = retrofit.create(MessageServiceApi::class.java)
 
 }

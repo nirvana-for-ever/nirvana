@@ -16,7 +16,7 @@ fun ViewPager2.setNormalSensitivity() {
         val touchSlopField: Field = RecyclerView::class.java.getDeclaredField("mTouchSlop")
         touchSlopField.isAccessible = true
         val touchSlop = touchSlopField.get(recyclerView) as Int
-        touchSlopField.set(recyclerView, touchSlop * 6) // 越大越不灵敏
+        touchSlopField.set(recyclerView, touchSlop * 3) // 越大越不灵敏
     } catch (ignore: Exception) {
     }
 }

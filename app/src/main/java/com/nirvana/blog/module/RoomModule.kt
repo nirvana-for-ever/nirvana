@@ -2,6 +2,7 @@ package com.nirvana.blog.module
 
 import android.app.Application
 import com.nirvana.blog.db.article.ArticleDataBase
+import com.nirvana.blog.db.message.MessageDataBase
 import com.nirvana.blog.db.tag.TagDataBase
 import dagger.Module
 import dagger.Provides
@@ -20,5 +21,9 @@ object RoomModule {
     @Provides
     @Singleton
     fun tagDatabase(app: Application): TagDataBase = TagDataBase.get(app)
+
+    @Provides
+    @Singleton
+    fun messageDatabase(app: Application): MessageDataBase = MessageDataBase.get(app)
 
 }

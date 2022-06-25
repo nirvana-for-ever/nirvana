@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Blog">
         <activity
+            android:name=".activity.message.InteractionActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.article.ArticleActivity"
             android:exported="false" />
         <activity

@@ -52,4 +52,12 @@
     <string name="article_col_subscribe_btn_string">+关注</string>
     <string name="article_like_unlogin_warning_string">您当前还未登录</string>
     <string name="message_title_bar_string">消息</string>
+    <string name="message_interaction_string">互动消息</string>
+    <string name="message_system_string">系统消息</string>
+    <string name="message_other_string">其他提醒</string>
+    <string name="message_nirvana_msg_string">牛信</string>
+    <string name="message_new_nirvana_msg_string">新牛信</string>
+    <string name="message_interaction_article_string">原文</string>
+    <string name="message_interaction_comment_reply_btn_string">回复</string>
+    <string name="list_end_string"><![CDATA[- o((>ω< ))o 我是有底线的 -]]></string>
 </resources>

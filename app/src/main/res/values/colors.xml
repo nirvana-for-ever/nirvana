@@ -17,6 +17,7 @@
     <color name="black_text_color">#2F2F2F</color>
     <color name="gray_text_color">#989898</color>
     <color name="text_highlight_color">#80EC6F5A</color>
+    <color name="link_text_color">#49699C</color>
 
     <color name="primary">#FFEC6F5A</color>
     <color name="primaryVariant">#FC6457</color>

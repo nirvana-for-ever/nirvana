@@ -10,7 +10,7 @@ object Constants {
     /**
      * paging 有关参数：初始化多少页
      */
-    const val INITIAL_PAGE_MULTIPLIER = 3
+    const val ARTICLE_INFO_INITIAL_PAGE_MULTIPLIER = 3
 
     /************************************Article****************************************/
     /**
@@ -71,6 +71,30 @@ object Constants {
      * 标签喜好是否变动：没变动
      */
     const val INDEX_TAG_SETTING_UNCHANGED = 2
+
+    /************************************消息****************************************/
+    /**
+     * 互动消息：评论
+     */
+    const val MESSAGE_INTERACTION_COMMENT_TYPE = 1
+    /**
+     * 互动消息：点赞
+     */
+    const val MESSAGE_INTERACTION_LIKE_TYPE = 2
+    /**
+     * 互动消息：关注
+     */
+    const val MESSAGE_INTERACTION_SUBSCRIBE_TYPE = 3
+
+    /**
+     * paging 有关参数：一页几条数据
+     */
+    const val MESSAGE_PAGE_SIZE = 10
+
+    /**
+     * paging 有关参数：初始化多少页
+     */
+    const val MESSAGE_INITIAL_PAGE_MULTIPLIER = 3
 
 
     /************************************通用常量****************************************/

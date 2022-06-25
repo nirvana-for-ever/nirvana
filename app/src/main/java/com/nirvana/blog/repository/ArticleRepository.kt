@@ -26,7 +26,7 @@ class ArticleRepository(
             Pager(
                 config = PagingConfig(
                     pageSize = Constants.ARTICLE_INFO_PAGE_SIZE,
-                    initialLoadSize = Constants.INITIAL_PAGE_MULTIPLIER * Constants.ARTICLE_INFO_PAGE_SIZE
+                    initialLoadSize = Constants.ARTICLE_INFO_INITIAL_PAGE_MULTIPLIER * Constants.ARTICLE_INFO_PAGE_SIZE
                 ),
                 // 添加 remoteMediator，作为网络查询
                 remoteMediator = ArticleInfoRemoteMediator(tagId, api, database),

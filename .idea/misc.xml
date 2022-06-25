@@ -44,6 +44,7 @@
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/index_tags_btn_checked.xml" value="0.167" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/index_tags_btn_unchecked.xml" value="0.1775" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/me_login_card.xml" value="0.165" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/message_interaction_comment_reply_btn.xml" value="0.137" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/user_login_btn.xml" value="0.156" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/verify_seek_bar.xml" value="0.155" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/drawable/verifying.xml" value="0.155" />
@@ -52,6 +53,7 @@
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_article.xml" value="0.176" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_general.xml" value="0.17527173913043478" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_index_tag_setting.xml" value="0.264" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_interaction.xml" value="0.20153985507246377" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_scrolling.xml" value="0.15443840579710144" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/activity_setting.xml" value="0.25" />
@@ -60,9 +62,10 @@
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_article_info.xml" value="0.17527173913043478" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_community.xml" value="0.15443840579710144" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_index.xml" value="0.2" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_interaction.xml" value="0.20153985507246377" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_login.xml" value="0.2" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_me.xml" value="0.16" />
-        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_message.xml" value="0.15443840579710144" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_message.xml" value="0.264" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_privacy_policy.xml" value="0.17527173913043478" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_subscription.xml" value="0.15443840579710144" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/fragment_user.xml" value="0.2" />
@@ -86,6 +89,8 @@
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/markwon_heading_6_text_view.xml" value="0.17119565217391305" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/markwon_heading_text_view.xml" value="0.17119565217391305" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/markwon_text_view.xml" value="0.129981884057971" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/message_interaction_comment_item.xml" value="0.2" />
+        <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/message_interaction_like_item.xml" value="0.15942028985507245" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/user_login_mustread_popup_window.xml" value="0.2" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/user_login_other_login_alert_dialog.xml" value="0.17346014492753623" />
         <entry key="..\:/BE_HAPPY/Java/AndroidStudioProjects/Blog/app/src/main/res/layout/user_login_problem.xml" value="0.17346014492753623" />

@@ -110,7 +110,7 @@ class ArticleInfoRemoteMediator(
 
                 // 获取下一页的页码，存入远程键，作为下一次查找的依据
                 val nextPage = when (loadType) {
-                    LoadType.REFRESH -> Constants.INITIAL_PAGE_MULTIPLIER + 1
+                    LoadType.REFRESH -> Constants.ARTICLE_INFO_INITIAL_PAGE_MULTIPLIER + 1
                     else -> loadPage + 1
                 }
                 // 将查到的当前页数据存入数据库

@@ -182,8 +182,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/article_markwon_rv"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:nestedScrollingEnabled="false" />
+                        android:layout_height="wrap_content" />
 
                     <View
                         android:id="@+id/article_bottom_placeholder"
@@ -254,7 +253,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="5"
-                            android:src="@drawable/ic_article_like" />
+                            android:src="@drawable/ic_like" />
 
                         <ImageView
                             android:id="@+id/article_like_fill"
@@ -262,7 +261,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="5"
-                            android:src="@drawable/ic_article_like_fill" />
+                            android:src="@drawable/ic_like_fill" />
 
                         <TextView
                             android:layout_width="match_parent"

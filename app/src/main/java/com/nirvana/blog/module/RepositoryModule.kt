@@ -2,11 +2,14 @@ package com.nirvana.blog.module
 
 import com.nirvana.blog.api.user.AccountServiceApi
 import com.nirvana.blog.api.article.ArticleServiceApi
+import com.nirvana.blog.api.message.MessageServiceApi
 import com.nirvana.blog.api.tag.TagServiceApi
 import com.nirvana.blog.db.article.ArticleDataBase
+import com.nirvana.blog.db.message.MessageDataBase
 import com.nirvana.blog.db.tag.TagDataBase
 import com.nirvana.blog.repository.AccountRepository
 import com.nirvana.blog.repository.ArticleRepository
+import com.nirvana.blog.repository.MessageRepository
 import com.nirvana.blog.repository.TagRepository
 import dagger.Module
 import dagger.Provides
@@ -32,5 +35,10 @@ object RepositoryModule {
     @Provides
     fun tagRepository(api: TagServiceApi, dataBase: TagDataBase): TagRepository =
         TagRepository(api, dataBase)
+
+    @ViewModelScoped
+    @Provides
+    fun messageRepository(api: MessageServiceApi, dataBase: MessageDataBase): MessageRepository =
+        MessageRepository(api, dataBase)
 
 }
