@@ -89,7 +89,7 @@ object Constants {
     /**
      * paging 有关参数：一页几条数据
      */
-    const val MESSAGE_PAGE_SIZE = 10
+    const val MESSAGE_PAGE_SIZE = 7
 
     /**
      * paging 有关参数：初始化多少页

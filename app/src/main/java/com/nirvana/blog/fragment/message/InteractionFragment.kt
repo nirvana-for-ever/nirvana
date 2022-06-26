@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.nirvana.blog.adapter.NoMoreFooterAdapter
 import com.nirvana.blog.adapter.message.InteractionPagingAdapter
 import com.nirvana.blog.base.BaseFragment
 import com.nirvana.blog.databinding.FragmentInteractionBinding
@@ -47,7 +48,7 @@ class InteractionFragment : BaseFragment<FragmentInteractionBinding>() {
         type = requireArguments().getInt("type")
 
         binding.messageInteractionRv.apply {
-            adapter = pagingAdapter
+            adapter = pagingAdapter.withLoadStateFooter(NoMoreFooterAdapter())
             layoutManager = LinearLayoutManager(requireContext())
             addItemDecoration(object : RecyclerView.ItemDecoration() {
                 override fun getItemOffsets(
@@ -57,7 +58,9 @@ class InteractionFragment : BaseFragment<FragmentInteractionBinding>() {
                     state: RecyclerView.State
                 ) {
                     super.getItemOffsets(outRect, view, parent, state)
-                    outRect[0, 0, 0] = DensityUtils.dip2px(requireContext(), 10f)
+                    if (parent.getChildAdapterPosition(view) != (pagingAdapter.itemCount)) {
+                        outRect[0, 0, 0] = DensityUtils.dip2px(requireContext(), 10f)
+                    }
                 }
             })
         }
@@ -72,6 +75,7 @@ class InteractionFragment : BaseFragment<FragmentInteractionBinding>() {
                 }
             }
         }
+
     }
 
 }

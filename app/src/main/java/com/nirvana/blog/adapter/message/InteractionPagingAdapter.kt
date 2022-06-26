@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import androidx.databinding.ViewDataBinding
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.viewbinding.ViewBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.nirvana.blog.R
@@ -17,7 +17,7 @@ import com.nirvana.blog.entity.ui.message.MessageComment
 import com.nirvana.blog.entity.ui.message.MessageLike
 
 class InteractionPagingAdapter :
-    PagingDataAdapter<Any, BaseViewBindingViewHolder<ViewDataBinding>>(InteractionDiffCallback()) {
+    PagingDataAdapter<Any, BaseViewBindingViewHolder<ViewBinding>>(InteractionDiffCallback()) {
 
     companion object {
         @JvmStatic
@@ -32,7 +32,7 @@ class InteractionPagingAdapter :
     }
 
     override fun onBindViewHolder(
-        holder: BaseViewBindingViewHolder<ViewDataBinding>,
+        holder: BaseViewBindingViewHolder<ViewBinding>,
         position: Int
     ) {
         when (holder.binding) {
@@ -48,7 +48,7 @@ class InteractionPagingAdapter :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): BaseViewBindingViewHolder<ViewDataBinding> {
+    ): BaseViewBindingViewHolder<ViewBinding> {
         return BaseViewBindingViewHolder(
             when (viewType) {
                 0 -> {
@@ -71,10 +71,10 @@ class InteractionPagingAdapter :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when(getItem(position)!!) {
+        return when (getItem(position)) {
             is MessageComment -> 0
             is MessageLike -> 1
-            else -> 2
+            else -> throw RuntimeException()
         }
     }
 

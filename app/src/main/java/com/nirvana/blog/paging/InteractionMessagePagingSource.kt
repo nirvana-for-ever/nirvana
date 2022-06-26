@@ -13,6 +13,7 @@ import com.nirvana.blog.utils.Constants
 import com.nirvana.blog.utils.messageCommentClientTime
 import com.nirvana.blog.utils.messageLikeClientTime
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 
 class InteractionMessagePagingSource(
@@ -45,13 +46,16 @@ class InteractionMessagePagingSource(
                 Constants.MESSAGE_INTERACTION_LIKE_TYPE -> {
                     var res: RespResult<List<MessageLike>>
                     withContext(Dispatchers.IO) {
+                        delay(1000)
                         res = api.getMessageLike(
                             messageLikeClientTime.toString(),
                             size,
                             remoteKey?.lastId
                         )
                         // 第一页的情况下，这里插入会覆盖掉之前的远程键，所以不用担心之前查询的远程键对现在的影响
-                        dataBase.getMessageDao().insertRemoteKey(MessageRemoteKey(flag, res.data!!.last().messageId))
+                        if (res.data!!.isNotEmpty()) {
+                            dataBase.getMessageDao().insertRemoteKey(MessageRemoteKey(flag, res.data!!.last().messageId))
+                        }
                     }
                     val data = res.data!!
                     LoadResult.Page(
@@ -64,7 +68,9 @@ class InteractionMessagePagingSource(
                     var res: RespResult<List<MessageComment>>
                     withContext(Dispatchers.IO) {
                         res = api.getMessageComment(messageCommentClientTime.toString(), size, remoteKey?.lastId)
-                        dataBase.getMessageDao().insertRemoteKey(MessageRemoteKey(flag, res.data!!.last().messageId))
+                        if (res.data!!.isNotEmpty()) {
+                            dataBase.getMessageDao().insertRemoteKey(MessageRemoteKey(flag, res.data!!.last().messageId))
+                        }
                     }
                     val data = res.data!!
                     LoadResult.Page(
