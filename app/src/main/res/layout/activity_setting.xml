@@ -33,18 +33,18 @@
                     android:id="@+id/me_settings_logout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="30dp"
-                    android:paddingHorizontal="20dp"
-                    android:paddingVertical="10dp"
+                    android:layout_marginVertical="@dimen/dimen_30"
+                    android:paddingHorizontal="@dimen/dimen_20"
+                    android:paddingVertical="@dimen/dimen_10"
                     app:hl_strokeColor="@color/primary"
-                    app:hl_strokeWith="1dp">
+                    app:hl_strokeWith="@dimen/dimen_1">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/me_settings_logout_string"
                         android:textColor="@color/primary"
-                        android:textSize="17sp" />
+                        android:textSize="@dimen/text_17" />
                 </com.lihang.ShadowLayout>
 
             </LinearLayout>
@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/white"
-            android:elevation="1dp"
+            android:elevation="@dimen/dimen_1"
             app:contentInsetEnd="0dp"
             app:contentInsetStart="0dp">
 
@@ -67,9 +67,9 @@
 
                 <ImageView
                     android:id="@+id/me_settings_back"
-                    android:layout_width="40dp"
+                    android:layout_width="@dimen/dimen_40"
                     android:layout_height="match_parent"
-                    android:padding="10dp"
+                    android:padding="@dimen/dimen_10"
                     android:src="@drawable/ic_back" />
 
                 <TextView
@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/me_setting_string"
                     android:textColor="@color/black_text_color"
-                    android:textSize="17sp" />
+                    android:textSize="@dimen/text_17" />
             </LinearLayout>
 
         </androidx.appcompat.widget.Toolbar>
@@ -97,11 +97,11 @@
             android:layout_height="match_parent">
 
             <com.lihang.ShadowLayout
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/dimen_80"
+                android:layout_height="@dimen/dimen_80"
                 android:layout_centerInParent="true"
-                android:padding="20dp"
-                app:hl_cornerRadius="10dp"
+                android:padding="@dimen/dimen_20"
+                app:hl_cornerRadius="@dimen/dimen_10"
                 app:hl_layoutBackground="@color/me_settings_logout_shadow_bg">
 
                 <ProgressBar

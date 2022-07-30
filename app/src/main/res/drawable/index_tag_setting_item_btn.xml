@@ -6,6 +6,6 @@
     <solid android:color="@color/light_gray" />
 
     <!-- 设置按钮圆角程度 -->
-    <corners android:radius="20dp"/>
+    <corners android:radius="@dimen/dimen_20"/>
 
 </shape>

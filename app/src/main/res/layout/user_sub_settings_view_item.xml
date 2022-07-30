@@ -6,7 +6,7 @@
     <LinearLayout
         android:id="@+id/sub_settings_content"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/dimen_50"
         android:orientation="vertical"
         android:gravity="center_vertical">
         <TextView
@@ -14,21 +14,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black_text_color"
-            android:textSize="15sp"/>
+            android:textSize="@dimen/text_15"/>
 
         <TextView
             android:id="@+id/sub_settings_sub_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="@dimen/dimen_3"
             android:textColor="@color/primary"
-            android:textSize="12sp"/>
+            android:textSize="@dimen/text_12"/>
     </LinearLayout>
 
     <View
         android:id="@+id/sub_settings_div"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dimen_1"
         android:layout_below="@id/sub_settings_content"
         android:background="@color/light_gray" />
 

@@ -19,9 +19,8 @@ import com.nirvana.blog.entity.ui.article.diffBundleFrom
 import com.nirvana.blog.entity.ui.article.updateBundleFrom
 import com.nirvana.blog.view.RoundCornerImageView
 
-class IndexArticleInfoPagingAdapter(
-    private val toArticlePageCallback: (String) -> Unit
-) : PagingDataAdapter<ArticleInfo, BaseViewBindingViewHolder<ViewDataBinding>>(
+class IndexArticleInfoPagingAdapter(private val toArticlePageCallback: (String) -> Unit)
+    : PagingDataAdapter<ArticleInfo, BaseViewBindingViewHolder<ViewDataBinding>>(
     ArticleInfoDiffCallback()
 ) {
     companion object {

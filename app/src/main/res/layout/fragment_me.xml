@@ -26,29 +26,29 @@
                 <com.nirvana.blog.view.MeBanner
                     android:id="@+id/me_banner"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="@dimen/dimen_160"
                     app:endColor="@color/me_banner_end_color"
                     app:startColor="@color/me_banner_start_color"
                     app:startPic="@drawable/ic_me_scanning_code_light"
-                    app:startPicSize="30dp"
+                    app:startPicSize="@dimen/dimen_30"
                     app:endPic="@drawable/ic_me_write_light"
-                    app:endPicSize="22dp"
+                    app:endPicSize="@dimen/dimen_22"
                     app:actionBarHeight="?attr/actionBarSize"
-                    app:picPaddingHor="15dp" />
+                    app:picPaddingHor="@dimen/dimen_15" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingTop="70dp">
+                    android:paddingTop="@dimen/dimen_70">
 
                     <com.lihang.ShadowLayout
                         android:layout_width="match_parent"
-                        android:layout_height="220dp"
-                        android:paddingHorizontal="10dp"
-                        app:hl_cornerRadius="10dp"
+                        android:layout_height="@dimen/dimen_250"
+                        android:paddingHorizontal="@dimen/dimen_10"
+                        app:hl_cornerRadius="@dimen/dimen_10"
                         app:hl_shadowColor="#1A000000"
-                        app:hl_shadowLimit="15dp">
+                        app:hl_shadowLimit="@dimen/dimen_15">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -60,15 +60,15 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:paddingVertical="20dp"
-                                android:paddingHorizontal="10dp">
+                                android:paddingVertical="@dimen/dimen_20"
+                                android:paddingHorizontal="@dimen/dimen_20">
 
                                 <com.nirvana.blog.view.CircleLayout
                                     android:id="@+id/unlogin_img"
                                     android:layout_alignParentStart="true"
-                                    android:layout_width="70dp"
-                                    android:layout_height="70dp"
-                                    android:layout_marginEnd="10dp"
+                                    android:layout_width="@dimen/dimen_70"
+                                    android:layout_height="@dimen/dimen_70"
+                                    android:layout_marginEnd="@dimen/dimen_10"
                                     android:layout_centerVertical="true">
 
                                     <View
@@ -77,7 +77,7 @@
                                         android:background="@color/light_gray" />
 
                                     <ImageView
-                                        android:paddingTop="20dp"
+                                        android:paddingTop="@dimen/dimen_20"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:src="@drawable/ic_login_img" />
@@ -94,23 +94,23 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@string/me_login_click_string"
-                                        android:textSize="18sp"
+                                        android:textSize="@dimen/text_18"
                                         android:textColor="@color/black_text_color" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="5dp"
+                                        android:layout_marginTop="@dimen/dimen_5"
                                         android:text="@string/me_login_desc_string"
-                                        android:textSize="11sp"
+                                        android:textSize="@dimen/text_11"
                                         android:textColor="@color/gray_text_color" />
                                 </LinearLayout>
 
                                 <ImageView
                                     android:id="@+id/me_red_packet_clickable"
                                     android:layout_alignParentEnd="true"
-                                    android:padding="5dp"
-                                    android:layout_width="60dp"
+                                    android:padding="@dimen/dimen_5"
+                                    android:layout_width="@dimen/dimen_60"
                                     android:layout_height="match_parent"
                                     android:layout_centerVertical="true"
                                     android:src="@mipmap/me_login_red_packet" />
@@ -122,13 +122,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:paddingVertical="20dp"
-                                android:paddingHorizontal="10dp">
+                                android:paddingVertical="@dimen/dimen_20"
+                                android:paddingHorizontal="@dimen/dimen_10">
 
                                 <ImageView
                                     android:id="@+id/login_img"
-                                    android:layout_width="70dp"
-                                    android:layout_height="70dp"
+                                    android:layout_width="@dimen/dimen_70"
+                                    android:layout_height="@dimen/dimen_70"
                                     app:user_photo="@{info == null ? `` : info.photo}" />
 
                                 <LinearLayout
@@ -142,7 +142,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="@{info == null ? `` : info.nickName}"
-                                        android:textSize="18sp"
+                                        android:textSize="@dimen/text_18"
                                         android:textColor="@color/black_text_color" />
 
                                     <LinearLayout
@@ -152,33 +152,33 @@
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
+                                            android:layout_marginTop="@dimen/dimen_5"
                                             android:text="@string/me_user_subscribe_string"
-                                            android:textSize="13sp"
+                                            android:textSize="@dimen/text_13"
                                             android:textColor="@color/gray_text_color"
-                                            android:layout_marginEnd="5dp" />
+                                            android:layout_marginEnd="@dimen/dimen_5" />
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
+                                            android:layout_marginTop="@dimen/dimen_5"
                                             android:text="@{info == null ? `0` : String.valueOf(info.subsribeCount)}"
-                                            android:textSize="13sp"
+                                            android:textSize="@dimen/text_13"
                                             android:textColor="@color/black_text_color"
-                                            android:layout_marginEnd="15dp" />
+                                            android:layout_marginEnd="@dimen/dimen_15" />
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
+                                            android:layout_marginTop="@dimen/dimen_5"
                                             android:text="@string/me_user_fans_string"
-                                            android:textSize="13sp"
+                                            android:textSize="@dimen/text_13"
                                             android:textColor="@color/gray_text_color"
-                                            android:layout_marginEnd="5dp" />
+                                            android:layout_marginEnd="@dimen/dimen_5" />
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
+                                            android:layout_marginTop="@dimen/dimen_5"
                                             android:text="@{info == null ? `0` : String.valueOf(info.fansCount)}"
-                                            android:textSize="13sp"
+                                            android:textSize="@dimen/text_13"
                                             android:textColor="@color/black_text_color" />
                                     </LinearLayout>
                                 </LinearLayout>
@@ -187,8 +187,8 @@
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginHorizontal="15dp"
+                                android:layout_height="@dimen/dimen_1"
+                                android:layout_marginHorizontal="@dimen/dimen_15"
                                 android:background="@color/light_gray" />
 
                             <LinearLayout
@@ -196,7 +196,7 @@
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
                                 android:orientation="horizontal"
-                                android:padding="10dp"
+                                android:padding="@dimen/dimen_10"
                                 tools:ignore="NestedWeights"
                                 android:baselineAligned="false">
 
@@ -208,16 +208,16 @@
 
                                     <ImageView
                                         android:layout_width="match_parent"
-                                        android:layout_height="30dp"
+                                        android:layout_height="@dimen/dimen_30"
                                         android:src="@drawable/ic_me_article" />
 
                                     <TextView
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
+                                        android:layout_height="@dimen/dimen_20"
+                                        android:layout_marginTop="@dimen/dimen_3"
                                         android:text="@string/me_article_string"
                                         android:textColor="@color/black_text_color"
-                                        android:textSize="13sp"
+                                        android:textSize="@dimen/text_13"
                                         android:gravity="center" />
 
                                     <LinearLayout
@@ -225,24 +225,27 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="horizontal"
                                         android:gravity="center">
+
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="3dp"
+                                            android:layout_marginTop="@dimen/dimen_3"
                                             android:text="@{info == null ? `0` : String.valueOf(info.articleCount)}"
                                             android:textColor="@color/gray_text_color"
-                                            android:textSize="11sp"
+                                            android:textSize="@dimen/text_11"
                                             android:gravity="center" />
 
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="3dp"
+                                            android:layout_marginTop="@dimen/dimen_3"
+                                            android:paddingBottom="@dimen/dimen_3"
                                             android:text="@string/me_user_article_count_string"
                                             android:textColor="@color/gray_text_color"
-                                            android:textSize="11sp"
+                                            android:textSize="@dimen/text_11"
                                             android:gravity="center" />
                                     </LinearLayout>
+
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -253,16 +256,16 @@
 
                                     <ImageView
                                         android:layout_width="match_parent"
-                                        android:layout_height="30dp"
+                                        android:layout_height="@dimen/dimen_30"
                                         android:src="@drawable/ic_me_draft" />
 
                                     <TextView
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
+                                        android:layout_height="@dimen/dimen_20"
+                                        android:layout_marginTop="@dimen/dimen_3"
                                         android:text="@string/me_draft_string"
                                         android:textColor="@color/black_text_color"
-                                        android:textSize="13sp"
+                                        android:textSize="@dimen/text_13"
                                         android:gravity="center" />
 
                                     <LinearLayout
@@ -273,21 +276,23 @@
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="3dp"
+                                            android:layout_marginTop="@dimen/dimen_3"
                                             android:text="@{info == null ? `0` : String.valueOf(info.draftCount)}"
                                             android:textColor="@color/gray_text_color"
-                                            android:textSize="11sp"
+                                            android:textSize="@dimen/text_11"
                                             android:gravity="center" />
 
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="3dp"
+                                            android:layout_marginTop="@dimen/dimen_3"
+                                            android:paddingBottom="@dimen/dimen_3"
                                             android:text="@string/me_user_draft_count_string"
                                             android:textColor="@color/gray_text_color"
-                                            android:textSize="11sp"
+                                            android:textSize="@dimen/text_11"
                                             android:gravity="center" />
                                     </LinearLayout>
+
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -298,16 +303,16 @@
 
                                     <ImageView
                                         android:layout_width="match_parent"
-                                        android:layout_height="30dp"
+                                        android:layout_height="@dimen/dimen_30"
                                         android:src="@drawable/ic_me_like" />
 
                                     <TextView
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
+                                        android:layout_height="@dimen/dimen_20"
+                                        android:layout_marginTop="@dimen/dimen_3"
                                         android:text="@string/me_like_string"
                                         android:textColor="@color/black_text_color"
-                                        android:textSize="13sp"
+                                        android:textSize="@dimen/text_13"
                                         android:gravity="center" />
 
                                     <LinearLayout
@@ -318,21 +323,23 @@
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="3dp"
+                                            android:layout_marginTop="@dimen/dimen_3"
                                             android:text="@{info == null ? `0` : String.valueOf(info.likeCount)}"
                                             android:textColor="@color/gray_text_color"
-                                            android:textSize="11sp"
+                                            android:textSize="@dimen/text_11"
                                             android:gravity="center" />
 
                                         <TextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
-                                            android:layout_marginTop="3dp"
+                                            android:layout_marginTop="@dimen/dimen_3"
+                                            android:paddingBottom="@dimen/dimen_3"
                                             android:text="@string/me_user_like_count_string"
                                             android:textColor="@color/gray_text_color"
-                                            android:textSize="11sp"
+                                            android:textSize="@dimen/text_11"
                                             android:gravity="center" />
                                     </LinearLayout>
+
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -343,42 +350,44 @@
 
                                     <ImageView
                                         android:layout_width="match_parent"
-                                        android:layout_height="30dp"
+                                        android:layout_height="@dimen/dimen_30"
                                         android:src="@drawable/ic_me_storage" />
 
                                     <TextView
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginTop="3dp"
+                                        android:layout_height="@dimen/dimen_20"
+                                        android:layout_marginTop="@dimen/dimen_3"
                                         android:text="@string/me_storage_string"
                                         android:textColor="@color/black_text_color"
-                                        android:textSize="13sp"
+                                        android:textSize="@dimen/text_11"
                                         android:gravity="center" />
                                 </LinearLayout>
 
                             </LinearLayout>
+
                         </LinearLayout>
+
                     </com.lihang.ShadowLayout>
 
                     <com.lihang.ShadowLayout
                         android:layout_width="match_parent"
-                        android:layout_height="160dp"
-                        android:paddingHorizontal="10dp"
-                        app:hl_cornerRadius="10dp"
+                        android:layout_height="@dimen/dimen_160"
+                        android:paddingHorizontal="@dimen/dimen_10"
+                        app:hl_cornerRadius="@dimen/dimen_10"
                         app:hl_shadowColor="#1A000000"
-                        app:hl_shadowLimit="15dp">
+                        app:hl_shadowLimit="@dimen/dimen_15">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical"
-                            android:paddingVertical="10dp">
+                            android:paddingVertical="@dimen/dimen_10">
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
-                                android:paddingHorizontal="15dp">
+                                android:paddingHorizontal="@dimen/dimen_15">
 
                                 <TextView
                                     android:id="@+id/me_user_nb_count_string"
@@ -392,7 +401,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="5dp"
+                                    android:layout_marginStart="@dimen/dimen_5"
                                     android:layout_toEndOf="@id/me_user_nb_count_string"
                                     android:layout_centerVertical="true"
                                     android:text="@{info == null ? `0` : String.valueOf(Float.valueOf(info.nbCount).intValue())}"
@@ -404,13 +413,13 @@
                                     android:layout_toStartOf="@id/me_check"
                                     android:layout_centerVertical="true"
                                     android:text="@string/me_user_look_money_string"
-                                    android:textSize="11sp"
+                                    android:textSize="@dimen/text_11"
                                     android:textColor="@color/gray_text_color" />
 
                                 <ImageView
                                     android:id="@+id/me_check"
-                                    android:layout_width="12dp"
-                                    android:layout_height="12dp"
+                                    android:layout_width="@dimen/dimen_12"
+                                    android:layout_height="@dimen/dimen_12"
                                     android:layout_alignParentEnd="true"
                                     android:layout_centerVertical="true"
                                     android:src="@drawable/ic_next" />
@@ -419,8 +428,8 @@
 
                             <View
                                 android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:layout_marginHorizontal="15dp"
+                                android:layout_height="@dimen/dimen_1"
+                                android:layout_marginHorizontal="@dimen/dimen_15"
                                 android:background="@color/light_gray" />
 
                             <LinearLayout
@@ -438,7 +447,7 @@
 
                                     <ImageView
                                         android:layout_width="match_parent"
-                                        android:layout_height="30dp"
+                                        android:layout_height="@dimen/dimen_30"
                                         android:src="@drawable/ic_me_coin" />
 
                                     <TextView
@@ -446,7 +455,7 @@
                                         android:layout_height="wrap_content"
                                         android:text="@string/me_coin_string"
                                         android:textColor="@color/black_text_color"
-                                        android:textSize="13sp"
+                                        android:textSize="@dimen/text_13"
                                         android:gravity="center" />
                                 </LinearLayout>
 
@@ -460,7 +469,7 @@
 
                                     <ImageView
                                         android:layout_width="match_parent"
-                                        android:layout_height="30dp"
+                                        android:layout_height="@dimen/dimen_30"
                                         android:src="@drawable/ic_me_vip" />
 
                                     <TextView
@@ -468,7 +477,7 @@
                                         android:layout_height="wrap_content"
                                         android:text="@string/me_vip_string"
                                         android:textColor="@color/black_text_color"
-                                        android:textSize="13sp"
+                                        android:textSize="@dimen/text_13"
                                         android:gravity="center" />
                                 </LinearLayout>
 
@@ -482,7 +491,7 @@
 
                                     <ImageView
                                         android:layout_width="match_parent"
-                                        android:layout_height="25dp"
+                                        android:layout_height="@dimen/dimen_25"
                                         android:src="@drawable/ic_me_lottery" />
 
                                     <TextView
@@ -490,7 +499,7 @@
                                         android:layout_height="wrap_content"
                                         android:text="@string/me_lottery_string"
                                         android:textColor="@color/black_text_color"
-                                        android:textSize="13sp"
+                                        android:textSize="@dimen/text_13"
                                         android:gravity="center" />
                                 </LinearLayout>
 
@@ -504,7 +513,7 @@
 
                                     <ImageView
                                         android:layout_width="match_parent"
-                                        android:layout_height="25dp"
+                                        android:layout_height="@dimen/dimen_25"
                                         android:src="@drawable/ic_me_rank" />
 
                                     <TextView
@@ -512,7 +521,7 @@
                                         android:layout_height="wrap_content"
                                         android:text="@string/me_rank_string"
                                         android:textColor="@color/black_text_color"
-                                        android:textSize="13sp"
+                                        android:textSize="@dimen/text_13"
                                         android:gravity="center" />
                                 </LinearLayout>
 
@@ -523,8 +532,8 @@
 
                     <com.nirvana.blog.viewgroup.AvoidDragLayout
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:paddingHorizontal="10dp">
+                        android:layout_height="@dimen/dimen_100"
+                        android:paddingHorizontal="@dimen/dimen_10">
 
                         <androidx.viewpager2.widget.ViewPager2
                             android:id="@+id/me_carousel"
@@ -533,13 +542,13 @@
 
                         <com.nirvana.blog.view.CarouselDots
                             android:id="@+id/me_carousel_dots"
-                            app:dotRadius="3dp"
+                            app:dotRadius="@dimen/dimen_3"
                             app:dotSelectedColor="@color/white"
                             app:dotUnSelectedColor="@color/me_carousel_unselected_dot_color"
-                            android:layout_width="30dp"
-                            android:layout_height="10dp"
+                            android:layout_width="@dimen/dimen_30"
+                            android:layout_height="@dimen/dimen_10"
                             android:layout_gravity="center_horizontal|bottom"
-                            android:layout_marginBottom="10dp" />
+                            android:layout_marginBottom="@dimen/dimen_10" />
                     </com.nirvana.blog.viewgroup.AvoidDragLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -549,8 +558,8 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:paddingHorizontal="10dp"
+                        android:layout_height="@dimen/dimen_1"
+                        android:paddingHorizontal="@dimen/dimen_10"
                         android:background="@color/light_gray" />
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -560,7 +569,7 @@
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="@dimen/dimen_100"
                         android:background="@color/light_gray" />
                 </LinearLayout>
             </FrameLayout>
@@ -583,16 +592,16 @@
             app:contentInsetEnd="0dp"
             app:contentInsetStart="0dp"
             android:background="@color/white"
-            android:elevation="1dp">
+            android:elevation="@dimen/dimen_1">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingHorizontal="15dp">
+                android:paddingHorizontal="@dimen/dimen_15">
 
                 <ImageView
                     android:id="@+id/me_scan_code"
-                    android:layout_width="30dp"
+                    android:layout_width="@dimen/dimen_30"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
                     android:src="@drawable/ic_me_scanning_code_dark" />
@@ -602,12 +611,12 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="我的"
-                    android:textSize="17sp"
+                    android:textSize="@dimen/text_17"
                     android:textColor="@color/black_text_color" />
 
                 <ImageView
                     android:id="@+id/me_write"
-                    android:layout_width="22dp"
+                    android:layout_width="@dimen/dimen_22"
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
                     android:src="@drawable/ic_me_write_dark" />

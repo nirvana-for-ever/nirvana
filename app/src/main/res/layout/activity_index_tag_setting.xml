@@ -29,7 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginVertical="20dp">
+                    android:layout_marginVertical="@dimen/dimen_20">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -41,35 +41,35 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:text="@string/index_tag_setting_chosen_title"
-                            android:textSize="16sp"
+                            android:textSize="@dimen/text_16"
                             android:textColor="@color/black_text_color"
                             android:layout_alignParentStart="true"
-                            android:layout_marginStart="20dp"/>
+                            android:layout_marginStart="@dimen/dimen_20"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:text="@string/index_tag_setting_chosen_tip"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/text_12"
                             android:textColor="@color/gray_text_color"
                             android:layout_toEndOf="@id/index_tag_text1"
-                            android:layout_marginStart="10dp"/>
+                            android:layout_marginStart="@dimen/dimen_10"/>
 
                         <Button
                             android:id="@+id/index_tag_setting_edit_btn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="20dp"
+                            android:layout_marginEnd="@dimen/dimen_20"
                             android:background="@drawable/index_tag_setting_edit_btn"
                             android:minWidth="0dp"
                             android:minHeight="0dp"
-                            android:paddingHorizontal="10dp"
-                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="@dimen/dimen_10"
+                            android:paddingVertical="@dimen/dimen_5"
                             android:text="@string/index_tag_setting_edit_btn_string"
                             android:textColor="@color/primary"
-                            android:textSize="12sp" />
+                            android:textSize="@dimen/text_12" />
 
                     </RelativeLayout>
 
@@ -83,14 +83,14 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="@dimen/dimen_1"
                     android:background="@color/mid_gray" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginVertical="20dp">
+                    android:layout_marginVertical="@dimen/dimen_20">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -102,20 +102,20 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:text="@string/index_tag_setting_unchosen_title"
-                            android:textSize="16sp"
+                            android:textSize="@dimen/text_16"
                             android:textColor="@color/black_text_color"
                             android:layout_alignParentStart="true"
-                            android:layout_marginStart="20dp"/>
+                            android:layout_marginStart="@dimen/dimen_20"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:text="@string/index_tag_setting_unchosen_tip"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/text_12"
                             android:textColor="@color/gray_text_color"
                             android:layout_toEndOf="@id/index_tag_text2"
-                            android:layout_marginStart="10dp"/>
+                            android:layout_marginStart="@dimen/dimen_10"/>
 
                     </RelativeLayout>
 
@@ -138,7 +138,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
-        android:elevation="1dp"
+        android:elevation="@dimen/dimen_1"
         app:contentInsetEnd="0dp"
         app:contentInsetStart="0dp">
 
@@ -148,10 +148,10 @@
 
             <ImageView
                 android:id="@+id/back"
-                android:layout_width="40dp"
+                android:layout_width="@dimen/dimen_40"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
-                android:padding="10dp"
+                android:padding="@dimen/dimen_10"
                 android:src="@drawable/ic_user_cancel" />
 
             <TextView
@@ -160,7 +160,7 @@
                 android:layout_centerInParent="true"
                 android:text="@string/index_tag_setting_title"
                 android:textColor="@color/black_text_color"
-                android:textSize="17sp" />
+                android:textSize="@dimen/text_17" />
         </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>

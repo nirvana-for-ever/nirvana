@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:elevation="1dp"
+                android:elevation="@dimen/dimen_1"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior">
 
                 <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -44,21 +44,21 @@
 
                         <ImageView
                             android:id="@+id/article_col_back"
-                            android:layout_width="40dp"
+                            android:layout_width="@dimen/dimen_40"
                             android:layout_height="match_parent"
                             android:layout_alignParentStart="true"
-                            android:layout_marginEnd="20dp"
-                            android:padding="10dp"
+                            android:layout_marginEnd="@dimen/dimen_20"
+                            android:padding="@dimen/dimen_10"
                             android:src="@drawable/ic_back" />
 
                         <ImageView
                             android:id="@+id/article_col_avatar"
                             android:visibility="invisible"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="@dimen/dimen_30"
+                            android:layout_height="@dimen/dimen_30"
                             android:layout_toEndOf="@id/article_col_back"
                             android:layout_centerInParent="true"
-                            android:layout_marginEnd="10dp"
+                            android:layout_marginEnd="@dimen/dimen_10"
                             app:article_auth_avatar="@{article.authAvatar}" />
 
                         <TextView
@@ -70,7 +70,7 @@
                             android:layout_toEndOf="@id/article_col_avatar"
                             android:text="@{article.authName}"
                             android:textColor="@color/black_text_color"
-                            android:textSize="16sp" />
+                            android:textSize="@dimen/text_16" />
 
                         <Button
                             android:id="@+id/article_col_subscribe_btn"
@@ -79,21 +79,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="24dp"
                             android:minWidth="0dp"
-                            android:paddingHorizontal="10dp"
+                            android:paddingHorizontal="@dimen/dimen_10"
                             android:layout_toStartOf="@id/article_col_more"
-                            android:layout_marginEnd="10dp"
+                            android:layout_marginEnd="@dimen/dimen_10"
                             android:layout_centerInParent="true"
                             android:background="@drawable/article_subscribe_btn"
                             android:text="@string/article_col_subscribe_btn_string"
                             android:textColor="@color/white"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/text_14" />
 
                         <ImageView
                             android:id="@+id/article_col_more"
-                            android:layout_width="40dp"
+                            android:layout_width="@dimen/dimen_40"
                             android:layout_height="match_parent"
                             android:layout_alignParentEnd="true"
-                            android:padding="10dp"
+                            android:padding="@dimen/dimen_10"
                             android:src="@drawable/ic_more" />
                     </RelativeLayout>
 
@@ -111,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="15dp">
+                    android:padding="@dimen/dimen_15">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -119,21 +119,21 @@
                         android:textIsSelectable="true"
                         android:text="@{article.title}"
                         android:textColor="@color/black_text_color"
-                        android:textSize="25sp"
+                        android:textSize="@dimen/text_25"
                         android:textStyle="bold" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="10dp">
+                        android:layout_marginVertical="@dimen/dimen_10">
 
                         <ImageView
                             android:id="@+id/article_avatar"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="@dimen/dimen_30"
+                            android:layout_height="@dimen/dimen_30"
                             android:layout_alignParentStart="true"
                             android:layout_centerInParent="true"
-                            android:layout_marginEnd="10dp"
+                            android:layout_marginEnd="@dimen/dimen_10"
                             app:article_auth_avatar="@{article.authAvatar}" />
 
                         <TextView
@@ -143,24 +143,24 @@
                             android:layout_toEndOf="@id/article_avatar"
                             android:text="@{article.authName}"
                             android:textColor="@color/black_text_color"
-                            android:textSize="16sp" />
+                            android:textSize="@dimen/text_16" />
 
                         <Button
                             style="?android:attr/borderlessButtonStyle"
                             android:layout_width="wrap_content"
-                            android:layout_height="30dp"
+                            android:layout_height="@dimen/dimen_30"
                             android:layout_alignParentEnd="true"
                             android:background="@drawable/article_subscribe_btn"
                             android:text="@string/article_subscribe_btn_string"
                             android:textColor="@color/white"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/text_14" />
 
                     </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp">
+                        android:layout_marginBottom="@dimen/dimen_20">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -168,7 +168,7 @@
                             android:layout_alignParentStart="true"
                             android:text="@{`阅读 ` + article.readCount + ` · 点赞 ` + article.likeCount + ` · 评论 ` + article.commentCount}"
                             android:textColor="@color/gray_text_color"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/text_14" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -176,7 +176,7 @@
                             android:layout_alignParentEnd="true"
                             android:text="@{article.createTime}"
                             android:textColor="@color/gray_text_color"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/text_14" />
 
                     </RelativeLayout>
 
@@ -202,7 +202,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:paddingHorizontal="15dp"
+                    android:paddingHorizontal="@dimen/dimen_15"
                     android:paddingVertical="8dp">
 
                     <Button
@@ -211,11 +211,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="18"
                         android:background="@drawable/article_comment_btn"
-                        android:paddingHorizontal="10dp"
+                        android:paddingHorizontal="@dimen/dimen_10"
                         android:text="@string/article_comment_btn_string"
                         android:textAlignment="textStart"
                         android:textColor="@color/dark_gray"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/text_14"
                         android:typeface="sans" />
 
                     <LinearLayout
@@ -224,7 +224,7 @@
                         android:layout_weight="4"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:paddingHorizontal="10dp">
+                        android:paddingHorizontal="@dimen/dimen_10">
 
                         <ImageView
                             android:layout_width="match_parent"
@@ -238,7 +238,7 @@
                             android:layout_weight="4"
                             android:text="@{String.valueOf(article.commentCount)}"
                             android:textAlignment="center"
-                            android:textSize="12sp" />
+                            android:textSize="@dimen/text_12" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -247,7 +247,7 @@
                         android:layout_weight="4"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:paddingHorizontal="10dp">
+                        android:paddingHorizontal="@dimen/dimen_10">
 
                         <ImageView
                             android:id="@+id/article_like"
@@ -270,7 +270,7 @@
                             android:layout_weight="4"
                             android:text="@{String.valueOf(article.likeCount)}"
                             android:textAlignment="center"
-                            android:textSize="12sp" />
+                            android:textSize="@dimen/text_12" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -279,7 +279,7 @@
                         android:layout_weight="4"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:paddingHorizontal="10dp">
+                        android:paddingHorizontal="@dimen/dimen_10">
 
                         <ImageView
                             android:layout_width="match_parent"
@@ -293,7 +293,7 @@
                             android:layout_weight="4"
                             android:text="分享"
                             android:textAlignment="center"
-                            android:textSize="12sp" />
+                            android:textSize="@dimen/text_12" />
                     </LinearLayout>
 
                 </LinearLayout>

@@ -18,9 +18,9 @@
 
         <com.nirvana.blog.viewgroup.IndexTopBarLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/dimen_100"
             android:background="@color/white"
-            android:paddingVertical="5dp"
+            android:paddingVertical="@dimen/dimen_5"
             app:elevation="0dp"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior">
 
@@ -41,7 +41,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingHorizontal="10dp">
+                        android:paddingHorizontal="@dimen/dimen_10">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -53,8 +53,8 @@
                             tools:ignore="NestedWeights">
 
                             <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
+                                android:layout_width="@dimen/dimen_15"
+                                android:layout_height="@dimen/dimen_15"
                                 android:layout_marginEnd="6dp"
                                 android:src="@mipmap/search" />
 
@@ -62,21 +62,21 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/fragment_index_top_bar_search_string"
-                                android:textSize="15sp" />
+                                android:textSize="@dimen/text_15" />
                         </LinearLayout>
 
                         <ImageView
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_marginStart="5dp"
+                            android:layout_marginStart="@dimen/dimen_5"
                             android:layout_weight="1"
                             android:src="@mipmap/red_packet" />
                     </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginVertical="5dp"
+                        android:layout_height="@dimen/dimen_1"
+                        android:layout_marginVertical="@dimen/dimen_5"
                         android:background="@color/light_gray" />
                 </LinearLayout>
 
@@ -100,11 +100,11 @@
                     android:layout_alignParentEnd="true"
                     android:background="@drawable/fading_translucent"
                     android:gravity="center"
-                    android:padding="10dp">
+                    android:padding="@dimen/dimen_10">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="@dimen/dimen_20"
+                        android:layout_height="@dimen/dimen_20"
                         android:src="@drawable/ic_index_tags_setting" />
                 </LinearLayout>
             </RelativeLayout>

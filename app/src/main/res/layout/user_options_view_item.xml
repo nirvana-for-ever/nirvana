@@ -13,7 +13,7 @@
     <com.lihang.ShadowLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp"
+        android:paddingHorizontal="@dimen/dimen_10"
         app:hl_layoutBackground="@color/white"
         app:hl_layoutBackground_true="@color/light_gray"
         app:hl_shapeMode="pressed">
@@ -24,8 +24,8 @@
             android:baselineAligned="false"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingHorizontal="5dp"
-            android:paddingVertical="13dp">
+            android:paddingHorizontal="@dimen/dimen_5"
+            android:paddingVertical="@dimen/dimen_13">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -36,10 +36,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="@dimen/dimen_10"
                     android:text="@{option.title}"
                     android:textColor="@color/black_text_color"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/text_15" />
 
                 <com.lihang.ShadowLayout
                     android:id="@+id/user_options_subtitle"
@@ -52,10 +52,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingHorizontal="4dp"
-                        android:paddingVertical="2dp"
+                        android:paddingVertical="@dimen/dimen_2"
                         android:text="@{option.subtitle}"
                         android:textColor="@color/me_user_options_subtitle_text_color"
-                        android:textSize="9sp"
+                        android:textSize="@dimen/text_9"
                         tools:ignore="SmallSp" />
                 </com.lihang.ShadowLayout>
             </LinearLayout>
@@ -68,8 +68,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
+                    android:layout_width="@dimen/dimen_15"
+                    android:layout_height="@dimen/dimen_15"
                     android:src="@drawable/ic_next" />
             </LinearLayout>
 

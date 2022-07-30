@@ -23,8 +23,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:paddingVertical="15dp"
+                android:layout_height="@dimen/dimen_80"
+                android:paddingVertical="@dimen/dimen_15"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -42,12 +42,11 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="@dimen/dimen_20"
                         android:text="@string/message_interaction_string"
                         android:textAlignment="center"
                         android:textColor="@color/black_text_color"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/text_12" />
 
                 </LinearLayout>
 
@@ -65,12 +64,11 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_height="@dimen/dimen_20"
                         android:text="@string/message_system_string"
                         android:textAlignment="center"
                         android:textColor="@color/black_text_color"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/text_12" />
 
                 </LinearLayout>
 
@@ -88,11 +86,11 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="@dimen/dimen_20"
                         android:text="@string/message_other_string"
                         android:textAlignment="center"
                         android:textColor="@color/black_text_color"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/text_12" />
 
                 </LinearLayout>
 
@@ -100,14 +98,14 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:layout_marginVertical="10dp"
+                android:layout_height="@dimen/dimen_10"
+                android:layout_marginVertical="@dimen/dimen_10"
                 android:background="@color/light_gray" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="15dp">
+                android:paddingHorizontal="@dimen/dimen_15">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -115,7 +113,7 @@
                     android:layout_alignParentStart="true"
                     android:text="@string/message_nirvana_msg_string"
                     android:textColor="@color/black_text_color"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/text_14" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -123,7 +121,7 @@
                     android:layout_alignParentEnd="true"
                     android:text="@string/message_new_nirvana_msg_string"
                     android:textColor="@color/primary"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/text_14" />
 
             </RelativeLayout>
 
@@ -148,7 +146,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/message_title_bar_string"
                 android:textColor="@color/black_text_color"
-                android:textSize="17sp" />
+                android:textSize="@dimen/text_17" />
         </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>

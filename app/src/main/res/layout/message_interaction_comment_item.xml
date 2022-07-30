@@ -13,12 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:padding="15dp">
+        android:padding="@dimen/dimen_15">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="15dp">
+            android:layout_height="@dimen/dimen_50"
+            android:layout_marginBottom="@dimen/dimen_15">
 
             <ImageView
                 android:id="@+id/message_interaction_comment_avatar"
@@ -30,7 +30,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="@dimen/dimen_10"
                 android:layout_toEndOf="@id/message_interaction_comment_avatar"
                 android:orientation="vertical">
 
@@ -38,10 +38,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="@dimen/dimen_5"
                     android:text="@{comment.senderName}"
                     android:textColor="@color/black_text_color"
-                    android:textSize="17sp" />
+                    android:textSize="@dimen/text_17" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -49,13 +49,13 @@
                     android:layout_weight="1"
                     android:text="@{`评论了你的` + (comment.pId.length() == 0 ? `文章` : `评论`)}"
                     android:textColor="@color/gray_text_color"
-                    android:textSize="15sp" />
+                    android:textSize="@dimen/text_15" />
 
             </LinearLayout>
 
             <Button
                 style="?android:attr/borderlessButtonStyle"
-                android:layout_width="55dp"
+                android:layout_width="@dimen/dimen_55"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_marginHorizontal="7dp"
@@ -64,7 +64,7 @@
                 android:minWidth="0dp"
                 android:minHeight="0dp"
                 android:text="@string/message_interaction_comment_reply_btn_string"
-                android:textSize="12sp"
+                android:textSize="@dimen/text_12"
                 android:textColor="@color/black_text_color"/>
 
         </RelativeLayout>
@@ -74,30 +74,30 @@
             android:layout_height="wrap_content"
             android:text="@{comment.content}"
             android:textColor="@color/black_text_color"
-            android:textSize="17sp" />
+            android:textSize="@dimen/text_17" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="15dp"
-            android:padding="10dp"
+            android:layout_marginVertical="@dimen/dimen_15"
+            android:padding="@dimen/dimen_10"
             android:background="@color/light_gray"
             android:gravity="center_vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="@dimen/dimen_10"
                 android:text="@string/message_interaction_article_string"
                 android:textColor="@color/gray_text_color"
-                android:textSize="15sp" />
+                android:textSize="@dimen/text_15" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@{`《` + comment.acticleTitle + `》`}"
                 android:textColor="@color/link_text_color"
-                android:textSize="15sp" />
+                android:textSize="@dimen/text_15" />
 
         </LinearLayout>
 
@@ -106,7 +106,7 @@
             android:layout_height="wrap_content"
             android:text="@{comment.createTime}"
             android:textColor="@color/gray_text_color"
-            android:textSize="11sp" />
+            android:textSize="@dimen/text_11" />
 
     </LinearLayout>
 </layout>

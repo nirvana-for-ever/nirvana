@@ -23,23 +23,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="25dp">
+                android:paddingHorizontal="@dimen/dimen_20"
+                android:paddingVertical="@dimen/dimen_25">
 
                 <ImageView
                     android:id="@+id/user_login_back"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:padding="10dp"
+                    android:layout_width="@dimen/dimen_40"
+                    android:layout_height="@dimen/dimen_40"
+                    android:padding="@dimen/dimen_10"
                     android:src="@drawable/ic_user_cancel" />
 
                 <TextView
                     android:id="@+id/user_login_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="@dimen/dimen_20"
                     android:textColor="@color/black_text_color"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/text_25"
                     android:textStyle="bold" />
 
                 <RelativeLayout
@@ -50,7 +50,7 @@
                         android:id="@+id/user_login_account"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
+                        android:layout_marginTop="@dimen/dimen_40"
                         android:background="@drawable/edit_text_bg"
                         android:inputType="phone"
                         android:maxLines="1"
@@ -60,17 +60,17 @@
                         android:textSelectHandle="@drawable/ic_text_select_handle"
                         android:textSelectHandleLeft="@drawable/ic_text_select_handle_left"
                         android:textSelectHandleRight="@drawable/ic_text_select_handle_right"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/text_16" />
 
                     <ImageView
                         android:id="@+id/user_login_account_cancel"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="@dimen/dimen_20"
+                        android:layout_height="@dimen/dimen_20"
                         android:layout_alignBottom="@id/user_login_account"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="8dp"
-                        android:padding="3dp"
+                        android:layout_marginEnd="@dimen/dimen_15"
+                        android:layout_marginBottom="@dimen/dimen_8"
+                        android:padding="@dimen/dimen_3"
                         android:src="@drawable/ic_user_cancel"
                         android:visibility="gone" />
 
@@ -85,7 +85,7 @@
                         android:id="@+id/user_login_code"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
+                        android:layout_marginTop="@dimen/dimen_40"
                         android:background="@drawable/edit_text_bg"
                         android:hint="@string/me_user_login_code_hint_string"
                         android:inputType="number"
@@ -96,17 +96,17 @@
                         android:textSelectHandle="@drawable/ic_text_select_handle"
                         android:textSelectHandleLeft="@drawable/ic_text_select_handle_left"
                         android:textSelectHandleRight="@drawable/ic_text_select_handle_right"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/text_16" />
 
                     <ImageView
                         android:id="@+id/user_login_code_cancel"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="@dimen/dimen_20"
+                        android:layout_height="@dimen/dimen_20"
                         android:layout_alignBottom="@id/user_login_code"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="@dimen/dimen_15"
+                        android:layout_marginBottom="@dimen/dimen_8"
                         android:layout_toStartOf="@id/user_login_get_code"
-                        android:padding="3dp"
+                        android:padding="@dimen/dimen_3"
                         android:src="@drawable/ic_user_cancel"
                         android:visibility="gone" />
 
@@ -120,7 +120,7 @@
                         android:gravity="center"
                         android:text="@string/me_user_login_get_code_string"
                         android:textColor="@color/gray_text_color"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/text_12" />
 
                 </RelativeLayout>
 
@@ -133,7 +133,7 @@
                         android:id="@+id/user_login_pwd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
+                        android:layout_marginTop="@dimen/dimen_40"
                         android:background="@drawable/edit_text_bg"
                         android:hint="@string/me_user_login_pwd_hint_string"
                         android:inputType="textPassword"
@@ -144,17 +144,17 @@
                         android:textSelectHandle="@drawable/ic_text_select_handle"
                         android:textSelectHandleLeft="@drawable/ic_text_select_handle_left"
                         android:textSelectHandleRight="@drawable/ic_text_select_handle_right"
-                        android:textSize="16sp" />
+                        android:textSize="@dimen/text_16" />
 
                     <ImageView
                         android:id="@+id/user_login_pwd_cancel"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="@dimen/dimen_20"
+                        android:layout_height="@dimen/dimen_20"
                         android:layout_alignBottom="@id/user_login_pwd"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="8dp"
-                        android:padding="3dp"
+                        android:layout_marginEnd="@dimen/dimen_15"
+                        android:layout_marginBottom="@dimen/dimen_8"
+                        android:padding="@dimen/dimen_3"
                         android:src="@drawable/ic_user_cancel"
                         android:visibility="gone" />
 
@@ -162,15 +162,15 @@
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="15dp">
+                    android:layout_height="@dimen/dimen_55"
+                    android:layout_marginTop="@dimen/dimen_15">
                     <com.nirvana.blog.view.VerifySeekBar
                         android:id="@+id/user_login_verify_bar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="4dp"
-                        app:vsb_textSize="16sp"
-                        app:vsb_shadowWidth="50dp"/>
+                        android:layout_margin="@dimen/dimen_4"
+                        app:vsb_textSize="@dimen/text_16"
+                        app:vsb_shadowWidth="@dimen/dimen_50"/>
                     <!--
                      因为draggable在VerifySeekBar上方
                      滑动到draggable时，VerifySeekBar无法触发事件
@@ -182,17 +182,17 @@
                      -->
                     <com.lihang.ShadowLayout
                         android:id="@+id/user_login_verify_draggable"
-                        android:layout_width="55dp"
+                        android:layout_width="@dimen/dimen_55"
                         android:layout_height="match_parent"
                         app:clickable="false"
                         app:hl_shadowColor="@color/black"
-                        app:hl_shadowLimit="2dp">
+                        app:hl_shadowLimit="@dimen/dimen_2">
                         <com.nirvana.blog.view.VerifyDraggable
                             android:id="@+id/user_login_verify_actual_draggable"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_margin="2dp"
-                            android:padding="12dp"/>
+                            android:layout_margin="@dimen/dimen_2"
+                            android:padding="@dimen/dimen_12"/>
                     </com.lihang.ShadowLayout>
                 </FrameLayout>
 
@@ -200,8 +200,8 @@
                     android:id="@+id/user_login_checkbox_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:layout_marginTop="15dp"
+                    android:padding="@dimen/dimen_5"
+                    android:layout_marginTop="@dimen/dimen_15"
                     android:orientation="horizontal">
 
                     <CheckBox
@@ -209,7 +209,7 @@
                         style="@style/CircleCheckbox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
+                        android:layout_marginEnd="@dimen/dimen_5"
                         android:background="@color/transparent" />
 
                     <TextView
@@ -218,15 +218,15 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:textColor="@color/gray_text_color"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/text_12" />
 
                 </LinearLayout>
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="20dp">
+                    android:layout_height="@dimen/dimen_40"
+                    android:layout_marginHorizontal="@dimen/dimen_10"
+                    android:layout_marginTop="@dimen/dimen_20">
 
                     <Button
                         android:id="@+id/user_login_btn"
@@ -236,7 +236,7 @@
                         android:background="@drawable/user_login_btn"
                         android:text="登录"
                         android:textColor="@color/white"
-                        android:textSize="18sp" />
+                        android:textSize="@dimen/text_18" />
 
                     <View
                         android:id="@+id/user_login_btn_shadow"
@@ -249,7 +249,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="@dimen/dimen_20"
                     android:orientation="horizontal">
 
                     <TextView
@@ -259,9 +259,9 @@
                         android:textColor="@color/me_user_login_options_text_color" />
 
                     <View
-                        android:layout_width="1dp"
+                        android:layout_width="@dimen/dimen_1"
                         android:layout_height="match_parent"
-                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginHorizontal="@dimen/dimen_10"
                         android:background="@color/light_gray" />
 
                     <TextView
@@ -270,6 +270,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/user_login_problem_string"
                         android:textColor="@color/me_user_login_options_text_color" />
+
                 </LinearLayout>
 
             </LinearLayout>
@@ -277,44 +278,41 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="80dp"
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
+                android:layout_marginTop="@dimen/dimen_10"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:text="@string/user_login_community_login_text_string"
-                    android:textColor="@color/gray_text_color"
-                    android:textSize="12sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_horizontal">
+
                     <ImageView
                         android:id="@+id/user_login_wx"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="@dimen/dimen_40"
+                        android:layout_height="@dimen/dimen_40"
                         android:src="@drawable/ic_wx" />
+
                     <ImageView
                         android:id="@+id/user_login_qq"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginHorizontal="20dp"
+                        android:layout_width="@dimen/dimen_40"
+                        android:layout_height="@dimen/dimen_40"
+                        android:layout_marginHorizontal="@dimen/dimen_20"
                         android:src="@drawable/ic_qq" />
+
                     <ImageView
                         android:id="@+id/user_login_wb"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="@dimen/dimen_40"
+                        android:layout_height="@dimen/dimen_40"
                         android:src="@drawable/ic_wb" />
+
                 </LinearLayout>
 
             </LinearLayout>
+
         </RelativeLayout>
 
     </LinearLayout>
@@ -330,11 +328,11 @@
             android:layout_height="match_parent">
 
             <com.lihang.ShadowLayout
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:padding="20dp"
+                android:layout_width="@dimen/dimen_80"
+                android:layout_height="@dimen/dimen_80"
+                android:padding="@dimen/dimen_20"
                 android:layout_centerInParent="true"
-                app:hl_cornerRadius="10dp"
+                app:hl_cornerRadius="@dimen/dimen_10"
                 app:hl_layoutBackground="@color/me_user_login_shadow_bg">
                 <ProgressBar
                     android:layout_width="wrap_content"
@@ -342,6 +340,7 @@
             </com.lihang.ShadowLayout>
 
         </RelativeLayout>
+
     </com.nirvana.blog.viewgroup.AvoidDragLayout>
 
 </FrameLayout>

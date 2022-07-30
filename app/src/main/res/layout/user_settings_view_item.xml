@@ -8,26 +8,26 @@
         android:id="@+id/settings_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="@dimen/dimen_20"
+        android:layout_marginTop="@dimen/dimen_20"
+        android:layout_marginBottom="@dimen/dimen_10"
         android:textColor="@color/primary"
-        android:textSize="12sp"/>
+        android:textSize="@dimen/text_12"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dimen_1"
         android:background="@color/light_gray" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/sub_settings_rv"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="@dimen/dimen_20"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dimen_1"
         android:background="@color/light_gray" />
 
 </LinearLayout>

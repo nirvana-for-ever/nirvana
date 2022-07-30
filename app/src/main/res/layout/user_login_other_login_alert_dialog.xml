@@ -9,13 +9,13 @@
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_weight="1"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="@dimen/dimen_20"
         android:src="@mipmap/zfb_money" />
     <ImageView
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_weight="1"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="@dimen/dimen_20"
         android:src="@mipmap/wx_money" />
 
 </LinearLayout>

@@ -7,13 +7,13 @@
     <com.nirvana.blog.view.BubbleTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="@dimen/dimen_10"
         android:text="@string/user_login_mustread_popup_string"
         android:textColor="@color/white"
         app:bbtv_bgColor="@color/me_user_login_mustread_popup_text_bg"
-        app:bbtv_arrowSize="10dp"
+        app:bbtv_arrowSize="@dimen/dimen_10"
         app:bbtv_position="bottom"
-        app:bbtv_borderRadius="5dp"
-        app:bbtv_arrowOffset="5dp"/>
+        app:bbtv_borderRadius="@dimen/dimen_5"
+        app:bbtv_arrowOffset="@dimen/dimen_5"/>
 
 </LinearLayout>

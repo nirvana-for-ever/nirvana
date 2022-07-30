@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_margin="@dimen/dimen_10">
 
         <Button
             android:id="@+id/index_tag_setting_item_btn"
@@ -18,19 +18,19 @@
             android:layout_height="wrap_content"
             android:minHeight="0dp"
             android:minWidth="0dp"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="10dp"
+            android:paddingHorizontal="@dimen/dimen_20"
+            android:paddingVertical="@dimen/dimen_10"
             android:text="@{tag.tagName}"
             android:textColor="@{tag.tagId.startsWith(`-`) ? @color/gray_text_color : @color/black_text_color}"
-            android:textSize="13sp"
+            android:textSize="@dimen/text_13"
             android:textAllCaps="false"
             style="?android:attr/borderlessButtonStyle"
             android:background="@drawable/index_tag_setting_item_btn" />
 
         <ImageView
             android:id="@+id/index_tag_setting_item_remove_img"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
+            android:layout_width="@dimen/dimen_13"
+            android:layout_height="@dimen/dimen_13"
             android:layout_alignEnd="@id/index_tag_setting_item_btn"
             android:src="@drawable/ic_index_tag_setting_edit_remove"
             android:visibility="gone" />

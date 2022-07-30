@@ -13,19 +13,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="15dp"
+        android:padding="@dimen/dimen_15"
         android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="@dimen/dimen_20"
             android:orientation="horizontal">
             <com.nirvana.blog.view.RoundCornerImageView
                 app:author_avatar="@{articleInfo.authorAvatar}"
-                android:layout_width="20dp"
+                android:layout_width="@dimen/dimen_20"
                 android:layout_height="match_parent"/>
             <Space
-                android:layout_width="5dp"
+                android:layout_width="@dimen/dimen_5"
                 android:layout_height="match_parent"/>
             <TextView
                 android:layout_width="0dp"
@@ -33,20 +33,20 @@
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="@{articleInfo.authorName}"
-                android:textSize="12sp"
+                android:textSize="@dimen/text_12"
                 android:textColor="@color/index_article_info_auth"
                 android:textAllCaps="false"/>
         </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="5dp"/>
+            android:layout_height="@dimen/dimen_5"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
-            android:textSize="17sp"
+            android:textSize="@dimen/text_17"
             android:text="@{articleInfo.title}"
             android:textColor="@color/index_article_info_title"
             android:maxLines="2"
@@ -54,40 +54,46 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp"/>
+            android:layout_height="@dimen/dimen_10"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="@dimen/dimen_100">
+
             <com.nirvana.blog.view.RoundCornerImageView
                 app:img3_1="@{articleInfo.img1}"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scaleType="centerCrop"/>
+
             <Space
-                android:layout_width="10dp"
+                android:layout_width="@dimen/dimen_10"
                 android:layout_height="match_parent"/>
+
             <com.nirvana.blog.view.RoundCornerImageView
                 app:img3_2="@{articleInfo.img2}"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scaleType="centerCrop"/>
+
             <Space
-                android:layout_width="10dp"
+                android:layout_width="@dimen/dimen_10"
                 android:layout_height="match_parent"/>
+
             <com.nirvana.blog.view.RoundCornerImageView
                 app:img3_3="@{articleInfo.img3}"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:scaleType="centerCrop"/>
+
         </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp"/>
+            android:layout_height="@dimen/dimen_10"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -102,9 +108,9 @@
                 android:text="@{articleInfo.authorName}"
                 android:textAllCaps="false"
                 android:textColor="@color/index_article_info_pop"
-                android:textSize="11sp"/>
+                android:textSize="@dimen/text_11"/>
             <Space
-                android:layout_width="10dp"
+                android:layout_width="@dimen/dimen_10"
                 android:layout_height="match_parent"/>
 
             <!-- 阅读 -->
@@ -115,9 +121,9 @@
                 android:text="@{articleInfo.readCount}"
                 android:textAllCaps="false"
                 android:textColor="@color/index_article_info_pop"
-                android:textSize="11sp"/>
+                android:textSize="@dimen/text_11"/>
             <Space
-                android:layout_width="5dp"
+                android:layout_width="@dimen/dimen_5"
                 android:layout_height="match_parent"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -126,9 +132,9 @@
                 android:text="@string/index_article_info_readcount_string"
                 android:textAllCaps="false"
                 android:textColor="@color/index_article_info_pop"
-                android:textSize="11sp"/>
+                android:textSize="@dimen/text_11"/>
             <Space
-                android:layout_width="10dp"
+                android:layout_width="@dimen/dimen_10"
                 android:layout_height="match_parent"/>
 
             <!-- 评论 -->
@@ -139,9 +145,9 @@
                 android:text="@{articleInfo.commentCount}"
                 android:textAllCaps="false"
                 android:textColor="@color/index_article_info_pop"
-                android:textSize="11sp"/>
+                android:textSize="@dimen/text_11"/>
             <Space
-                android:layout_width="5dp"
+                android:layout_width="@dimen/dimen_5"
                 android:layout_height="match_parent"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -150,9 +156,9 @@
                 android:text="@string/index_article_info_commentcount_string"
                 android:textAllCaps="false"
                 android:textColor="@color/index_article_info_pop"
-                android:textSize="11sp"/>
+                android:textSize="@dimen/text_11"/>
             <Space
-                android:layout_width="10dp"
+                android:layout_width="@dimen/dimen_10"
                 android:layout_height="match_parent"/>
 
             <!-- 赞 -->
@@ -163,9 +169,9 @@
                 android:text="@{articleInfo.likeCount}"
                 android:textAllCaps="false"
                 android:textColor="@color/index_article_info_pop"
-                android:textSize="11sp"/>
+                android:textSize="@dimen/text_11"/>
             <Space
-                android:layout_width="5dp"
+                android:layout_width="@dimen/dimen_5"
                 android:layout_height="match_parent"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -174,7 +180,7 @@
                 android:text="@string/index_article_info_likecount_string"
                 android:textAllCaps="false"
                 android:textColor="@color/index_article_info_pop"
-                android:textSize="11sp"/>
+                android:textSize="@dimen/text_11"/>
         </LinearLayout>
 
     </LinearLayout>

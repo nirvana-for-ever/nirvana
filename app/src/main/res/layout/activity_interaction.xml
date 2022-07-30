@@ -20,12 +20,12 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/message_interaction_tab"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/dimen_50"
             android:background="@color/white"
             app:tabTextColor="@color/black_text_color"
             app:tabSelectedTextColor="@color/primary"
             app:tabIndicatorColor="@color/primaryVariant"
-            app:tabIndicatorHeight="2dp" />
+            app:tabIndicatorHeight="@dimen/dimen_2" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/message_interaction_vp"
@@ -50,9 +50,9 @@
 
             <ImageView
                 android:id="@+id/message_interaction_back"
-                android:layout_width="40dp"
+                android:layout_width="@dimen/dimen_40"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:padding="@dimen/dimen_10"
                 android:layout_alignParentStart="true"
                 android:src="@drawable/ic_back" />
 
@@ -63,7 +63,7 @@
                 android:layout_centerInParent="true"
                 android:text="@string/message_interaction_string"
                 android:textColor="@color/black_text_color"
-                android:textSize="17sp" />
+                android:textSize="@dimen/text_17" />
         </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>

@@ -9,12 +9,12 @@
         android:id="@+id/index_tags_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingVertical="5dp"
-        android:paddingHorizontal="10dp"
-        android:layout_marginHorizontal="5dp"
+        android:paddingVertical="@dimen/dimen_5"
+        android:paddingHorizontal="@dimen/dimen_10"
+        android:layout_marginHorizontal="@dimen/dimen_5"
         android:minWidth="0dp"
         android:minHeight="0dp"
-        android:textSize="13sp"
+        android:textSize="@dimen/text_13"
         android:textAllCaps="false"
         style="?android:attr/borderlessButtonStyle"/>
 

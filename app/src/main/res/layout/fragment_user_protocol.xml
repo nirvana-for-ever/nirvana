@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
-        android:elevation="1dp"
+        android:elevation="@dimen/dimen_1"
         app:contentInsetEnd="0dp"
         app:contentInsetStart="0dp">
 
@@ -38,9 +38,9 @@
 
             <ImageView
                 android:id="@+id/back"
-                android:layout_width="40dp"
+                android:layout_width="@dimen/dimen_40"
                 android:layout_height="match_parent"
-                android:padding="10dp"
+                android:padding="@dimen/dimen_10"
                 android:src="@drawable/ic_user_cancel" />
 
             <TextView
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/user_protocol_title_string"
                 android:textColor="@color/gray_text_color"
-                android:textSize="17sp" />
+                android:textSize="@dimen/text_17" />
         </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>

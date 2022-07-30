@@ -107,6 +107,27 @@
         <entry key="..\:/ProgramFile/Android/Sdk/platforms/android-31/data/res/drawable/text_select_handle_left_material.xml" value="0.1585" />
         <entry key="..\:/ProgramFile/Android/Sdk/platforms/android-31/data/res/drawable/text_select_handle_middle_material.xml" value="0.1875" />
         <entry key="..\:/ProgramFile/Android/Sdk/platforms/android-31/data/res/drawable/text_select_handle_right_material.xml" value="0.1585" />
+        <entry key="..\:/bearHome/app/src/main/res/drawable/ic_loading_img.xml" value="0.1505" />
+        <entry key="..\:/bearHome/app/src/main/res/drawable/index_tag_setting_edit_btn.xml" value="0.19" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/activity_account.xml" value="0.22826086956521738" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/activity_interaction.xml" value="0.22826086956521738" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/activity_main.xml" value="0.10677083333333333" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/activity_setting.xml" value="0.15625" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/fragment_article_info.xml" value="0.22826086956521738" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/fragment_interaction.xml" value="0.2427536231884058" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/fragment_login.xml" value="0.264" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/fragment_me.xml" value="0.4" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/fragment_message.xml" value="0.264" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/index_article_info_0img.xml" value="0.2427536231884058" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/index_article_info_1img.xml" value="0.264" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/index_article_info_3img.xml" value="0.2427536231884058" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/message_interaction_comment_item.xml" value="0.2427536231884058" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/user_login_mustread_popup_window.xml" value="0.22826086956521738" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/user_login_other_login_alert_dialog.xml" value="0.22826086956521738" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/user_login_problem.xml" value="0.22826086956521738" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/user_options_view_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/user_settings_view_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/bearHome/app/src/main/res/layout/user_sub_settings_view_item.xml" value="0.22826086956521738" />
       </map>
     </option>
   </component>
