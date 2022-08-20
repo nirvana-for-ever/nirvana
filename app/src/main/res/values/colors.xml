@@ -63,4 +63,11 @@
     <color name="article_md_background">#2D2D2D</color>
     <color name="article_md_default">#F7F1FF</color>
 
+    <!--  更新对话框颜色  -->
+    <color name="color_E1E2E7">#E1E2E7</color>
+    <color name="text_main_color">#1A1A1A</color>
+    <color name="color_BCBDC2">#BCBDC2</color>
+    <color name="text_second_color">#666666</color>
+    <color name="color_E1E3E9">#E1E3E9</color>
+    <color name="main_color">#FFEC6F5A</color>
 </resources>

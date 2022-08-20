@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomDialog" parent="android:style/Theme.Dialog">
+        <!--背景颜色及和透明程度-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--是否去除标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!--是否去除边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否模糊-->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">@dimen/text_10</item>
+    </style>
+
+    <declare-styleable name="CustomHorizontalProgresStyle">
+        <attr name="HorizontalProgresUnReachColor" />
+        <attr name="HorizontalProgresUnReachHeight" />
+        <attr name="HorizontalProgresReachColor" />
+        <attr name="HorizontalProgresReachHeight" />
+        <attr name="HorizontalProgresTextColor" />
+        <attr name="HorizontalProgresTextSize" />
+        <attr name="HorizontalProgresTextOffset" />
+    </declare-styleable>
+
+    <attr name="HorizontalProgresUnReachColor" format="color" />
+    <attr name="HorizontalProgresUnReachHeight" format="dimension" />
+    <attr name="HorizontalProgresReachColor" format="color" />
+    <attr name="HorizontalProgresReachHeight" format="dimension" />
+    <attr name="HorizontalProgresTextColor" format="color" />
+    <attr name="HorizontalProgresTextSize" format="dimension" />
+    <attr name="HorizontalProgresTextOffset" format="dimension" />
+
+</resources>

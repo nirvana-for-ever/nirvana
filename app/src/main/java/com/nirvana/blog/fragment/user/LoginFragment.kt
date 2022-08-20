@@ -258,18 +258,18 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
         // 登录
         binding.userLoginBtn.setOnClickListener {
-            if (binding.userLoginBtnShadow.alpha == 0f && checkMustRead() && checkVerify()) {
-                freezeAll()
-                viewModel.login(
-                    binding.userLoginAccount.text.toString(),
-                    if (loginType == LoginType.CODE) {
-                        binding.userLoginCode.text.toString()
-                    } else {
-                        binding.userLoginPwd.text.toString()
-                    },
-                    loginType
-                )
-            }
+//            if (binding.userLoginBtnShadow.alpha == 0f && checkMustRead() && checkVerify()) {
+//                freezeAll()
+//                viewModel.login(
+//                    binding.userLoginAccount.text.toString(),
+//                    if (loginType == LoginType.CODE) {
+//                        binding.userLoginCode.text.toString()
+//                    } else {
+//                        binding.userLoginPwd.text.toString()
+//                    },
+//                    loginType
+//                )
+//            }
         }
 
         // 改变登录方式

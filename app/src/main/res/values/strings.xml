@@ -60,4 +60,15 @@
     <string name="message_interaction_article_string">原文</string>
     <string name="message_interaction_comment_reply_btn_string">回复</string>
     <string name="list_end_string"><![CDATA[- o((>ω< ))o 我是有底线的 -]]></string>
+    <string name="notice">提示</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="update_error_1">发现新版本，不授予相关权限无法更新应用</string>
+    <string name="download_progress">下载进度</string>
+    <string name="notice_new_version">发现新版本</string>
+    <string name="update_now">立即更新</string>
+    <string name="apk_install_permission">"安装应用需要打开未知来源权限，请去设置中开启权限"</string>
+    <string name="open_now">"立即开启"</string>
+    <string name="download_fail">"下载失败"</string>
+
 </resources>

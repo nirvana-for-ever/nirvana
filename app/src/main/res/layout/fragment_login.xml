@@ -164,13 +164,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimen_55"
                     android:layout_marginTop="@dimen/dimen_15">
+
                     <com.nirvana.blog.view.VerifySeekBar
                         android:id="@+id/user_login_verify_bar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="@dimen/dimen_4"
-                        app:vsb_textSize="@dimen/text_16"
-                        app:vsb_shadowWidth="@dimen/dimen_50"/>
+                        app:vsb_shadowWidth="@dimen/dimen_50"
+                        app:vsb_textSize="@dimen/text_16" />
                     <!--
                      因为draggable在VerifySeekBar上方
                      滑动到draggable时，VerifySeekBar无法触发事件
@@ -187,12 +188,13 @@
                         app:clickable="false"
                         app:hl_shadowColor="@color/black"
                         app:hl_shadowLimit="@dimen/dimen_2">
+
                         <com.nirvana.blog.view.VerifyDraggable
                             android:id="@+id/user_login_verify_actual_draggable"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="@dimen/dimen_2"
-                            android:padding="@dimen/dimen_12"/>
+                            android:padding="@dimen/dimen_12" />
                     </com.lihang.ShadowLayout>
                 </FrameLayout>
 
@@ -200,9 +202,9 @@
                     android:id="@+id/user_login_checkbox_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/dimen_5"
                     android:layout_marginTop="@dimen/dimen_15"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dimen_5">
 
                     <CheckBox
                         android:id="@+id/user_login_must_read_checkbox"
@@ -281,12 +283,14 @@
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
                 android:layout_marginTop="@dimen/dimen_10"
+                android:layout_marginBottom="@dimen/dimen_10"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_20"
                     android:orientation="horizontal"
                     android:gravity="center_horizontal">
 

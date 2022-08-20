@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_E1E2E7"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/lv_notice_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_45"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_update_title"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/dimen_45"
+            android:gravity="center"
+            android:textColor="@color/text_main_color"
+            android:textSize="@dimen/text_18"
+            android:text="@string/notice"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/color_BCBDC2"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/white"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/dimen_15"
+        android:layout_marginBottom="@dimen/dimen_15"
+        android:layout_marginLeft="@dimen/dimen_12"
+        android:layout_marginRight="@dimen/dimen_12">
+
+        <TextView
+            android:id="@+id/tv_update_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_13"
+            android:textColor="@color/text_second_color" />
+
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/color_BCBDC2"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50"
+        android:paddingRight="@dimen/dimen_15"
+        android:gravity="center_vertical|right">
+
+        <TextView
+            android:id="@+id/tv_update_close"
+            android:layout_width="@dimen/dimen_80"
+            android:layout_height="@dimen/dimen_25"
+            android:background="@drawable/bg_grey_line"
+            android:gravity="center"
+            android:textSize="@dimen/text_12"
+            android:textColor="@color/text_main_color"
+            android:text="@string/cancel"/>
+
+        <TextView
+            android:id="@+id/tv_update_update"
+            android:layout_width="@dimen/dimen_100"
+            android:layout_height="@dimen/dimen_25"
+            android:paddingLeft="@dimen/dimen_15"
+            android:paddingRight="@dimen/dimen_15"
+            android:layout_marginLeft="@dimen/dimen_12"
+            android:background="@drawable/bg_grey_line"
+            android:gravity="center"
+            android:textSize="@dimen/text_12"
+            android:singleLine="true"
+            android:textColor="@color/text_main_color"
+            android:text="@string/update_now"/>
+
+    </LinearLayout>
+
+</LinearLayout>

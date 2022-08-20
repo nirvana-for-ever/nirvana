@@ -1,32 +1,50 @@
 package com.nirvana.blog.activity
 
+import android.Manifest
 import android.animation.ArgbEvaluator
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
+import android.provider.Settings
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.gyf.immersionbar.BarHide
 import com.nirvana.blog.R
 import com.nirvana.blog.adapter.BaseFragmentViewPagerAdapter
 import com.nirvana.blog.base.BaseActivity
+import com.nirvana.blog.bean.AppConfigBean
+import com.nirvana.blog.constant.C
 import com.nirvana.blog.databinding.ActivityMainBinding
 import com.nirvana.blog.fragment.*
-import com.nirvana.blog.utils.Constants
+import com.nirvana.blog.utils.*
 import com.nirvana.blog.utils.StatusBarUtils.setBaseStatusBar
-import com.nirvana.blog.utils.rootActivity
-import com.nirvana.blog.utils.setNormalSensitivity
-import com.nirvana.blog.utils.toastShort
+import com.nirvana.blog.view.ApkUpdateDialog
+import com.nirvana.blog.view.OpenAuthorityDialog
 import com.nirvana.blog.viewmodel.user.AccountViewModel
+import com.yanzhenjie.permission.AndPermission
 import dagger.hilt.android.AndroidEntryPoint
 
+import java.io.File
+
 @AndroidEntryPoint
-class MainActivity : BaseActivity<ActivityMainBinding>() {
+class MainActivity : BaseActivity<ActivityMainBinding>() ,ConfigDownloadUtils.OnConfigDownloadCompleteListener, APKRefreshDownload.OnDownLoadCompleteListener{
 
     private lateinit var onPageChangeCallback: MainOnPageChangeCallback
 
     private var lastBackTimeMillis = 0L
+
+    private var isMustUpdate = false
+    private var isUpdateComplete = false
+    private var isUpdateChecked = false
+
+    private var updateDialog : ApkUpdateDialog? = null
+    private var authorityDialog : OpenAuthorityDialog? = null
 
     private val indexFragment = IndexFragment.newInstance()
     private val communityFragment = CommunityFragment.newInstance()
@@ -47,7 +65,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         accountViewModel.info(Constants.GET_USER_INFO_SIMPLE)
         // 展示欢迎页
         showWelcome()
+        updateDialog = ApkUpdateDialog(this)
+        authorityDialog = OpenAuthorityDialog(this)
     }
+
+
 
     override fun initListener() {
         accountViewModel.simpleUserInfo.observe(this) {
@@ -115,6 +137,24 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             // 观察一次就行，用于第一次用户信息的监听，需要移除，否则之后一旦用户数据更新就会全部重新加载一遍，那就完犊子
             accountViewModel.simpleUserInfo.removeObservers(this)
         }
+        updateDialog?.setOnApkDownloadConfirmListener(object :ApkUpdateDialog.OnApkDownloadConfirmListener{
+            override fun onConfirmDownload(info: AppConfigBean) {
+                checkUpdatePermission(info.fileName)
+            }
+        })
+        updateDialog?.setOnDismissListener {
+            if(isMustUpdate&&!isUpdateComplete){
+                finish()
+            }
+        }
+        authorityDialog?.setOnApkDownloadConfirmListener(object :OpenAuthorityDialog.OnOpenAuthorityConfirmListener{
+            override fun onConfirmDownload() {
+                val intent = Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES)
+                val uri = Uri.fromParts("package", packageName, null)
+                intent.data = uri
+                startActivityForResult(intent, 1)
+            }
+        })
     }
 
     /**
@@ -138,6 +178,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             binding.mainViewPager.unregisterOnPageChangeCallback(onPageChangeCallback)
         }
         super.onDestroy()
+        updateDialog?.dismiss()
+        authorityDialog?.dismiss()
     }
 
     inner class MainOnPageChangeCallback(
@@ -210,5 +252,105 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 }
             })
             .commitAllowingStateLoss()
+    }
+
+    /**
+     * 检查更新
+     */
+    private fun checkUpdate(){
+        ConfigDownloadUtils.configDownload(C.ANDROID_UPDATE_CONFIG_ADDRESS,this,this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkUpdate()
+    }
+
+    override fun onConfigComplete(result: AppConfigBean?) {
+//        if(activityStatus>C.ACTIVITY_RECYCLE_STOP){
+//            return
+//        }
+        if(result!=null&&result.versionCode>0){
+            isUpdateChecked = true
+            val vn = AppUtils.getVersionName(this)
+            val vc = AppUtils.getAppVersionCode(this)
+            if(result.versionName==vn&&vc!=0L&&result.versionCode>vc){
+                isMustUpdate = result.isForce == "1"
+                isUpdateComplete = false
+                updateDialog?.showUpdate(result)
+                return
+            }
+//            if(isRequestLogin){
+//                isRequestLogin = false
+//                requestLogin()
+//            }
+            if(Build.VERSION.SDK_INT > Build.VERSION_CODES.O){
+                checkPermission()
+            }
+        }else{
+//            isRequestLogin = false
+        }
+    }
+    @SuppressLint("MissingPermission")
+    private fun checkUpdatePermission(apkName:String){
+        val updateUrl = C.ANDROID_UPDATE_APK_ADDRESS
+        AndPermission.with(this)
+            .runtime()
+            .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)
+            .onGranted { permissions ->
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    val haveInstallPermission = packageManager.canRequestPackageInstalls()
+                    if(haveInstallPermission){
+                        APKRefreshDownload(this).startDownload(updateUrl,this)
+                    }else{
+                        authorityDialog?.showOpenAuthority()
+                    }
+                }else{
+                    APKRefreshDownload(this).startDownload(updateUrl,this)
+                }
+            }
+            .onDenied { permissions ->
+                toastShort(R.string.update_error_1)
+            }
+            .start()
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun checkPermission(){
+        AndPermission.with(this)
+            .runtime()
+            .permission(Manifest.permission.READ_PHONE_STATE)
+            .onGranted { permissions ->
+//                login(0)
+            }
+            .onDenied { permissions ->
+
+            }
+            .start()
+    }
+
+    override fun onComplete(isComplete: Boolean) {
+        isUpdateComplete = isComplete
+        if(isComplete){
+            openAPK()
+        }else{
+            toastShort(R.string.download_fail)
+        }
+    }
+
+    private fun openAPK() {
+        val file = File(APKRefreshDownload.getSaveFilePath())
+        val intent = Intent(Intent.ACTION_VIEW)
+        val data: Uri
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            data = FileProvider.getUriForFile(this, "com.nirvana.ggxggb.operation.fileprovider", file)
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        } else {
+            data = Uri.fromFile(file)
+        }
+        intent.setDataAndType(data, "application/vnd.android.package-archive")
+        startActivity(intent)
+        finish()
     }
 }
