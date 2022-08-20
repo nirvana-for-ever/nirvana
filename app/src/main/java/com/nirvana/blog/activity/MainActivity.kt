@@ -18,7 +18,8 @@ import com.gyf.immersionbar.BarHide
 import com.nirvana.blog.R
 import com.nirvana.blog.adapter.BaseFragmentViewPagerAdapter
 import com.nirvana.blog.base.BaseActivity
-import com.nirvana.blog.bean.AppConfigBean
+import com.nirvana.blog.bean.AppUpdateBean
+import com.nirvana.blog.bean.AppUpdateListBean
 import com.nirvana.blog.constant.C
 import com.nirvana.blog.databinding.ActivityMainBinding
 import com.nirvana.blog.fragment.*
@@ -138,8 +139,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() ,ConfigDownloadUtils.On
             accountViewModel.simpleUserInfo.removeObservers(this)
         }
         updateDialog?.setOnApkDownloadConfirmListener(object :ApkUpdateDialog.OnApkDownloadConfirmListener{
-            override fun onConfirmDownload(info: AppConfigBean) {
-                checkUpdatePermission(info.fileName)
+            override fun onConfirmDownload(info: AppUpdateBean) {
+                checkUpdatePermission(info.data)
             }
         })
         updateDialog?.setOnDismissListener {
@@ -266,16 +267,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>() ,ConfigDownloadUtils.On
         checkUpdate()
     }
 
-    override fun onConfigComplete(result: AppConfigBean?) {
+    override fun onConfigComplete(result: AppUpdateBean?) {
 //        if(activityStatus>C.ACTIVITY_RECYCLE_STOP){
 //            return
 //        }
-        if(result!=null&&result.versionCode>0){
+        if(result!=null&&result.data.versionCode.toInt()>0){
             isUpdateChecked = true
             val vn = AppUtils.getVersionName(this)
             val vc = AppUtils.getAppVersionCode(this)
-            if(result.versionName==vn&&vc!=0L&&result.versionCode>vc){
-                isMustUpdate = result.isForce == "1"
+            if(result.data.versionName==vn&&vc!=0L&&result.data.versionCode.toInt()>vc){
+                isMustUpdate = result.data.isForce == true
                 isUpdateComplete = false
                 updateDialog?.showUpdate(result)
                 return
@@ -292,8 +293,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() ,ConfigDownloadUtils.On
         }
     }
     @SuppressLint("MissingPermission")
-    private fun checkUpdatePermission(apkName:String){
-        val updateUrl = C.ANDROID_UPDATE_APK_ADDRESS
+    private fun checkUpdatePermission(apkBean: AppUpdateListBean){
+        val updateUrl = apkBean.downloadUrl
         AndPermission.with(this)
             .runtime()
             .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE)

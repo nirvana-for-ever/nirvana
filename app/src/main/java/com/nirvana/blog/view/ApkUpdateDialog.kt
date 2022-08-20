@@ -6,13 +6,14 @@ import android.os.Bundle
 import android.view.View
 import com.nirvana.blog.R
 import com.nirvana.blog.bean.AppConfigBean
+import com.nirvana.blog.bean.AppUpdateBean
 import com.nirvana.blog.utils.ScreenUtils
 import kotlinx.android.synthetic.main.dialog_apk_update.*
 import java.lang.StringBuilder
 
 class ApkUpdateDialog : Dialog {
 
-    private lateinit var info : AppConfigBean
+    private lateinit var info : AppUpdateBean
 
     constructor(context: Context) : super(context, R.style.CustomDialog)
 
@@ -31,20 +32,13 @@ class ApkUpdateDialog : Dialog {
         window?.attributes = lp
     }
 
-    fun showUpdate(info :AppConfigBean){
+    fun showUpdate(info : AppUpdateBean){
         show()
         this.info = info
-        val sb = StringBuilder()
-        for(i in info.message.indices){
-            if(i<info.message.size-1){
-                sb.append((i+1).toString()+"："+info.message[i]+"\n")
-            }else{
-                sb.append((i+1).toString()+"："+info.message[i])
-            }
-        }
-        tv_update_content.text = sb
-        tv_update_close.visibility = if(info.isForce!="1") View.VISIBLE else View.GONE
-        setCanceledOnTouchOutside(info.isForce!="1")
+
+        tv_update_content.text = info.data.message
+        tv_update_close.visibility = if(!info.data.isForce) View.VISIBLE else View.GONE
+        setCanceledOnTouchOutside(!info.data.isForce)
     }
 
     private fun initEvent(){
@@ -57,7 +51,7 @@ class ApkUpdateDialog : Dialog {
     }
 
     interface OnApkDownloadConfirmListener{
-        fun onConfirmDownload(info :AppConfigBean)
+        fun onConfirmDownload(info :AppUpdateBean)
     }
 
     private var mOnApkDownloadConfirmListener:OnApkDownloadConfirmListener? = null
