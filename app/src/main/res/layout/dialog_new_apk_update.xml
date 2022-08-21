@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@mipmap/dialog_bg_type_12"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_update_new_version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_15"
+                    android:layout_marginLeft="@dimen/dimen_30"
+                    android:paddingLeft="@dimen/dimen_10"
+                    android:paddingTop="@dimen/dimen_2"
+                    android:paddingRight="@dimen/dimen_10"
+                    android:paddingBottom="@dimen/dimen_2"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_18" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_update_new_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dimen_50"
+                android:scrollbars="vertical"
+                android:singleLine="false"
+                android:layout_marginRight="@dimen/dimen_50"
+                android:layout_weight="10"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="@dimen/dimen_2"
+                android:textColor="@color/text_second_color"
+                android:textSize="@dimen/text_14"
+                tools:text="【新增】短视频首页增加今日热门\n【新增】短视频首页增加今日热门\n【新增】短视频首页增加今日热门\n【新增】短视频首页增加今日热门\n【新增】短视频首页增加今日热门\n【新增】短视频首页增加今日热门" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_update_new_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_45"
+                android:layout_marginTop="@dimen/dimen_15"
+                android:layout_marginBottom="@dimen/dimen_40"
+                android:layout_weight="1"
+                android:background="@drawable/shape_btn_border_ff721e"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dimen_10"
+                android:layout_marginRight="@dimen/dimen_7"
+                android:paddingTop="@dimen/dimen_10"
+                android:text="@string/update_next"
+                android:textColor="#fc8680"
+                android:textSize="@dimen/text_14" />
+
+            <TextView
+                android:id="@+id/tv_update_new_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimen_45"
+                android:layout_marginTop="@dimen/dimen_15"
+                android:layout_marginBottom="@dimen/dimen_40"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:layout_marginLeft="@dimen/dimen_7"
+                android:background="@drawable/shape_btn_round_ff721e"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dimen_10"
+                android:paddingTop="@dimen/dimen_10"
+                android:text="@string/update_now"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_14" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_update_new_close"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="@dimen/dimen_10"
+            android:src="@mipmap/update_close_img" />
+
+    </LinearLayout>
+
+</LinearLayout>
