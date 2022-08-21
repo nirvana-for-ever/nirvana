@@ -7,6 +7,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.provider.Settings
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -260,7 +261,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() ,ConfigDownloadUtils.On
      * 检查更新
      */
     private fun checkUpdate(){
-        ConfigDownloadUtils.configDownload(C.ANDROID_UPDATE_CONFIG_ADDRESS,this,this)
+        if (!isUpdateChecked){
+            ConfigDownloadUtils.configDownload(C.ANDROID_UPDATE_CONFIG_ADDRESS,this,this)
+        }
     }
 
     override fun onResume() {
@@ -269,28 +272,21 @@ class MainActivity : BaseActivity<ActivityMainBinding>() ,ConfigDownloadUtils.On
     }
 
     override fun onConfigComplete(result: AppUpdateBean?) {
-//        if(activityStatus>C.ACTIVITY_RECYCLE_STOP){
-//            return
-//        }
         if(result!=null&&result.data.versionCode.toInt()>0){
-            isUpdateChecked = true
             val vn = AppUtils.getVersionName(this)
             val vc = AppUtils.getAppVersionCode(this)
+            Log.d("Update", "当前版本-----------》: "+vc)
+            Log.d("Update", "当前服务器最新版本-----------》: "+result.data.versionCode)
             if(result.data.versionName==vn&&vc!=0L&&result.data.versionCode.toInt()>vc){
                 isMustUpdate = result.data.isForce == true
                 isUpdateComplete = false
                 updateDialog?.showUpdate(result)
                 return
             }
-//            if(isRequestLogin){
-//                isRequestLogin = false
-//                requestLogin()
-//            }
             if(Build.VERSION.SDK_INT > Build.VERSION_CODES.O){
                 checkPermission()
             }
-        }else{
-//            isRequestLogin = false
+            isUpdateChecked = true
         }
     }
     @SuppressLint("MissingPermission")

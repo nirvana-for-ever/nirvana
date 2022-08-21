@@ -73,5 +73,14 @@
     <string name="download_fail">"下载失败"</string>
     <string name="update_forbiten">"牛蛙拿为流氓软件，禁止不更新最新版本！"</string>
     <string name="update_forbiten_1">"本次是小兔子放你一马，我是乖乖乐园的叛徒，耶耶~~~"</string>
+    <string name="game_name_0">"小熊小兔一套"</string>
+    <string name="game_name_1">"暴力小熊一只"</string>
+    <string name="game_name_2">"帅气小熊一只"</string>
+    <string name="game_name_3">"疑惑小熊一只"</string>
+    <string name="game_name_4">"神经小达一只"</string>
+    <string name="game_name_5">"软弱小兔一只"</string>
+    <string name="game_name_6">"垃圾小兔子一只"</string>
+    <string name="game_name_7">"熊兔骑一套"</string>
+    <string name="game_obtain">"恭喜你获得 %s"</string>
 
 </resources>

@@ -45,6 +45,7 @@
                     android:text="@{`跳过 ` + (timeout == null ? ` ` : timeout)}"
                     android:textColor="@color/white" />
             </com.lihang.ShadowLayout>
+
         </RelativeLayout>
 
         <LinearLayout

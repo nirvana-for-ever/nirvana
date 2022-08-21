@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.gyf.immersionbar.ImmersionBar
 import com.nirvana.blog.R
+import com.nirvana.blog.activity.luckydraw.GameActivity
 import com.nirvana.blog.activity.user.AccountActivity
 import com.nirvana.blog.activity.user.SettingActivity
 import com.nirvana.blog.adapter.user.CarouselRecyclerViewAdapter
@@ -114,6 +115,25 @@ class MeFragment : BaseFragment<FragmentMeBinding>() {
             }
         }
 
+    /**
+     * 跳转到抽奖 activity 的Launcher
+     */
+    private val gameLauncher =
+        registerForActivityResult(object : ActivityResultContract<Intent, Boolean>() {
+            override fun createIntent(context: Context, input: Intent): Intent {
+                return input
+            }
+
+            override fun parseResult(resultCode: Int, intent: Intent?): Boolean {
+                return Constants.isLoginSuccess(resultCode)
+            }
+        }) {
+            if (it) {
+                // 登录成功，获取用户信息
+
+            }
+        }
+
     private val viewModel: AccountViewModel by viewModels(ownerProducer = { rootActivity!! })
 
     override fun bind(inflater: LayoutInflater, container: ViewGroup?): FragmentMeBinding =
@@ -168,6 +188,12 @@ class MeFragment : BaseFragment<FragmentMeBinding>() {
          */
         binding.meRedPacketClickable.setOnClickListener {
 
+        }
+        /**
+         * 抽奖
+         */
+        binding.llMeGame.setOnClickListener {
+            gameLauncher.launch(Intent(requireContext(), GameActivity::class.java))
         }
         /*
          * 扫码

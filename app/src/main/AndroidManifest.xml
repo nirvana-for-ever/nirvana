@@ -64,6 +64,10 @@
             android:name=".activity.user.AccountActivity"
             android:exported="false"
             android:screenOrientation="portrait" /> <!-- 适配全面屏，还要加上resizeableActivity，maxAspectRatio -->
+        <activity
+            android:name=".activity.luckydraw.GameActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <meta-data
             android:name="android.max_aspect"
             android:value="2.4" /> <!-- 适配华为（huawei）刘海屏 -->

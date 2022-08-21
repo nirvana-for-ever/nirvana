@@ -47,12 +47,11 @@ public class ConfigDownloadUtils {
                 AppUpdateBean config = new AppUpdateBean(false,0,"",configList);
                 OkHttpClient client = new OkHttpClient();//创建OkHttpClient对象
                 Request request = new Request.Builder()
-                        .url("https://nirvana1234.xyz/apk/latest")//请求接口。如果需要传参拼接到接口后面。
+                        .url(fileServicePath)//请求接口。如果需要传参拼接到接口后面。
                         .build();//创建Request 对象
                 Response response = client.newCall(request).execute();//得到Response 对象
                 if (response.isSuccessful()&&response.code()==200){
                     config = new Gson().fromJson(response.body().string(),new TypeToken<AppUpdateBean>(){}.getType());
-                    Log.d("kwwl","实体类存放了=============》"+config.getData().getDownloadUrl());
                 }
 
                 return config;
