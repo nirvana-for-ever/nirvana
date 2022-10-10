@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_pet_bear"
+        android:layout_width="@dimen/dimen_100"
+        android:layout_height="@dimen/dimen_100"
+        android:src="@mipmap/my_pet" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/iv_pet_rabbit"-->
+<!--        android:layout_width="@dimen/dimen_100"-->
+<!--        android:layout_height="@dimen/dimen_100"-->
+<!--        android:layout_below="@+id/iv_pet_bear"-->
+<!--        android:src="@mipmap/my_pet_2" />-->
+
+</RelativeLayout>

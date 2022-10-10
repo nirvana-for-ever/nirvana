@@ -343,6 +343,7 @@
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/ll_me_pet"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
@@ -354,10 +355,11 @@
                                         android:src="@drawable/ic_me_storage" />
 
                                     <TextView
+                                        android:id="@+id/tv_me_pet"
                                         android:layout_width="match_parent"
                                         android:layout_height="@dimen/dimen_20"
                                         android:layout_marginTop="@dimen/dimen_3"
-                                        android:text="@string/me_storage_string"
+                                        android:text="@string/me_pop_string"
                                         android:textColor="@color/black_text_color"
                                         android:textSize="@dimen/text_11"
                                         android:gravity="center" />

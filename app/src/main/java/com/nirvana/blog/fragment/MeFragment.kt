@@ -30,6 +30,8 @@ import com.nirvana.blog.databinding.FragmentMeBinding
 import com.nirvana.blog.entity.ui.user.UserOption
 import com.nirvana.blog.utils.Constants
 import com.nirvana.blog.utils.StatusBarUtils.setBaseStatusBar
+import com.nirvana.blog.utils.Utils
+import com.nirvana.blog.utils.ViewModleMain
 import com.nirvana.blog.utils.rootActivity
 import com.nirvana.blog.viewmodel.user.AccountViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -78,6 +80,10 @@ class MeFragment : BaseFragment<FragmentMeBinding>() {
         UserOption("帮助与反馈"),
         UserOption("了解更多"),
     )
+    //悬浮窗设置
+    private var floatRootView: View? = null//悬浮
+    private var isReceptionShow = false
+    private var choseCount = 0
 
     /**
      * 跳转到账户 activity 的 Launcher，此方式可以接收跳转后 activity 的返回参数
@@ -195,6 +201,14 @@ class MeFragment : BaseFragment<FragmentMeBinding>() {
         binding.llMeGame.setOnClickListener {
             gameLauncher.launch(Intent(requireContext(), GameActivity::class.java))
         }
+        /**
+         * 召唤悬浮窗宠物系统
+         */
+        binding.llMePet.setOnClickListener {
+            Utils.checkAccessibilityPermission(requireActivity()) {
+                ViewModleMain.isShowWindow.postValue(true)
+            }
+        }
         /*
          * 扫码
          */
@@ -231,6 +245,17 @@ class MeFragment : BaseFragment<FragmentMeBinding>() {
         }
         // 启动轮播图
         startCarousel()
+
+        if (isReceptionShow) {
+            ViewModleMain.isVisible.postValue(true)
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (isReceptionShow) {
+            ViewModleMain.isVisible.postValue(false)
+        }
     }
 
     override fun onPause() {
